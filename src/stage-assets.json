@@ -1,0 +1,194 @@
+{
+  "kind": "episode1-production-art",
+  "backgrounds": {
+    "BG03": "assets/bg/BG03.webp",
+    "BG01": "assets/bg/BG01.webp",
+    "BG02": "assets/bg/BG02.webp",
+    "BG04": "assets/bg/BG04.webp",
+    "BG05": "assets/bg/BG05.webp",
+    "BG16": "assets/bg/BG16.webp",
+    "BG07": "assets/bg/BG07.webp",
+    "BG08": "assets/bg/BG08.webp",
+    "BG14": "assets/bg/BG14.webp",
+    "BG15": "assets/bg/BG15.webp",
+    "BG09": "assets/bg/BG09.webp",
+    "BG10": "assets/bg/BG10.webp",
+    "BG11": "assets/bg/BG11.webp",
+    "BG06": "assets/bg/BG06.webp"
+  },
+  "characters": {
+    "perth": {
+      "normal": "assets/preview/perth-normal.svg",
+      "smile": "assets/preview/perth-smile.svg",
+      "surprised": "assets/preview/perth-surprised.svg"
+    },
+    "santa": {
+      "normal": "assets/preview/santa-normal.svg",
+      "smile": "assets/preview/santa-smile.svg",
+      "surprised": "assets/preview/santa-surprised.svg"
+    },
+    "c": {
+      "normal": "assets/characters/c/normal.webp",
+      "smile": "assets/characters/c/normal.webp",
+      "surprised": "assets/characters/c/normal.webp"
+    },
+    "add": {
+      "normal": "assets/characters/add/normal.webp",
+      "smile": "assets/characters/add/normal.webp",
+      "surprised": "assets/characters/add/normal.webp"
+    },
+    "mother": {
+      "normal": "assets/characters/mother/normal.webp",
+      "smile": "assets/characters/mother/normal.webp",
+      "surprised": "assets/characters/mother/normal.webp"
+    }
+  },
+  "outfits": {
+    "perth": {
+      "home": "assets/characters/perth/home-normal.webp",
+      "work": "assets/characters/perth/work-normal.webp"
+    },
+    "santa": {
+      "home": "assets/characters/santa/home-normal.webp",
+      "work": "assets/characters/santa/work-normal.webp"
+    }
+  },
+  "cats": {
+    "box": "assets/cat/felix-box.webp",
+    "bag": "assets/cat/felix-bag.webp",
+    "paw": "assets/cat/felix-paw.webp",
+    "calm": "assets/cat/felix-calm.webp",
+    "ball": "assets/cat/felix-ball.webp"
+  },
+  "reactions": {
+    "frozen": "assets/reactions/common/frozen.webp",
+    "smug": "assets/reactions/common/smug.webp",
+    "business": "assets/reactions/common/business.webp",
+    "listening": "assets/reactions/common/listening.webp"
+  },
+  "cg": {
+    "before": "assets/cg/main/CG01-parking-before-v1.webp",
+    "kiss": "assets/cg/main/CG01-parking-kiss-v1.webp",
+    "horror-watch": "assets/cg/main/CG04-horror-watch-v1.webp",
+    "horror-glance": "assets/cg/main/CG04-horror-glance-v1.webp",
+    "horror-scream-close": "assets/cg/main/CG04-horror-scream-close-v1.webp",
+    "horror-scream-wide": "assets/cg/main/CG04-horror-scream-wide-v1.webp",
+    "felix-play-hold": "assets/cg/main/CG14-felix-play-hold-v1.webp",
+    "felix-play-kiss": "assets/cg/main/CG14-felix-play-kiss-v1.webp"
+  },
+  "backgroundPresentation": {
+    "BG09": {
+      "embeddedCast": true,
+      "position": "center 38%"
+    }
+  },
+  "characterPresentation": {
+    "c": {
+      "medium": "illustration"
+    },
+    "add": {
+      "medium": "photo"
+    },
+    "mother": {
+      "medium": "illustration"
+    }
+  },
+  "cgLabels": {
+    "before": "停车场靠近前的照片",
+    "kiss": "停车场亲吻照片",
+    "horror-watch": "D12鬼片 · 紧张观看",
+    "horror-glance": "D12鬼片 · 嘴硬互看",
+    "horror-scream-close": "D12鬼片 · 受惊抱团近景",
+    "horror-scream-wide": "D12鬼片 · 尖叫抱团远景",
+    "felix-play-hold": "D10 · Santa与Felix · 抱猫逗玩",
+    "felix-play-kiss": "D10 · Santa与Felix · 亲亲Felix"
+  },
+  "props": {
+    "contract": "assets/props/PROP01-contract.webp",
+    "luggage": "assets/props/PROP02-luggage.webp",
+    "cat-bowl": "assets/props/PROP03-cat-bowl.webp",
+    "cables": "assets/props/PROP08-cables.webp",
+    "shopping-bag": "assets/props/PROP07-shopping-bag.webp",
+    "medicine": "assets/props/PROP05-medicine.webp",
+    "receipt": "assets/props/PROP04-receipt.webp"
+  },
+  "fonts": {
+    "source-han-sans-sc-regular-core": "assets/fonts/source-han-sans-sc/source-han-sans-sc-regular-core.woff2",
+    "source-han-sans-sc-bold-core": "assets/fonts/source-han-sans-sc/source-han-sans-sc-bold-core.woff2"
+  },
+  "optionalFonts": {
+    "source-han-sans-sc-regular-supplement": "assets/fonts/source-han-sans-sc/source-han-sans-sc-regular-supplement.woff2",
+    "source-han-sans-sc-bold-supplement": "assets/fonts/source-han-sans-sc/source-han-sans-sc-bold-supplement.woff2"
+  },
+  "installed": [
+    "assets/bg/BG01.webp",
+    "assets/bg/BG02.webp",
+    "assets/bg/BG03.webp",
+    "assets/bg/BG04.webp",
+    "assets/bg/BG05.webp",
+    "assets/bg/BG06.webp",
+    "assets/bg/BG07.webp",
+    "assets/bg/BG08.webp",
+    "assets/bg/BG09.webp",
+    "assets/bg/BG10.webp",
+    "assets/bg/BG11.webp",
+    "assets/bg/BG14.webp",
+    "assets/bg/BG15.webp",
+    "assets/bg/BG16.webp",
+    "assets/characters/perth/home-normal.webp",
+    "assets/characters/perth/work-normal.webp",
+    "assets/characters/santa/home-normal.webp",
+    "assets/characters/santa/work-normal.webp",
+    "assets/characters/add/normal.webp",
+    "assets/characters/mother/normal.webp",
+    "assets/characters/c/normal.webp",
+    "assets/cat/felix-calm.webp",
+    "assets/cat/felix-ball.webp",
+    "assets/cat/felix-paw.webp",
+    "assets/cat/felix-box.webp",
+    "assets/cat/felix-bag.webp",
+    "assets/reactions/common/business.webp",
+    "assets/reactions/common/frozen.webp",
+    "assets/reactions/common/smug.webp",
+    "assets/reactions/common/listening.webp",
+    "assets/cg/main/CG01-parking-before-v1.webp",
+    "assets/cg/main/CG01-parking-kiss-v1.webp",
+    "assets/cg/main/CG04-horror-watch-v1.webp",
+    "assets/cg/main/CG04-horror-glance-v1.webp",
+    "assets/cg/main/CG04-horror-scream-close-v1.webp",
+    "assets/cg/main/CG04-horror-scream-wide-v1.webp",
+    "assets/cg/main/CG14-felix-play-hold-v1.webp",
+    "assets/cg/main/CG14-felix-play-kiss-v1.webp",
+    "assets/props/PROP01-contract.webp",
+    "assets/props/PROP02-luggage.webp",
+    "assets/props/PROP03-cat-bowl.webp",
+    "assets/props/PROP04-receipt.webp",
+    "assets/props/PROP05-medicine.webp",
+    "assets/props/PROP07-shopping-bag.webp",
+    "assets/props/PROP08-cables.webp"
+  ],
+  "fallbacks": {
+    "assets/bg/BG01.webp": "assets/preview/BG01.svg",
+    "assets/bg/BG02.webp": "assets/preview/BG02.svg",
+    "assets/bg/BG03.webp": "assets/preview/BG03.svg",
+    "assets/bg/BG04.webp": "assets/preview/BG04.svg",
+    "assets/bg/BG05.webp": "assets/preview/BG05.svg",
+    "assets/bg/BG06.webp": "assets/preview/BG06.svg",
+    "assets/bg/BG07.webp": "assets/preview/BG07.svg",
+    "assets/bg/BG08.webp": "assets/preview/BG08.svg",
+    "assets/bg/BG09.webp": "assets/preview/BG09.svg",
+    "assets/bg/BG10.webp": "assets/preview/BG10.svg",
+    "assets/bg/BG11.webp": "assets/preview/BG11.svg",
+    "assets/bg/BG14.webp": "assets/preview/BG14.svg",
+    "assets/bg/BG15.webp": "assets/preview/BG15.svg",
+    "assets/bg/BG16.webp": "assets/preview/BG16.svg",
+    "assets/characters/perth/home-normal.webp": "assets/preview/perth-normal.svg",
+    "assets/characters/perth/work-normal.webp": "assets/preview/perth-normal.svg",
+    "assets/characters/santa/home-normal.webp": "assets/preview/santa-normal.svg",
+    "assets/characters/santa/work-normal.webp": "assets/preview/santa-normal.svg",
+    "assets/characters/add/normal.webp": "assets/preview/add-normal.svg",
+    "assets/characters/mother/normal.webp": "assets/preview/mother-normal.svg",
+    "assets/characters/c/normal.webp": "assets/preview/c-normal.svg"
+  },
+  "revision": "c92088ca7580"
+}

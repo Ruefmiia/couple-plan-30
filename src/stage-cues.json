@@ -1,0 +1,691 @@
+{
+  "version": 1,
+  "workDays": [
+    1,
+    3,
+    5,
+    6,
+    8
+  ],
+  "ranges": [
+    {
+      "from": "line-0001",
+      "to": "line-0008",
+      "stage": {
+        "cast": [
+          "c"
+        ]
+      }
+    },
+    {
+      "from": "line-0034",
+      "to": "line-0052",
+      "stage": {
+        "bg": "BG02",
+        "location": "公司 · 地下停车场"
+      }
+    },
+    {
+      "from": "line-0040",
+      "to": "line-0041",
+      "stage": {
+        "cg": "before"
+      }
+    },
+    {
+      "from": "line-0063",
+      "to": "line-0068",
+      "stage": {
+        "bg": "BG04",
+        "location": "Perth家 · 客房"
+      }
+    },
+    {
+      "from": "line-0072",
+      "to": "line-0077",
+      "stage": {
+        "bg": "BG16",
+        "location": "Perth家 · 餐桌",
+        "cat": {
+          "pose": "box",
+          "mode": "video"
+        }
+      }
+    },
+    {
+      "from": "line-0088",
+      "to": "line-0093",
+      "stage": {
+        "bg": "BG08",
+        "location": "商场 · 店内"
+      }
+    },
+    {
+      "from": "line-0101",
+      "to": "line-0109",
+      "stage": {
+        "bg": "BG15",
+        "location": "家 · 双房门走廊"
+      }
+    },
+    {
+      "from": "line-0118",
+      "to": "line-0126",
+      "stage": {
+        "bg": "BG10",
+        "location": "专访收工 · 车内"
+      }
+    },
+    {
+      "from": "line-0127",
+      "to": "line-0127",
+      "stage": {
+        "bg": "BG14",
+        "location": "家 · 客厅",
+        "outfits": {
+          "perth": "home",
+          "santa": "home"
+        }
+      }
+    },
+    {
+      "from": "line-0140",
+      "to": "line-0143",
+      "stage": {
+        "cat": {
+          "pose": "bag",
+          "mode": "video"
+        }
+      }
+    },
+    {
+      "from": "line-0173",
+      "to": "line-0173",
+      "stage": {
+        "bg": "BG04",
+        "location": "家 · 客房"
+      }
+    },
+    {
+      "from": "line-0174",
+      "to": "line-0182",
+      "stage": {
+        "cat": {
+          "pose": "box",
+          "mode": "live"
+        }
+      }
+    },
+    {
+      "from": "line-0191",
+      "to": "line-0191",
+      "stage": {
+        "cat": {
+          "pose": "ball",
+          "mode": "live"
+        }
+      }
+    },
+    {
+      "from": "line-0218",
+      "to": "line-0222",
+      "stage": {
+        "cat": {
+          "pose": "calm",
+          "mode": "live"
+        }
+      }
+    },
+    {
+      "from": "line-0017",
+      "to": "line-0027",
+      "stage": {
+        "prop": {
+          "key": "contract",
+          "label": "30天情侣计划",
+          "form": "cover",
+          "text": "30天\n情侣计划"
+        }
+      }
+    },
+    {
+      "from": "line-0057",
+      "to": "line-0063",
+      "stage": {
+        "prop": {
+          "key": "luggage",
+          "label": "搬家行李",
+          "form": "object"
+        }
+      }
+    },
+    {
+      "from": "line-0064",
+      "to": "line-0067",
+      "stage": {
+        "prop": {
+          "key": "cat-bowl",
+          "label": "Felix的猫碗",
+          "form": "object"
+        }
+      }
+    },
+    {
+      "from": "line-0069",
+      "to": "line-0071",
+      "stage": {
+        "prop": {
+          "key": "cables",
+          "label": "充电线",
+          "form": "object"
+        }
+      }
+    },
+    {
+      "from": "line-0087",
+      "to": "line-0090",
+      "stage": {
+        "prop": {
+          "key": "shopping-bag",
+          "label": "购物纸袋",
+          "form": "object"
+        }
+      }
+    },
+    {
+      "from": "line-0091",
+      "to": "line-0091",
+      "stage": {
+        "prop": {
+          "key": "receipt",
+          "label": "D03 · 私下购物",
+          "form": "receipt",
+          "text": "唱片店\n购物小票\n—\n唱片",
+          "afterBeat": 1
+        }
+      }
+    },
+    {
+      "from": "line-0092",
+      "to": "line-0092",
+      "stage": {
+        "prop": {
+          "key": "shopping-bag",
+          "label": "购物纸袋",
+          "form": "object"
+        }
+      }
+    },
+    {
+      "from": "line-0106",
+      "to": "line-0106",
+      "stage": {
+        "prop": {
+          "key": "cables",
+          "label": "充电线",
+          "form": "object",
+          "afterBeat": 1
+        }
+      }
+    },
+    {
+      "from": "line-0184",
+      "to": "line-0184",
+      "stage": {
+        "prop": {
+          "key": "medicine",
+          "label": "药盒",
+          "form": "object"
+        }
+      }
+    },
+    {
+      "from": "line-0192",
+      "to": "line-0194",
+      "stage": {
+        "prop": {
+          "key": "medicine",
+          "label": "药盒",
+          "form": "object"
+        }
+      }
+    },
+    {
+      "from": "line-0207",
+      "to": "line-0207",
+      "stage": {
+        "prop": {
+          "key": "cables",
+          "label": "充电线",
+          "form": "object"
+        }
+      }
+    },
+    {
+      "from": "line-0212",
+      "to": "line-0218",
+      "stage": {
+        "cg": "horror-watch",
+        "cat": null
+      }
+    },
+    {
+      "from": "line-0214",
+      "to": "line-0215",
+      "stage": {
+        "cg": "horror-glance"
+      }
+    },
+    {
+      "from": "line-0069",
+      "to": "line-0071",
+      "stage": {
+        "bg": "BG05",
+        "location": "家 · 楼上房门外"
+      }
+    }
+  ],
+  "events": {
+    "line-0008": {
+      "reaction": {
+        "owner": "c",
+        "key": "frozen",
+        "label": "麦没关"
+      }
+    },
+    "line-0015": {
+      "reaction": {
+        "owner": "perth",
+        "key": "smug",
+        "label": "先让手机休息"
+      }
+    },
+    "line-0024": {
+      "reaction": {
+        "owner": "santa",
+        "key": "business",
+        "label": "餐费已确认"
+      }
+    },
+    "line-0033": {
+      "reaction": {
+        "owner": "c",
+        "key": "frozen",
+        "label": "是关我的事"
+      }
+    },
+    "line-0036": {
+      "reaction": {
+        "owner": "santa",
+        "key": "business",
+        "label": "营业中"
+      }
+    },
+    "line-0038": {
+      "reaction": {
+        "owner": "santa",
+        "key": "smug",
+        "label": "我催摄影师"
+      }
+    },
+    "line-0043": {
+      "reaction": {
+        "owner": "perth",
+        "key": "frozen",
+        "label": "哪一种熟？"
+      }
+    },
+    "line-0059": {
+      "reaction": {
+        "owner": "santa",
+        "key": "smug",
+        "label": "常用的，都带了"
+      }
+    },
+    "line-0065": {
+      "reaction": {
+        "owner": "perth",
+        "key": "frozen",
+        "label": "猫没到，餐厅到了"
+      }
+    },
+    "line-0075": {
+      "reaction": {
+        "owner": "santa",
+        "key": "smug",
+        "label": "这是同一条视频"
+      }
+    },
+    "line-0081": {
+      "reaction": {
+        "owner": "santa",
+        "key": "frozen",
+        "label": "恋爱还要导航"
+      }
+    },
+    "line-0085": {
+      "reaction": {
+        "owner": "perth",
+        "key": "smug",
+        "label": "收缴成功"
+      }
+    },
+    "line-0108": {
+      "reaction": {
+        "owner": "add",
+        "key": "frozen",
+        "label": "请学会私聊"
+      }
+    },
+    "line-0126": {
+      "reaction": {
+        "owner": "santa",
+        "key": "smug",
+        "label": "这面也没答案"
+      }
+    },
+    "line-0134": {
+      "reaction": {
+        "owner": "santa",
+        "key": "business",
+        "label": "只是炒辣椒"
+      }
+    },
+    "line-0135": {
+      "reaction": {
+        "owner": "perth",
+        "key": "frozen",
+        "label": "安全带系回去"
+      }
+    },
+    "line-0149": {
+      "reaction": {
+        "owner": "santa",
+        "key": "frozen",
+        "label": "饿还要演？"
+      }
+    },
+    "line-0160": {
+      "reaction": {
+        "owner": "santa",
+        "key": "smug",
+        "label": "那个是防盗的"
+      }
+    },
+    "line-0171": {
+      "reaction": {
+        "owner": "santa",
+        "key": "listening",
+        "label": "上回也是这么说的"
+      }
+    },
+    "line-0181": {
+      "reaction": {
+        "owner": "perth",
+        "key": "smug",
+        "label": "纸箱是熟人"
+      }
+    },
+    "line-0187": {
+      "reaction": {
+        "owner": "santa",
+        "key": "smug",
+        "label": "猫比较诚实"
+      }
+    },
+    "line-0208": {
+      "reaction": {
+        "owner": "perth",
+        "key": "business",
+        "label": "欢迎充电线入住"
+      }
+    },
+    "line-0221": {
+      "reaction": {
+        "owner": "santa",
+        "key": "frozen",
+        "label": "靠垫还好吗"
+      }
+    },
+    "line-0175": {
+      "cat": {
+        "pose": "paw",
+        "mode": "live"
+      }
+    },
+    "line-0045": {
+      "cg": "kiss"
+    },
+    "line-0046": {
+      "cg": "kiss"
+    },
+    "line-0047": {
+      "cg": "before"
+    },
+    "line-0048": {
+      "cg": "before"
+    },
+    "line-0191": {
+      "bg": "BG04",
+      "location": "客房门口 · 陪Felix玩",
+      "beatSteps": [
+        {
+          "fromBeat": 1,
+          "stage": {
+            "cg": "felix-play-hold",
+            "cat": null
+          }
+        },
+        {
+          "fromBeat": 11,
+          "stage": {
+            "cg": "felix-play-kiss"
+          }
+        },
+        {
+          "fromBeat": 17,
+          "stage": {
+            "cg": "felix-play-hold"
+          }
+        },
+        {
+          "fromBeat": 20,
+          "stage": {
+            "cg": null,
+            "cat": null,
+            "bg": "BG03",
+            "location": "家 · 客厅"
+          }
+        }
+      ]
+    },
+    "line-0212": {
+      "beatSteps": [
+        {
+          "fromBeat": 4,
+          "toBeat": 7,
+          "stage": {
+            "cg": "horror-glance"
+          }
+        }
+      ]
+    },
+    "line-0218": {
+      "beatSteps": [
+        {
+          "fromBeat": 2,
+          "stage": {
+            "cg": "horror-scream-close"
+          }
+        },
+        {
+          "fromBeat": 3,
+          "stage": {
+            "cg": "horror-scream-wide"
+          }
+        },
+        {
+          "fromBeat": 6,
+          "stage": {
+            "cg": "horror-scream-close"
+          }
+        },
+        {
+          "fromBeat": 9,
+          "stage": {
+            "cg": null,
+            "cat": {
+              "pose": "calm",
+              "mode": "live"
+            }
+          }
+        }
+      ]
+    },
+    "line-0129": {
+      "bg": "BG11",
+      "location": "Santa妈妈家 · 楼下",
+      "cast": [],
+      "beatSteps": [
+        {
+          "fromBeat": 2,
+          "stage": {
+            "cast": [
+              "santa"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "results": {
+    "N01-1": {
+      "cg": "kiss"
+    },
+    "N01-2": {
+      "cg": "kiss"
+    },
+    "N01-3": {
+      "cg": "before"
+    },
+    "N01-4": {
+      "cg": "before"
+    },
+    "N02-1": {
+      "reaction": {
+        "owner": "perth",
+        "key": "business",
+        "label": "接待安排已就绪"
+      }
+    },
+    "N02-2": {
+      "reaction": {
+        "owner": "perth",
+        "key": "frozen",
+        "label": "先救一下我的手"
+      }
+    },
+    "N04-1": {
+      "bg": "BG08",
+      "location": "商场 · 店内",
+      "reaction": {
+        "owner": "perth",
+        "key": "business",
+        "label": "只安排了路线"
+      },
+      "prop": {
+        "key": "shopping-bag",
+        "label": "购物纸袋",
+        "form": "object"
+      }
+    },
+    "N04-2": {
+      "bg": "BG08",
+      "location": "商场 · 店内",
+      "prop": {
+        "key": "shopping-bag",
+        "label": "购物纸袋",
+        "form": "object"
+      }
+    },
+    "N04-3": {
+      "bg": "BG08",
+      "location": "商场 · 店内",
+      "prop": {
+        "key": "receipt",
+        "label": "D03 · 私下购物",
+        "form": "receipt",
+        "text": "唱片店\n购物小票\n—\n唱片",
+        "afterBeat": 2
+      }
+    },
+    "N04-4": {
+      "bg": "BG08",
+      "location": "商场 · 店内",
+      "prop": {
+        "key": "shopping-bag",
+        "label": "购物纸袋",
+        "form": "object"
+      }
+    },
+    "N04-5": {
+      "bg": "BG08",
+      "location": "商场 · 店内",
+      "reaction": {
+        "owner": "santa",
+        "key": "frozen",
+        "label": "自然一点的路在哪"
+      },
+      "prop": null
+    },
+    "N06-1": {
+      "cat": {
+        "pose": "paw",
+        "mode": "live"
+      }
+    },
+    "N06-2": {
+      "cat": {
+        "pose": "box",
+        "mode": "live"
+      }
+    },
+    "N06-3": {
+      "cat": {
+        "pose": "ball",
+        "mode": "live"
+      }
+    },
+    "N07-1": {
+      "reaction": {
+        "owner": "perth",
+        "key": "business",
+        "label": "都说了不怕"
+      },
+      "cg": "horror-glance"
+    },
+    "N07-2": {
+      "reaction": {
+        "owner": "perth",
+        "key": "business",
+        "label": "只是在保护靠垫"
+      },
+      "cg": "horror-watch"
+    },
+    "N07-3": {
+      "cg": "horror-glance"
+    },
+    "N03-1": {
+      "bg": "BG04",
+      "location": "Perth家 · 客房"
+    },
+    "N03-2": {
+      "bg": "BG04",
+      "location": "Perth家 · 客房"
+    },
+    "N03-3": {
+      "bg": "BG06",
+      "location": "Perth家 · 餐桌"
+    }
+  }
+}

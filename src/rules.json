@@ -1,0 +1,856 @@
+{
+  "version": "2.0",
+  "perspective": "Perth",
+  "initial": {
+    "acting": 8,
+    "heart": 2
+  },
+  "bounds": {
+    "acting": [
+      0,
+      20
+    ],
+    "heart": [
+      0,
+      10
+    ]
+  },
+  "thresholds": {
+    "acting": 14,
+    "heart": 8
+  },
+  "hiddenRequiredFlags": [
+    "M1",
+    "M2",
+    "M3"
+  ],
+  "settlement": "Apply each chosen option once in node order; clamp each value immediately. No automatic daily gains, no extra arithmetic for tags or follow-up dialogue.",
+  "nodes": [
+    {
+      "id": "N00",
+      "mark": "⓪",
+      "day": 1,
+      "title": "签约：这份工作谁先接",
+      "options": [
+        {
+          "id": "N00-1",
+          "text": "可以。约会地点我能自己选吧？",
+          "actingDelta": 0,
+          "heartDelta": 0,
+          "tags": [
+            "答应快"
+          ],
+          "result": "Add：可以。行程提前告诉我。\nSanta：P'Perth，你是不是只看了约会那一页？\n你把翻到约会那页的文件翻回封面。",
+          "resultBeats": [
+            {
+              "type": "dialogue",
+              "text": "可以。行程提前告诉我。",
+              "speaker": "Add"
+            },
+            {
+              "type": "dialogue",
+              "text": "P'Perth，你是不是只看了约会那一页？",
+              "speaker": "Santa"
+            },
+            {
+              "type": "narration",
+              "text": "你把翻到约会那页的文件翻回封面。"
+            }
+          ]
+        },
+        {
+          "id": "N00-2",
+          "text": "他要不愿意，我一个人也演不成。",
+          "actingDelta": 0,
+          "heartDelta": 0,
+          "tags": [
+            "先问他"
+          ],
+          "result": "Santa：你可以先练独角戏。\nAdd把第二支笔推过去。\nAdd：两个人都同意才签。不招替身。",
+          "resultBeats": [
+            {
+              "type": "dialogue",
+              "text": "你可以先练独角戏。",
+              "speaker": "Santa"
+            },
+            {
+              "type": "narration",
+              "text": "Add把第二支笔推过去。"
+            },
+            {
+              "type": "dialogue",
+              "text": "两个人都同意才签。不招替身。",
+              "speaker": "Add"
+            }
+          ]
+        },
+        {
+          "id": "N00-3",
+          "text": "还有别的办法吗？比如让C连续三十天闭嘴。",
+          "actingDelta": 0,
+          "heartDelta": 0,
+          "tags": [
+            "先质疑"
+          ],
+          "result": "C：我可以——\nAdd抬手，指了指刚开口的C。\nAdd：看，方案已经失败了。",
+          "resultBeats": [
+            {
+              "type": "dialogue",
+              "text": "我可以——",
+              "speaker": "C"
+            },
+            {
+              "type": "narration",
+              "text": "Add抬手，指了指刚开口的C。"
+            },
+            {
+              "type": "dialogue",
+              "text": "看，方案已经失败了。",
+              "speaker": "Add"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N01",
+      "mark": "①",
+      "day": 1,
+      "title": "停车场：亲吻补拍",
+      "options": [
+        {
+          "id": "N01-1",
+          "text": "我数三下，你偏头。亲完别谢我。",
+          "actingDelta": 3,
+          "heartDelta": 0,
+          "tags": [
+            "吻_排练"
+          ],
+          "result": "吻拍得很准。Santa分开后，朝你点了点头。\nSanta：辛苦了。\n摄影师笑得相机都晃了一下。\nAdd：两位，别把情侣拍成项目交接。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "吻拍得很准。Santa分开后，朝你点了点头。"
+            },
+            {
+              "type": "dialogue",
+              "text": "辛苦了。",
+              "speaker": "Santa"
+            },
+            {
+              "type": "narration",
+              "text": "摄影师笑得相机都晃了一下。"
+            },
+            {
+              "type": "dialogue",
+              "text": "两位，别把情侣拍成项目交接。",
+              "speaker": "Add"
+            }
+          ]
+        },
+        {
+          "id": "N01-2",
+          "text": "别数了，你看着我。",
+          "actingDelta": 2,
+          "heartDelta": 1,
+          "tags": [
+            "吻_主动"
+          ],
+          "result": "你接住他的视线。这个吻自然得不用补。\n摄影师：很好，再来一张。\nPerth：再来哪部分？\nSanta：刚才可是你自己说不用数的。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "你接住他的视线。这个吻自然得不用补。"
+            },
+            {
+              "type": "dialogue",
+              "text": "很好，再来一张。",
+              "speaker": "摄影师"
+            },
+            {
+              "type": "dialogue",
+              "text": "再来哪部分？",
+              "speaker": "Perth"
+            },
+            {
+              "type": "dialogue",
+              "text": "刚才可是你自己说不用数的。",
+              "speaker": "Santa"
+            }
+          ]
+        },
+        {
+          "id": "N01-3",
+          "text": "你先别这么看我，我忘词了。",
+          "actingDelta": -2,
+          "heartDelta": 2,
+          "tags": [
+            "吻_笑场"
+          ],
+          "result": "Santa：这段不是没有台词吗？\n你们同时笑场，摄影师最后留下一张能用却很虚的照片。Santa靠近一点，压低声音。\nSanta：下次先提醒你。近一点也不用当成突袭。",
+          "resultBeats": [
+            {
+              "type": "dialogue",
+              "text": "这段不是没有台词吗？",
+              "speaker": "Santa"
+            },
+            {
+              "type": "narration",
+              "text": "你们同时笑场，摄影师最后留下一张能用却很虚的照片。Santa靠近一点，压低声音。"
+            },
+            {
+              "type": "dialogue",
+              "text": "下次先提醒你。近一点也不用当成突袭。",
+              "speaker": "Santa"
+            }
+          ]
+        },
+        {
+          "id": "N01-4",
+          "text": "借个位，先让公司看看构图。",
+          "actingDelta": 0,
+          "heartDelta": 0,
+          "tags": [
+            "吻_借位"
+          ],
+          "result": "从镜头的角度看，你们亲上了；实际还隔着一点距离。\nAdd：行，构图够用。\n你们立刻分开，快得像电梯到层。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "从镜头的角度看，你们亲上了；实际还隔着一点距离。"
+            },
+            {
+              "type": "dialogue",
+              "text": "行，构图够用。",
+              "speaker": "Add"
+            },
+            {
+              "type": "narration",
+              "text": "你们立刻分开，快得像电梯到层。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N02",
+      "mark": "②",
+      "day": 2,
+      "title": "门口：妈妈验收",
+      "options": [
+        {
+          "id": "N02-1",
+          "text": "放心，吃饭睡觉出门都排好了。",
+          "actingDelta": 2,
+          "heartDelta": 0,
+          "tags": [
+            "妈妈_放心"
+          ],
+          "result": "妈妈放下心，Santa却抬起了手。\nSanta：他连洗衣机怎么用都还没告诉我。\nPerth：现在教。来，先看这个按钮。\n你当场补上教学，熟练得仿佛这也是情侣接待流程。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "妈妈放下心，Santa却抬起了手。"
+            },
+            {
+              "type": "dialogue",
+              "text": "他连洗衣机怎么用都还没告诉我。",
+              "speaker": "Santa"
+            },
+            {
+              "type": "dialogue",
+              "text": "现在教。来，先看这个按钮。",
+              "speaker": "Perth"
+            },
+            {
+              "type": "narration",
+              "text": "你当场补上教学，熟练得仿佛这也是情侣接待流程。"
+            }
+          ]
+        },
+        {
+          "id": "N02-2",
+          "text": "别再拿了，缺的我陪他买。人先给我。",
+          "actingDelta": 0,
+          "heartDelta": 1,
+          "tags": [
+            "妈妈_观察"
+          ],
+          "result": "妈妈把保温袋放进你手里。\n妈妈：先接这个。人自己会走。\nSanta抱着枕头跨过门槛，你终于给真正的人让出位置。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "妈妈把保温袋放进你手里。"
+            },
+            {
+              "type": "dialogue",
+              "text": "先接这个。人自己会走。",
+              "speaker": "妈妈"
+            },
+            {
+              "type": "narration",
+              "text": "Santa抱着枕头跨过门槛，你终于给真正的人让出位置。"
+            }
+          ]
+        },
+        {
+          "id": "N02-3",
+          "text": "Santa，你自己愿意来吧？不是她们把你装箱了？",
+          "actingDelta": -1,
+          "heartDelta": 1,
+          "tags": [
+            "妈妈_起疑"
+          ],
+          "result": "Santa：愿意啊。不然你以为我能在箱子里待多久？\n妈妈：等一下，你们来之前没商量好？\nAdd松开箱子拉杆，重新站直。\nAdd：时间都确认过。现在是现场再确认一遍，现场的。",
+          "resultBeats": [
+            {
+              "type": "dialogue",
+              "text": "愿意啊。不然你以为我能在箱子里待多久？",
+              "speaker": "Santa"
+            },
+            {
+              "type": "dialogue",
+              "text": "等一下，你们来之前没商量好？",
+              "speaker": "妈妈"
+            },
+            {
+              "type": "narration",
+              "text": "Add松开箱子拉杆，重新站直。"
+            },
+            {
+              "type": "dialogue",
+              "text": "时间都确认过。现在是现场再确认一遍，现场的。",
+              "speaker": "Add"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N03",
+      "mark": "③",
+      "day": 2,
+      "title": "入住：先拍，还是先住",
+      "options": [
+        {
+          "id": "N03-1",
+          "text": "你递，我摆。先把这个镜头下班了。",
+          "actingDelta": 3,
+          "heartDelta": -2,
+          "tags": [
+            "入住_拍完"
+          ],
+          "result": "三分钟后，你们交出一段熟练同居的短片。镜头一关，你又把刚摆好的东西按工作道具归类。\nSanta举起自己的充电器。\nSanta：那它什么时候能转正？",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "三分钟后，你们交出一段熟练同居的短片。镜头一关，你又把刚摆好的东西按工作道具归类。"
+            },
+            {
+              "type": "narration",
+              "text": "Santa举起自己的充电器。"
+            },
+            {
+              "type": "dialogue",
+              "text": "那它什么时候能转正？",
+              "speaker": "Santa"
+            }
+          ]
+        },
+        {
+          "id": "N03-2",
+          "text": "先别拍。我这柜子是给他用，不是给镜头用。",
+          "actingDelta": -1,
+          "heartDelta": 2,
+          "tags": [
+            "入住_先住"
+          ],
+          "result": "你认真腾出柜子，Santa先替你收好散落的小物件。Add换了两次角度，镜头里始终只有两个人的后脑勺。\nAdd：行，我发行李照。至少箱子肯转过来。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "你认真腾出柜子，Santa先替你收好散落的小物件。Add换了两次角度，镜头里始终只有两个人的后脑勺。"
+            },
+            {
+              "type": "dialogue",
+              "text": "行，我发行李照。至少箱子肯转过来。",
+              "speaker": "Add"
+            }
+          ]
+        },
+        {
+          "id": "N03-3",
+          "text": "先坐，点饭。箱子又不会饿。",
+          "actingDelta": 0,
+          "heartDelta": 0,
+          "tags": [
+            "入住_先吃"
+          ],
+          "result": "Perth：你想吃什么？\nSanta：先来份饭。再加那个。\nAdd拍到两个人认真报菜名，没拍到多亲密的收纳配合。行李先放客房，你们晚上再拆，没有人因为先吃饭生气。",
+          "resultBeats": [
+            {
+              "type": "dialogue",
+              "text": "你想吃什么？",
+              "speaker": "Perth"
+            },
+            {
+              "type": "dialogue",
+              "text": "先来份饭。再加那个。",
+              "speaker": "Santa"
+            },
+            {
+              "type": "narration",
+              "text": "Add拍到两个人认真报菜名，没拍到多亲密的收纳配合。行李先放客房，你们晚上再拆，没有人因为先吃饭生气。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N04",
+      "mark": "④",
+      "day": 3,
+      "title": "商场：偶遇走哪条线",
+      "options": [
+        {
+          "id": "N04-1",
+          "text": "按红线。到柱子那里，把袋子交给我。",
+          "actingDelta": 3,
+          "heartDelta": 0,
+          "tags": [
+            "商场_按图"
+          ],
+          "result": "指定位置，成功交袋。照片很像约会，袋子里却只有填形的纸。\nSanta：沉不沉？\nPerth：还行。我拿得动。\n你回答得像刚买下整层商场。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "指定位置，成功交袋。照片很像约会，袋子里却只有填形的纸。"
+            },
+            {
+              "type": "dialogue",
+              "text": "沉不沉？",
+              "speaker": "Santa"
+            },
+            {
+              "type": "dialogue",
+              "text": "还行。我拿得动。",
+              "speaker": "Perth"
+            },
+            {
+              "type": "narration",
+              "text": "你回答得像刚买下整层商场。"
+            }
+          ]
+        },
+        {
+          "id": "N04-2",
+          "text": "你慢点，我真给你拿，不用等那根柱子。",
+          "actingDelta": 2,
+          "heartDelta": 1,
+          "tags": [
+            "商场_接袋"
+          ],
+          "result": "没等走到指定的柱子，你就接过装着真东西的袋子。远处的拍摄者追着调整镜头，抓到一个自然动作。\n袋子比想象中重。你换了只手，没还回去。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "没等走到指定的柱子，你就接过装着真东西的袋子。远处的拍摄者追着调整镜头，抓到一个自然动作。"
+            },
+            {
+              "type": "narration",
+              "text": "袋子比想象中重。你换了只手，没还回去。"
+            }
+          ]
+        },
+        {
+          "id": "N04-3",
+          "text": "这段不拍了。陪我进去逛，我自己付。",
+          "actingDelta": -2,
+          "heartDelta": 2,
+          "flags": [
+            "M1"
+          ],
+          "tags": [
+            "商场_私逛"
+          ],
+          "result": "你带Santa走进唱片店。安排好的正面镜头只拍到你们离开的背影。\nSanta：P'Perth，第三张了。它们里面的歌是一样的。\n他把你从同版专辑前拖走，又替你收好那张不走公司报销的小票。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "你带Santa走进唱片店。安排好的正面镜头只拍到你们离开的背影。"
+            },
+            {
+              "type": "dialogue",
+              "text": "P'Perth，第三张了。它们里面的歌是一样的。",
+              "speaker": "Santa"
+            },
+            {
+              "type": "narration",
+              "text": "他把你从同版专辑前拖走，又替你收好那张不走公司报销的小票。"
+            }
+          ]
+        },
+        {
+          "id": "N04-4",
+          "text": "别看图了，你不是想挑那个颜色吗？",
+          "actingDelta": 0,
+          "heartDelta": 1,
+          "tags": [
+            "商场_真买"
+          ],
+          "result": "你们并排低头研究游戏配件的包装背面。\nSanta：这个颜色。刚才就想拿它。\n手机没拍到多少甜蜜素材，Santa倒是真的带走了喜欢的那件。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "你们并排低头研究游戏配件的包装背面。"
+            },
+            {
+              "type": "dialogue",
+              "text": "这个颜色。刚才就想拿它。",
+              "speaker": "Santa"
+            },
+            {
+              "type": "narration",
+              "text": "手机没拍到多少甜蜜素材，Santa倒是真的带走了喜欢的那件。"
+            }
+          ]
+        },
+        {
+          "id": "N04-5",
+          "text": "刚才不够自然。我们从电梯口再偶遇一次。",
+          "actingDelta": -1,
+          "heartDelta": 0,
+          "tags": [
+            "商场_重遇"
+          ],
+          "result": "店员：又回来啦！\n第三次经过，连招呼都熟了。你还没接住，Santa已经停在柜台前。\nSanta：请问这里有没有集章卡？",
+          "resultBeats": [
+            {
+              "type": "dialogue",
+              "text": "又回来啦！",
+              "speaker": "店员"
+            },
+            {
+              "type": "narration",
+              "text": "第三次经过，连招呼都熟了。你还没接住，Santa已经停在柜台前。"
+            },
+            {
+              "type": "dialogue",
+              "text": "请问这里有没有集章卡？",
+              "speaker": "Santa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N05",
+      "mark": "⑤",
+      "day": 5,
+      "title": "专访：谁先表白",
+      "options": [
+        {
+          "id": "N05-1",
+          "text": "他先提的。我考虑了一下，就同意了。",
+          "actingDelta": 3,
+          "heartDelta": -2,
+          "tags": [
+            "表白_他先"
+          ],
+          "result": "Santa：你考虑了多长时间？\nPerth：没多久。\nSanta：确实，饭还没凉。\n故事顺利成立。你也把那次靠近，重新解释成了可用素材。",
+          "resultBeats": [
+            {
+              "type": "dialogue",
+              "text": "你考虑了多长时间？",
+              "speaker": "Santa"
+            },
+            {
+              "type": "dialogue",
+              "text": "没多久。",
+              "speaker": "Perth"
+            },
+            {
+              "type": "dialogue",
+              "text": "确实，饭还没凉。",
+              "speaker": "Santa"
+            },
+            {
+              "type": "narration",
+              "text": "故事顺利成立。你也把那次靠近，重新解释成了可用素材。"
+            }
+          ]
+        },
+        {
+          "id": "N05-2",
+          "text": "他问我吃饭没有。老实说，我后来一直记着。",
+          "actingDelta": 2,
+          "heartDelta": 2,
+          "tags": [
+            "表白_饭盒"
+          ],
+          "result": "你记得那个饭盒，也记得他把饭推过来的样子。\nSanta：你是记着我，还是记着没吃到的那道菜？\n你看着他，这次没能马上顺着玩笑躲过去。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "你记得那个饭盒，也记得他把饭推过来的样子。"
+            },
+            {
+              "type": "dialogue",
+              "text": "你是记着我，还是记着没吃到的那道菜？",
+              "speaker": "Santa"
+            },
+            {
+              "type": "narration",
+              "text": "你看着他，这次没能马上顺着玩笑躲过去。"
+            }
+          ]
+        },
+        {
+          "id": "N05-3",
+          "text": "没人表白。我们跳过这题了。",
+          "actingDelta": -2,
+          "heartDelta": 2,
+          "tags": [
+            "表白_没有"
+          ],
+          "result": "主持人停了两秒。Santa接过了这两秒。\nSanta：那现在算补考吗？\n采访继续了。弹幕里，已经有人开始追问官宣之前究竟发生过什么。你知道，有些话你确实没说过。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "主持人停了两秒。Santa接过了这两秒。"
+            },
+            {
+              "type": "dialogue",
+              "text": "那现在算补考吗？",
+              "speaker": "Santa"
+            },
+            {
+              "type": "narration",
+              "text": "采访继续了。弹幕里，已经有人开始追问官宣之前究竟发生过什么。你知道，有些话你确实没说过。"
+            }
+          ]
+        },
+        {
+          "id": "N05-4",
+          "text": "让他讲。我先听听他记得哪个版本。",
+          "actingDelta": 0,
+          "heartDelta": 0,
+          "tags": [
+            "表白_邀饭"
+          ],
+          "result": "Santa：有一次排练完，他问我要不要一起吃饭。\nSanta：我去了。后来就又一起吃了几次。\n他把那次真的邀约说成起点，没把它讲成互相告白。你负责点头，事后得记住自己点过哪些头。",
+          "resultBeats": [
+            {
+              "type": "dialogue",
+              "text": "有一次排练完，他问我要不要一起吃饭。",
+              "speaker": "Santa"
+            },
+            {
+              "type": "dialogue",
+              "text": "我去了。后来就又一起吃了几次。",
+              "speaker": "Santa"
+            },
+            {
+              "type": "narration",
+              "text": "他把那次真的邀约说成起点，没把它讲成互相告白。你负责点头，事后得记住自己点过哪些头。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N06",
+      "mark": "⑥",
+      "day": 9,
+      "title": "猫来了：好了没有",
+      "options": [
+        {
+          "id": "N06-1",
+          "text": "拍一张，猫交给我，纸巾先藏好。",
+          "actingDelta": 2,
+          "heartDelta": 0,
+          "tags": [
+            "猫_合照"
+          ],
+          "result": "合照拍完，你刚要继续微笑，Santa已经把Felix接回去了。\nPerth：不是还能拍两张？\nSanta：照片够了。你再抱下去，下一张就得闭着眼打喷嚏。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "合照拍完，你刚要继续微笑，Santa已经把Felix接回去了。"
+            },
+            {
+              "type": "dialogue",
+              "text": "不是还能拍两张？",
+              "speaker": "Perth"
+            },
+            {
+              "type": "dialogue",
+              "text": "照片够了。你再抱下去，下一张就得闭着眼打喷嚏。",
+              "speaker": "Santa"
+            }
+          ]
+        },
+        {
+          "id": "N06-2",
+          "text": "阿嚏。好吧，我刚才那句好了，撤回。",
+          "actingDelta": -1,
+          "heartDelta": 1,
+          "tags": [
+            "猫_承认"
+          ],
+          "result": "温馨同框没拍成。Add的手机里，只留下Felix钻进纸箱的片段。\nSanta：那就不凑近拍了。它先住哪间，我们重新商量。\n他不再陪你猜，那句“好了”到底怎么算。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "温馨同框没拍成。Add的手机里，只留下Felix钻进纸箱的片段。"
+            },
+            {
+              "type": "dialogue",
+              "text": "那就不凑近拍了。它先住哪间，我们重新商量。",
+              "speaker": "Santa"
+            },
+            {
+              "type": "narration",
+              "text": "他不再陪你猜，那句“好了”到底怎么算。"
+            }
+          ]
+        },
+        {
+          "id": "N06-3",
+          "text": "你抱猫，我抱纸巾。咱们都有事干。",
+          "actingDelta": 0,
+          "heartDelta": 1,
+          "tags": [
+            "猫_距离"
+          ],
+          "result": "你抱着纸巾，留出一小段距离。Santa抱着Felix，把玩具举给你看。\nSanta：它最近喜欢这个。看，爪子已经过来了。\n不用硬凑合照，你照样隔着那段距离看了半天。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "你抱着纸巾，留出一小段距离。Santa抱着Felix，把玩具举给你看。"
+            },
+            {
+              "type": "dialogue",
+              "text": "它最近喜欢这个。看，爪子已经过来了。",
+              "speaker": "Santa"
+            },
+            {
+              "type": "narration",
+              "text": "不用硬凑合照，你照样隔着那段距离看了半天。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N07",
+      "mark": "⑦",
+      "day": 12,
+      "title": "鬼片：没有观众的嘴硬",
+      "options": [
+        {
+          "id": "N07-1",
+          "text": "音效而已。你怕就看我。",
+          "actingDelta": 0,
+          "heartDelta": 0,
+          "tags": [
+            "鬼片_硬撑"
+          ],
+          "result": "Santa真的转头看你。你被他的动作吓了一下。\n两个人都假装没发生，重新盯着同一块安全的字幕区域。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "Santa真的转头看你。你被他的动作吓了一下。"
+            },
+            {
+              "type": "narration",
+              "text": "两个人都假装没发生，重新盯着同一块安全的字幕区域。"
+            }
+          ]
+        },
+        {
+          "id": "N07-2",
+          "text": "手给我，免得你吓到抓坏靠垫。",
+          "actingDelta": 0,
+          "heartDelta": 1,
+          "tags": [
+            "鬼片_牵手"
+          ],
+          "result": "Santa把手伸过来，顺便看了一眼靠垫。\nSanta：靠垫也是你的。\nPerth：所以才要保护。\n电影暂停后，你也没立刻松开。你们缓了一会儿，才重新按下播放。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "Santa把手伸过来，顺便看了一眼靠垫。"
+            },
+            {
+              "type": "dialogue",
+              "text": "靠垫也是你的。",
+              "speaker": "Santa"
+            },
+            {
+              "type": "dialogue",
+              "text": "所以才要保护。",
+              "speaker": "Perth"
+            },
+            {
+              "type": "narration",
+              "text": "电影暂停后，你也没立刻松开。你们缓了一会儿，才重新按下播放。"
+            }
+          ]
+        },
+        {
+          "id": "N07-3",
+          "text": "我怕。你先别走，陪我看完。",
+          "actingDelta": 0,
+          "heartDelta": 2,
+          "flags": [
+            "M2"
+          ],
+          "tags": [
+            "鬼片_承认"
+          ],
+          "result": "Santa得意了三秒，转头就被片里的下一声响吓到。他重新坐好。\nSanta：行。你怕你的，我陪我的。\nSanta：谁也别自己跑。",
+          "resultBeats": [
+            {
+              "type": "narration",
+              "text": "Santa得意了三秒，转头就被片里的下一声响吓到。他重新坐好。"
+            },
+            {
+              "type": "dialogue",
+              "text": "行。你怕你的，我陪我的。",
+              "speaker": "Santa"
+            },
+            {
+              "type": "dialogue",
+              "text": "谁也别自己跑。",
+              "speaker": "Santa"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ui": {
+    "showOptionDeltasToPlayer": false,
+    "actingBands": [
+      [
+        0,
+        7,
+        "有人开始问，你们是不是在配合工作。"
+      ],
+      [
+        8,
+        13,
+        "有人信，也有人等下一张照片。"
+      ],
+      [
+        14,
+        20,
+        "采访已经开始问恋爱细节。"
+      ]
+    ],
+    "heartRevealAfterActualRises": 3,
+    "heartRevealNotBeforeDay": 12,
+    "heartRevealOnce": true
+  }
+}
