@@ -6,14 +6,47 @@ const app = document.querySelector('#app'), modal = document.querySelector('#mod
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let engine, library, story, rules, stageAssets, stageCues, state, inGame = false, timer, mode = '', toastTimer, focusReturn;
 let imported = null;
-let waitingWorker = null;
-// Updates wait for the player; never refresh an active reading session silently.
+const UPDATE_HANDOFF='couple-plan-30.auto-update-handoff';
+let updateRegistration=null,updateCheck=null,pendingAutoUpdate=false;
+function prepareAutoUpdate() {
+  stop();updateModeButtons();
+  if(!inGame||!library)return true;
+  // A stale tab must not overwrite the newer progress saved by another tab.
+  if(!library.canWrite()) {
+    try{if(JSON.parse(localStorage.getItem(STORAGE_KEY))?.slots?.auto){sessionStorage.removeItem(UPDATE_HANDOFF);return true;}}catch{}
+  }
+  const saved=library.canWrite()&&library.save('auto',state,label());
+  let handoff=false;
+  try{
+    sessionStorage.setItem(UPDATE_HANDOFF,JSON.stringify({save:engine.pack(state,label()),settings:library.data.settings,
+      ...(saved?{}:{librarySnapshot:library.data})}));handoff=true;
+  }catch{}
+  if(!saved&&!handoff)toast('有新版本，但进度暂时无法保存。已保留当前页面，稍后会自动重试更新。');
+  return saved||handoff;
+}
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.addEventListener('controllerchange',()=>{
-    if (sessionStorage.getItem('couple-plan-30.update') === 'yes') {
-      sessionStorage.removeItem('couple-plan-30.update');location.reload();
-    }
+  navigator.serviceWorker.addEventListener('message',event=>{
+    if(event.data?.type!=='PREPARE_AUTO_UPDATE')return;
+    let ready=false;
+    try{ready=prepareAutoUpdate();}catch{}
+    pendingAutoUpdate=!ready;
+    event.ports[0]?.postMessage({ready});
   });
+}
+function checkForUpdates() {
+  if(!updateRegistration||!navigator.onLine||document.hidden||updateCheck)return;
+  if(pendingAutoUpdate)updateRegistration.active?.postMessage({type:'RETRY_AUTO_UPDATE'});
+  updateCheck=updateRegistration.update().catch(()=>{}).finally(()=>{updateCheck=null;});
+}
+function initializeUpdates() {
+  if(!('serviceWorker' in navigator)||location.protocol==='file:')return;
+  navigator.serviceWorker.register(new URL('../sw.js',import.meta.url),{
+    scope:new URL('../',import.meta.url).pathname,updateViaCache:'none'
+  }).then(reg=>{updateRegistration=reg;checkForUpdates();}).catch(()=>{});
+  window.addEventListener('focus',checkForUpdates);
+  window.addEventListener('online',checkForUpdates);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkForUpdates();});
+  setInterval(checkForUpdates,60000);
 }
 // A missing later upload must not stop reading or show a broken image icon.
 app.addEventListener('error', e=>{
@@ -177,7 +210,7 @@ function collection() {
 }
 function showSettings() {
   const s=library.data.settings;
-  openModal('游戏设置',`<form id="settings-form"><label>文字大小<select name="fontSize">${[17,19,22,25].map(n=>`<option value="${n}" ${n===s.fontSize?'selected':''}>${n} · ${n===17?'较小':n===19?'标准':n===22?'较大':'最大'}</option>`).join('')}</select></label><label>对话框样式<select name="theme"><option value="light" ${s.theme==='light'?'selected':''}>日间 · 浅色</option><option value="dark" ${s.theme==='dark'?'selected':''}>夜间 · 深色</option></select></label><label>自动阅读最短停留<select name="autoDelay">${[3,5,8].map(n=>`<option value="${n}" ${n===s.autoDelay?'selected':''}>${n} 秒</option>`).join('')}</select></label></form><p class="subtle">自动阅读会为长段落延长停留，并在选项处暂停。已读快进遇到新内容会停止。长台词可在对话框内滚动查看。</p><p class="subtle">快捷键：空格 / → 继续，S 存档，L 读档，H 回看，Esc 菜单。当前版本没有音乐。</p><div class="file-actions">${button('download-offline',story.release?'下载本期供离线游玩':'下载素材供离线游玩')}${waitingWorker?button('update','保存并更新'):''}</div><p id="offline-status" class="subtle" role="status">离线下载需要联网；下载成功后再断网。清理网站数据仍会移除进度。</p>`);
+  openModal('游戏设置',`<form id="settings-form"><label>文字大小<select name="fontSize">${[17,19,22,25].map(n=>`<option value="${n}" ${n===s.fontSize?'selected':''}>${n} · ${n===17?'较小':n===19?'标准':n===22?'较大':'最大'}</option>`).join('')}</select></label><label>对话框样式<select name="theme"><option value="light" ${s.theme==='light'?'selected':''}>日间 · 浅色</option><option value="dark" ${s.theme==='dark'?'selected':''}>夜间 · 深色</option></select></label><label>自动阅读最短停留<select name="autoDelay">${[3,5,8].map(n=>`<option value="${n}" ${n===s.autoDelay?'selected':''}>${n} 秒</option>`).join('')}</select></label></form><p class="subtle">自动阅读会为长段落延长停留，并在选项处暂停。已读快进遇到新内容会停止。长台词可在对话框内滚动查看。</p><p class="subtle">快捷键：空格 / → 继续，S 存档，L 读档，H 回看，Esc 菜单。当前版本没有音乐。</p><div class="file-actions">${button('download-offline',story.release?'下载本期供离线游玩':'下载素材供离线游玩')}</div><p id="offline-status" class="subtle" role="status">离线下载需要联网；下载成功后再断网。清理网站数据仍会移除进度。</p>`);
 }
 function showHistory() {
   openModal('刚才说到哪里',`<div class="history">${engine.history(state).map(e=>e.type==='chapter'?`<h3>D${e.day} · ${esc(e.title)}</h3>`:e.text?`<article class="history-row"><strong>${e.channel?`${esc(e.channel)} · `:''}${esc(e.speaker || (e.chosen?'你的选择':'旁白'))}</strong>${e.chosen?`<p class="history-choice">${esc(e.chosen)}</p>`:''}<p>${esc(e.text)}</p></article>`:'').join('')}</div>`,true);
@@ -191,11 +224,6 @@ function menu() {
 let pendingSlot='', pendingLabel='';
 async function handle(action, el) {
   try {
-    if(action==='update') {
-      if(inGame && !library.save('auto',state,label()))throw Error('未能保存进度，请先导出备份后刷新更新。');
-      if(waitingWorker){sessionStorage.setItem('couple-plan-30.update','yes');waitingWorker.postMessage({type:'ACTIVATE_UPDATE'});}
-      return;
-    }
     if(action==='download-offline') {
       if(!('caches' in window)||!('serviceWorker' in navigator))throw Error('当前浏览器无法下载离线资源，请保持联网游玩。');
       el.disabled=true;
@@ -324,15 +352,24 @@ window.addEventListener('storage',e=>{
 
 async function boot(){
   try{
-    if('serviceWorker' in navigator && location.protocol!=='file:')navigator.serviceWorker.register(new URL('../sw.js',import.meta.url),{scope:new URL('../',import.meta.url).pathname}).then(reg=>{
-      const notify=()=>{if(reg.waiting && navigator.serviceWorker.controller){waitingWorker=reg.waiting;toast('发现新版本。可在游戏设置中选择“保存并更新”。');}};
-      notify();reg.addEventListener('updatefound',()=>reg.installing?.addEventListener('statechange',notify));
-    }).catch(()=>{});
     const [s,r,a,c]=await Promise.all([fetch(new URL('./story.json',import.meta.url)),fetch(new URL('./rules.json',import.meta.url)),fetch(new URL('./stage-assets.json?v=5',import.meta.url)),fetch(new URL('./stage-cues.json?v=5',import.meta.url))]);
     if(!s.ok||!r.ok||!a.ok||!c.ok)throw Error('剧情或场景文件未能加载，请刷新页面。');
     story=await s.json();rules=await r.json();stageAssets=await a.json();stageCues=await c.json();engine=createEngine(story,rules);
     let storage;try{storage=window.localStorage;}catch{storage={getItem(){throw Error();},setItem(){throw Error();}};}
-    library=createLibrary(storage,engine,toast);state=engine.fresh();settings();home();
+    library=createLibrary(storage,engine,toast);state=engine.fresh();
+    let resumed=false;
+    try{
+      const handoff=JSON.parse(sessionStorage.getItem(UPDATE_HANDOFF)||'null');
+      if(handoff){
+        state=engine.unpack(handoff.save);
+        if(handoff.librarySnapshot)Object.assign(library.data,handoff.librarySnapshot);
+        if(handoff.settings)library.data.settings=handoff.settings;
+        inGame=true;persist();settings();render();resumed=true;
+        sessionStorage.removeItem(UPDATE_HANDOFF);
+      }
+    }catch{toast('更新已完成，原存档仍保留。请从读取存档继续。');}
+    if(!resumed){settings();home();}
+    initializeUpdates();
   }catch(err){app.innerHTML=`<main class="boot-error"><h1>通告夹还没打开</h1><p>${esc(err.message)}</p><p>请通过项目自带的本地服务打开，然后刷新页面。</p>${button('reload','重新加载')}</main>`;document.querySelector('[data-action="reload"]')?.addEventListener('click',()=>location.reload());}
 }
 boot();

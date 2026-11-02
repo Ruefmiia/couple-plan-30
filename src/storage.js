@@ -32,5 +32,5 @@ export function createLibrary(storage, engine, onError = () => {}) {
   }
   function unlock(key) { if (!data.unlocked.includes(key)) {data.unlocked.push(key); commit();} }
   function markRead(id) { if (id && !data.read.includes(id)) {data.read.push(id); commit();} }
-  return {data, save, load, unlock, markRead, commit, pauseWrites() {blocked=true;}};
+  return {data, save, load, unlock, markRead, commit, canWrite:()=>!blocked, pauseWrites() {blocked=true;}};
 }
