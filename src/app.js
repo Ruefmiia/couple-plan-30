@@ -65,7 +65,7 @@ function artImage(path, attributes, alt='') {
 function stageBackground(stage) {
   const path=stageAssets.backgrounds[stage.bg] || stageAssets.backgrounds.BG03;
   const position=stageAssets.backgroundPresentation[stage.bg]?.position || 'center';
-  return `${artImage(path,`class="stage-background" style="object-position:${position}"`)}${stage.cg&&stageAssets.cg[stage.cg]?artImage(stageAssets.cg[stage.cg],'class="stage-cg"',stageAssets.cgLabels?.[stage.cg]||'剧情照片'):''}<div class="stage-light"></div>`;
+  return `${artImage(path,`class="stage-background" style="object-position:${position}"`)}${stage.cg&&stageAssets.cg[stage.cg]?artImage(stageAssets.cg[stage.cg],`class="stage-cg" data-cg="${esc(stage.cg)}"`,stageAssets.cgLabels?.[stage.cg]||'剧情照片'):''}<div class="stage-light"></div>`;
 }
 function stageCharacters(event, stage, title=false) {
   if (stage.cg && stageAssets.cg[stage.cg] || stageAssets.backgroundPresentation[stage.bg]?.embeddedCast) return '';
@@ -123,11 +123,11 @@ function render() {
     content = `<div class="chapter-card"><p class="eyebrow">下一站</p><h1>${esc(e.location)}</h1><p>动作先确认，机位慢慢想。</p></div>`;
     text='你们来到地下停车场。摄影师还在找一个看起来不像安排过的机位。';
   }
-  app.innerHTML = `<main class="vn-screen game-screen" data-bg="${scene.bg}" data-event="${e.type}" aria-label="剧情舞台">
+  app.innerHTML = `<main class="vn-screen game-screen" data-bg="${scene.bg}" data-event="${e.type}" data-timeframe="${esc(scene.timeframe)}" aria-label="剧情舞台">
     ${stageBackground(scene)}${stageCharacters(e,scene)}${stageExtras(scene)}
-    <header class="stage-header"><div class="scene-label"><span class="day-label">DAY <b>${String(s.day).padStart(2,'0')}</b><small> / 30</small></span><span>${esc(scene.location)}</span></div><nav aria-label="游戏快捷菜单">${button('home','标题')}${button('fullscreen','全屏')}${button('menu','菜单 <span aria-hidden="true">≡</span>')}</nav></header>
+    <header class="stage-header"><div class="scene-label"><span class="day-label">DAY <b>${String(s.day).padStart(2,'0')}</b><small> / 30</small></span><span>${scene.timeframe==='replay'?'录像重播 · 昨晚':esc(scene.location)}</span></div><nav aria-label="游戏快捷菜单">${button('home','标题')}${button('fullscreen','全屏')}${button('menu','菜单 <span aria-hidden="true">≡</span>')}</nav></header>
     ${!scene.cg&&stageAssets.backgrounds[scene.bg]?.endsWith('.svg')?'<span class="art-note">背景待补</span>':''}${content}
-    <section class="dialogue-box passage ${e.type}" aria-label="剧情对话" data-speaker="${esc(e.speaker||'')}"><div class="speaker-label">${e.channel?`${esc(e.channel)} · `:e.type==='message'?'消息 · ':''}${esc(name)}</div><div class="dialogue-body" tabindex="0" aria-label="当前台词">${e.chosen?`<p class="chosen-line">「${esc(e.chosen)}」</p>`:''}<div class="reading-text">${esc(text).replace(/\n/g,'<br>')}</div></div>
+    <section class="dialogue-box passage ${e.type}" aria-label="剧情对话" data-speaker="${esc(e.speaker||'')}"><div class="speaker-label">${scene.timeframe==='replay'?'录像重播 · ':''}${e.channel?`${esc(e.channel)} · `:e.type==='message'?'消息 · ':''}${esc(name)}</div><div class="dialogue-body" tabindex="0" aria-label="当前台词">${e.chosen?`<p class="chosen-line">「${esc(e.chosen)}」</p>`:''}<div class="reading-text">${esc(text).replace(/\n/g,'<br>')}</div></div>
       <footer class="dialogue-footer"><div class="reading-tools">${button('history','回看')}${button('save','存档')}${button('load','读档')}${button('auto',mode==='auto'?'停止自动':'自动',`aria-pressed="${mode==='auto'}"`)}${button('skip',mode==='skip'?'停止快进':'已读快进',`aria-pressed="${mode==='skip'}"`)}</div>${e.type==='finished'?'<span class="done-label">已归档</span>':e.type==='episodeEnd'?'<span class="done-label">等待下期开放</span>':button('next',e.type==='choice'?'等待选择':e.type==='chapter'?'开始今天 ▸':'继续 ▸',`class="next-button" ${e.type==='choice'?'disabled':''}`)}</footer>
       <div class="reading-progress" role="progressbar" aria-label="主线阅读进度" aria-valuenow="${Math.min(100,pct)}" aria-valuemin="0" aria-valuemax="100"><span style="width:${Math.min(100,pct)}%"></span></div>
     </section><span class="portrait-tip">横屏游玩体验更佳</span>
@@ -204,7 +204,7 @@ async function handle(action, el) {
         status.textContent='正在准备离线下载……';
         await navigator.serviceWorker.ready;
         const cache=await caches.open('couple-plan-30-vn-v5-'+stageAssets.revision);
-        const files=[...new Set([...stageAssets.installed,...Object.values(stageAssets.fonts||{}),...Object.values(stageAssets.fallbacks||{})])];
+        const files=[...new Set([...stageAssets.installed,...Object.values(stageAssets.cg||{}),...Object.values(stageAssets.fonts||{}),...Object.values(stageAssets.fallbacks||{})])];
         for(let i=0;i<files.length;i+=3){
           await Promise.all(files.slice(i,i+3).map(async path=>{
             const url=new URL('../'+path,import.meta.url);if(!await cache.match(url))await cache.add(url);

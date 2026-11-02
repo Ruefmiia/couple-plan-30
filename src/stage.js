@@ -11,7 +11,7 @@ export function resolveStage({story, state, event, ending, cues}) {
   const place = story.events.slice(0, state.cursor + 1).filter(e => e.type === 'chapter' || e.type === 'scene').at(-1);
   const outfit = cues.workDays.includes(chapter?.day) ? 'work' : 'home';
   const stage = {bg: place?.bg || 'BG01', location:place?.location || '公司 · 会议室',
-    outfits:{perth:outfit, santa:outfit}, cast:['perth','santa'], cg:null, cat:null, reaction:null, prop:null};
+    outfits:{perth:outfit, santa:outfit}, cast:['perth','santa'], cg:null, cat:null, reaction:null, prop:null, timeframe:'present'};
   if ((event.speechType||event.type) === 'dialogue' && !event.channel && guests[event.speaker]) stage.cast = [guests[event.speaker], 'santa'];
   const apply = cue => {
     if (!cue) return;
@@ -52,5 +52,5 @@ export function characterArt(assets, key, outfit = 'work') {
 export function artFiles(assets) {
   return [...new Set([...Object.values(assets.backgrounds),
     ...Object.values(assets.characters).flatMap(x => Object.values(x)),
-    ...assets.installed])];
+    ...assets.installed,...Object.values(assets.illustrations||{})])];
 }

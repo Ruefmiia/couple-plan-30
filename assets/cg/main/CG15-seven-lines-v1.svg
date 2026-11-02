@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">网友脑补的七根关系线</title>
+  <desc id="desc">七个圆圈小人，七条红色关系线；第1和第2条连到标为“你”的小人。只是猜测示意。</desc>
+  <g fill="#454545" font-family="sans-serif" text-anchor="middle">
+    <text x="640" y="53" font-size="26">网友脑补</text>
+  </g>
+  <g class="relations" fill="none" stroke="#bd5360" stroke-width="4" stroke-linecap="round">
+    <path data-edge="1" data-from="you" data-to="b" d="M235 170 Q340 130 445 170"/>
+    <path data-edge="2" data-from="you" data-to="g" d="M180 300 Q175 345 245 385"/>
+    <path data-edge="3" data-from="b" data-to="c" d="M555 175 Q665 215 775 175"/>
+    <path data-edge="4" data-from="c" data-to="d" d="M885 175 Q970 130 1055 175"/>
+    <path data-edge="5" data-from="d" data-to="e" d="M1110 300 Q1110 345 1030 385"/>
+    <path data-edge="6" data-from="e" data-to="f" d="M955 455 Q825 495 695 455"/>
+    <path data-edge="7" data-from="f" data-to="g" d="M585 455 Q455 495 325 455"/>
+  </g>
+  <g fill="#bd5360" font-family="sans-serif" font-size="25" text-anchor="middle">
+    <text x="340" y="125">1 ?</text><text x="151" y="360">2 ?</text>
+    <text x="665" y="246">3 ?</text><text x="970" y="125">4 ?</text>
+    <text x="1144" y="360">5 ?</text><text x="825" y="520">6 ?</text>
+    <text x="455" y="520">7 ?</text>
+  </g>
+  <defs>
+    <g id="person" fill="#faf9f6" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <circle r="35"/><path fill="none" d="M0 35 V108 M-40 70 L0 55 L40 70 M0 108 L-32 146 M0 108 L32 146"/>
+      <g fill="#333" stroke="none"><circle cx="-11" cy="-3" r="3"/><circle cx="11" cy="-3" r="3"/></g>
+    </g>
+  </defs>
+  <g class="people"><use data-person="you" href="#person" x="180" y="150"/><use data-person="b" href="#person" x="500" y="150"/>
+    <use data-person="c" href="#person" x="830" y="150"/><use data-person="d" href="#person" x="1110" y="150"/>
+    <use data-person="e" href="#person" x="1010" y="430"/><use data-person="f" href="#person" x="640" y="430"/>
+    <use data-person="g" href="#person" x="270" y="430"/>
+  </g>
+  <text x="115" y="162" text-anchor="middle" font-family="sans-serif" font-size="31" font-weight="bold" fill="#333">你</text>
+</svg>

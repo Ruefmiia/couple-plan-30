@@ -556,6 +556,35 @@
           }
         }
       ]
+    },
+    "line-0009": {
+      "cg": "speculation-seven-lines",
+      "cast": []
+    },
+    "line-0010": {
+      "cg": "prologue-meeting-replay",
+      "cast": [],
+      "timeframe": "present"
+    },
+    "line-0011": {
+      "cg": "prologue-replay-phone",
+      "cast": [],
+      "timeframe": "replay"
+    },
+    "line-0012": {
+      "cg": "prologue-replay-mic",
+      "cast": [],
+      "timeframe": "replay"
+    },
+    "line-0013": {
+      "cg": "prologue-present-phone",
+      "cast": [],
+      "timeframe": "present"
+    },
+    "line-0014": {
+      "cg": "prologue-phone-down",
+      "cast": [],
+      "timeframe": "present"
     }
   },
   "results": {

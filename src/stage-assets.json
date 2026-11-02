@@ -67,6 +67,12 @@
     "listening": "assets/reactions/common/listening.webp"
   },
   "cg": {
+    "speculation-seven-lines": "assets/cg/main/CG15-seven-lines-v1.svg",
+    "prologue-meeting-replay": "assets/cg/main/CG16-meeting-replay-v1.svg",
+    "prologue-replay-phone": "assets/cg/main/CG16-replay-phone-v1.svg",
+    "prologue-replay-mic": "assets/cg/main/CG16-replay-mic-v1.svg",
+    "prologue-present-phone": "assets/cg/main/CG16-present-phone-v1.svg",
+    "prologue-phone-down": "assets/cg/main/CG16-phone-down-v1.svg",
     "before": "assets/cg/main/CG01-parking-before-v1.webp",
     "kiss": "assets/cg/main/CG01-parking-kiss-v1.webp",
     "horror-watch": "assets/cg/main/CG04-horror-watch-v1.webp",
@@ -94,6 +100,12 @@
     }
   },
   "cgLabels": {
+    "speculation-seven-lines": "网友脑补示意：七个圆圈小人、七条关系线，其中两条连到你",
+    "prologue-meeting-replay": "会议室内重播录像",
+    "prologue-replay-phone": "录像中的C：电话尚未挂断、麦克风仍开",
+    "prologue-replay-mic": "录像中的C：看弹幕，再看麦克风",
+    "prologue-present-phone": "现实中的C看手机",
+    "prologue-phone-down": "你把C的手机屏幕翻向下",
     "before": "停车场靠近前的照片",
     "kiss": "停车场亲吻照片",
     "horror-watch": "D12鬼片 · 紧张观看",
@@ -190,5 +202,13 @@
     "assets/characters/mother/normal.webp": "assets/preview/mother-normal.svg",
     "assets/characters/c/normal.webp": "assets/preview/c-normal.svg"
   },
-  "revision": "c92088ca7580"
+  "illustrations": {
+    "seven-lines": "assets/cg/main/CG15-seven-lines-v1.svg",
+    "prologue-meeting-replay": "assets/cg/main/CG16-meeting-replay-v1.svg",
+    "prologue-replay-phone": "assets/cg/main/CG16-replay-phone-v1.svg",
+    "prologue-replay-mic": "assets/cg/main/CG16-replay-mic-v1.svg",
+    "prologue-present-phone": "assets/cg/main/CG16-present-phone-v1.svg",
+    "prologue-phone-down": "assets/cg/main/CG16-phone-down-v1.svg"
+  },
+  "revision": "8fb9403e38bc"
 }
