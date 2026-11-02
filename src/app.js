@@ -1,11 +1,38 @@
 import {createEngine} from './engine.js';
 import {createLibrary, STORAGE_KEY} from './storage.js';
 import {resolveStage, characterArt, CHARACTER_NAMES} from './stage.js';
+import {renderInto,createImageCache,invalidateRenderCache} from './view.js';
 
 const app = document.querySelector('#app'), modal = document.querySelector('#modal');
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let engine, library, story, rules, stageAssets, stageCues, state, inGame = false, timer, mode = '', toastTimer, focusReturn;
 let imported = null;
+const imageCache=createImageCache();
+let warmupTask=null;
+function stageImagePaths(scene) {
+  return [stageAssets.backgrounds[scene.bg],scene.cg&&stageAssets.cg[scene.cg],
+    ...(!scene.cg&&!stageAssets.backgroundPresentation[scene.bg]?.embeddedCast?scene.cast.map(k=>characterArt(stageAssets,k,scene.outfits[k])):[]),
+    scene.prop&&stageAssets.props[scene.prop.key],scene.cat&&stageAssets.cats[scene.cat.pose],scene.reaction&&stageAssets.reactions[scene.reaction.key]].filter(Boolean).map(p=>'./'+p);
+}
+function scheduleWarmup(from=state) {
+  if(warmupTask!==null){if('cancelIdleCallback' in window)cancelIdleCallback(warmupTask);else clearTimeout(warmupTask);}
+  const snapshot=structuredClone(from);
+  const run=()=>{
+    warmupTask=null;if(document.hidden)return;
+    const paths=[];
+    const add=s=>paths.push(...stageImagePaths(resolveStage({story,state:s,event:engine.current(s),ending:engine.ending(s),cues:stageCues})));
+    let probe=snapshot;
+    for(let i=0;i<12;i++){
+      add(probe);const e=engine.current(probe);
+      if(['episodeEnd','finished'].includes(e.type))break;
+      if(e.type==='choice'){for(const o of e.node.options)add(engine.choose(probe,o.id));break;}
+      probe=engine.next(probe);
+    }
+    imageCache.warm([...new Set(paths)]);
+  };
+  warmupTask='requestIdleCallback' in window?requestIdleCallback(run,{timeout:500}):setTimeout(run,50);
+}
+function saveAndRender(){library.batch(()=>{persist();render();});}
 const UPDATE_HANDOFF='couple-plan-30.auto-update-handoff';
 let updateRegistration=null,updateCheck=null,pendingAutoUpdate=false;
 function prepareAutoUpdate() {
@@ -90,25 +117,26 @@ function home() {
     <nav class="title-menu" aria-label="游戏菜单">${button(latest?'continue':'new',latest?'继续游戏':'开始游戏','class="primary"')}${latest?button('new','重新开始'):''}${button('load','读取存档')}${button('collection','结局收藏')}${button('settings','游戏设置')}</nav><p class="resume-hint">${latest?esc(latest.label):story.release?'Perth视角 · 第一期 D1—D12':'Perth视角 · 30天 · 5个结局'}</p></section>
     <footer class="title-footer"><span>轻喜剧 / 假装情侣 / 全程虚构</span><span class="preview-label">${story.release?'第一期 · D1—D12 · 结局尚未开放':'素材陆续更新中'}</span></footer><span class="portrait-tip">横屏游玩体验更佳</span>
   </main>`;
+  scheduleWarmup(engine.fresh());
 }
 function artImage(path, attributes, alt='') {
   const fallback=stageAssets.fallbacks[path];
-  return `<img src="./${esc(path)}" ${attributes} ${fallback?`data-fallback="./${esc(fallback)}"`:''} alt="${esc(alt)}" draggable="false" decoding="sync">`;
+  return `<img src="./${esc(path)}" ${attributes} ${fallback?`data-fallback="./${esc(fallback)}"`:''} alt="${esc(alt)}" draggable="false" decoding="async">`;
 }
 function stageBackground(stage) {
   const path=stageAssets.backgrounds[stage.bg] || stageAssets.backgrounds.BG03;
   const position=stageAssets.backgroundPresentation[stage.bg]?.position || 'center';
-  return `${artImage(path,`class="stage-background" style="object-position:${position}"`)}${stage.cg&&stageAssets.cg[stage.cg]?artImage(stageAssets.cg[stage.cg],`class="stage-cg" data-cg="${esc(stage.cg)}"`,stageAssets.cgLabels?.[stage.cg]||'剧情照片'):''}<div class="stage-light"></div>`;
+  return `${artImage(path,`class="stage-background" data-render-key="background" style="object-position:${position}"`)}${stage.cg&&stageAssets.cg[stage.cg]?artImage(stageAssets.cg[stage.cg],`class="stage-cg" data-render-key="cg" data-cg="${esc(stage.cg)}"`,stageAssets.cgLabels?.[stage.cg]||'剧情照片'):''}<div class="stage-light" data-render-key="light"></div>`;
 }
 function stageCharacters(event, stage, title=false) {
   if (stage.cg && stageAssets.cg[stage.cg] || stageAssets.backgroundPresentation[stage.bg]?.embeddedCast) return '';
   const speaker=event.speaker;
-  return `<div class="character-layer ${title?'title-characters':''} ${stage.cast.length===1?'single-character':''}" aria-label="出场人物">${stage.cast.map((key,i)=>{
+  return `<div data-render-key="characters" class="character-layer ${title?'title-characters':''} ${stage.cast.length===1?'single-character':''}" aria-label="出场人物">${stage.cast.map((key,i)=>{
     const active=CHARACTER_NAMES[key]===speaker||(key==='mother'&&speaker==='妈妈');
     const path=characterArt(stageAssets,key,stage.outfits[key]);
     const photo=path.endsWith('.webp');
     const medium=stageAssets.characterPresentation?.[key]?.medium||(photo?'photo':'placeholder');
-    return `<figure class="sprite sprite-${i} ${photo?'photo':'placeholder'} ${active?'speaking':''} ${speaker&&event.type==='dialogue'&&!active?'listening':''}" data-character="${key}" data-art="${medium}" data-outfit="${stage.outfits[key]||''}">${artImage(path,'',`${CHARACTER_NAMES[key]}${medium==='illustration'?'卡通':photo?'':'示意'}立绘`)}<figcaption>${CHARACTER_NAMES[key]}</figcaption></figure>`;
+    return `<figure data-render-key="sprite-${i}" class="sprite sprite-${i} ${photo?'photo':'placeholder'} ${active?'speaking':''} ${speaker&&event.type==='dialogue'&&!active?'listening':''}" data-character="${key}" data-art="${medium}" data-outfit="${stage.outfits[key]||''}">${artImage(path,'',`${CHARACTER_NAMES[key]}${medium==='illustration'?'卡通':photo?'':'示意'}立绘`)}<figcaption>${CHARACTER_NAMES[key]}</figcaption></figure>`;
   }).join('')}</div>`;
 }
 function stageExtras(stage) {
@@ -122,12 +150,12 @@ function stageExtras(stage) {
     const form=prop.form||'object';
     const text=prop.text?`<div class="prop-writing prop-writing-${esc(form)}">${esc(prop.text).replace(/\n/g,'<br>')}</div>`:'';
     const stamp=prop.stamp?`<span class="prop-stamp">${esc(prop.stamp)}</span>`:'';
-    html+=`<figure class="prop-layer prop-${side} prop-${esc(form)}" data-prop="${esc(prop.key)}" aria-label="${esc([prop.label,prop.text,prop.stamp].filter(Boolean).join('，'))}"><div class="prop-art">${artImage(stageAssets.props[prop.key],'',prop.label)}${text}${stamp}</div><figcaption>${esc(prop.label)}</figcaption></figure>`;
+    html+=`<figure data-render-key="prop" class="prop-layer prop-${side} prop-${esc(form)}" data-prop="${esc(prop.key)}" aria-label="${esc([prop.label,prop.text,prop.stamp].filter(Boolean).join('，'))}"><div class="prop-art">${artImage(stageAssets.props[prop.key],'',prop.label)}${text}${stamp}</div><figcaption>${esc(prop.label)}</figcaption></figure>`;
   }
-  if(cat && stageAssets.cats[cat.pose]) html+=`<figure class="felix-layer ${cat.mode==='video'?'cat-video':'cat-live'} ${reaction&&reactionSide==='right'?'cat-left':''}" aria-label="${cat.mode==='video'?'视频里的Felix':'Felix'}">${artImage(stageAssets.cats[cat.pose],'',`Felix · ${{box:'趴纸箱',paw:'伸爪',ball:'拨玩具',bag:'闻纸袋',calm:'安静坐着'}[cat.pose]}`)}<figcaption>${cat.mode==='video'?'视频画面 · Felix':'Felix'}</figcaption></figure>`;
+  if(cat && stageAssets.cats[cat.pose]) html+=`<figure data-render-key="cat" class="felix-layer ${cat.mode==='video'?'cat-video':'cat-live'} ${reaction&&reactionSide==='right'?'cat-left':''}" aria-label="${cat.mode==='video'?'视频里的Felix':'Felix'}">${artImage(stageAssets.cats[cat.pose],'',`Felix · ${{box:'趴纸箱',paw:'伸爪',ball:'拨玩具',bag:'闻纸袋',calm:'安静坐着'}[cat.pose]}`)}<figcaption>${cat.mode==='video'?'视频画面 · Felix':'Felix'}</figcaption></figure>`;
   if(reaction && stageAssets.reactions[reaction.key]) {
     const side=reactionSide;
-    html+=`<figure class="reaction-layer reaction-${side}" aria-label="${CHARACTER_NAMES[reaction.owner]}：${esc(reaction.label)}">${artImage(stageAssets.reactions[reaction.key],'','')}<figcaption><span>${CHARACTER_NAMES[reaction.owner]}</span>${esc(reaction.label)}</figcaption></figure>`;
+    html+=`<figure data-render-key="reaction" class="reaction-layer reaction-${side}" aria-label="${CHARACTER_NAMES[reaction.owner]}：${esc(reaction.label)}">${artImage(stageAssets.reactions[reaction.key],'','')}<figcaption><span>${CHARACTER_NAMES[reaction.owner]}</span>${esc(reaction.label)}</figcaption></figure>`;
   }
   return html;
 }
@@ -156,15 +184,17 @@ function render() {
     content = `<div class="chapter-card"><p class="eyebrow">下一站</p><h1>${esc(e.location)}</h1><p>动作先确认，机位慢慢想。</p></div>`;
     text='你们来到地下停车场。摄影师还在找一个看起来不像安排过的机位。';
   }
-  app.innerHTML = `<main class="vn-screen game-screen" data-bg="${scene.bg}" data-event="${e.type}" data-timeframe="${esc(scene.timeframe)}" aria-label="剧情舞台">
+  renderInto(app, `<main data-render-key="game" class="vn-screen game-screen" data-bg="${scene.bg}" data-event="${e.type}" data-timeframe="${esc(scene.timeframe)}" aria-label="剧情舞台">
     ${stageBackground(scene)}${stageCharacters(e,scene)}${stageExtras(scene)}
-    <header class="stage-header"><div class="scene-label"><span class="day-label">DAY <b>${String(s.day).padStart(2,'0')}</b><small> / 30</small></span><span>${scene.timeframe==='replay'?'录像重播 · 昨晚':esc(scene.location)}</span></div><nav aria-label="游戏快捷菜单">${button('home','标题')}${button('fullscreen','全屏')}${button('menu','菜单 <span aria-hidden="true">≡</span>')}</nav></header>
-    ${!scene.cg&&stageAssets.backgrounds[scene.bg]?.endsWith('.svg')?'<span class="art-note">背景待补</span>':''}${content}
-    <section class="dialogue-box passage ${e.type}" aria-label="剧情对话" data-speaker="${esc(e.speaker||'')}"><div class="speaker-label">${scene.timeframe==='replay'?'录像重播 · ':''}${e.channel?`${esc(e.channel)} · `:e.type==='message'?'消息 · ':''}${esc(name)}</div><div class="dialogue-body" tabindex="0" aria-label="当前台词">${e.chosen?`<p class="chosen-line">「${esc(e.chosen)}」</p>`:''}<div class="reading-text">${esc(text).replace(/\n/g,'<br>')}</div></div>
+    <header data-render-key="header" class="stage-header"><div class="scene-label"><span class="day-label">DAY <b>${String(s.day).padStart(2,'0')}</b><small> / 30</small></span><span>${scene.timeframe==='replay'?'录像重播 · 昨晚':esc(scene.location)}</span></div><nav aria-label="游戏快捷菜单">${button('home','标题')}${button('fullscreen','全屏')}${button('menu','菜单 <span aria-hidden="true">≡</span>')}</nav></header>
+    ${!scene.cg&&stageAssets.backgrounds[scene.bg]?.endsWith('.svg')?'<span class="art-note">背景待补</span>':''}<div data-render-key="content" class="story-content">${content}</div>
+    <section data-render-key="dialogue" class="dialogue-box passage ${e.type}" aria-label="剧情对话" data-speaker="${esc(e.speaker||'')}"><div class="speaker-label">${scene.timeframe==='replay'?'录像重播 · ':''}${e.channel?`${esc(e.channel)} · `:e.type==='message'?'消息 · ':''}${esc(name)}</div><div data-render-key="dialogue-body" class="dialogue-body" tabindex="0" aria-label="当前台词">${e.chosen?`<p data-render-key="chosen-line" class="chosen-line">「${esc(e.chosen)}」</p>`:''}<div data-render-key="reading-text" class="reading-text">${esc(text).replace(/\n/g,'<br>')}</div></div>
       <footer class="dialogue-footer"><div class="reading-tools">${button('history','回看')}${button('save','存档')}${button('load','读档')}${button('auto',mode==='auto'?'停止自动':'自动',`aria-pressed="${mode==='auto'}"`)}${button('skip',mode==='skip'?'停止快进':'已读快进',`aria-pressed="${mode==='skip'}"`)}</div>${e.type==='finished'?'<span class="done-label">已归档</span>':e.type==='episodeEnd'?'<span class="done-label">等待下期开放</span>':button('next',e.type==='choice'?'等待选择':e.type==='chapter'?'开始今天 ▸':'继续 ▸',`class="next-button" ${e.type==='choice'?'disabled':''}`)}</footer>
       <div class="reading-progress" role="progressbar" aria-label="主线阅读进度" aria-valuenow="${Math.min(100,pct)}" aria-valuemin="0" aria-valuemax="100"><span style="width:${Math.min(100,pct)}%"></span></div>
     </section><span class="portrait-tip">横屏游玩体验更佳</span>
-  </main>`;
+  </main>`,imageCache);
+  document.querySelector('.dialogue-body').scrollTop=0;
+  scheduleWarmup();
   if (e.id && e.type !== 'choice') library.markRead(e.id);
   schedule();
 }
@@ -181,10 +211,10 @@ function schedule() {
 function updateModeButtons() {
   for (const name of ['auto','skip']) {
     const b=app.querySelector(`[data-action="${name}"]`);
-    if (b) {b.textContent=name==='auto' ? '自动' : '已读快进'; b.setAttribute('aria-pressed','false');}
+    if (b) {b.textContent=name==='auto' ? '自动' : '已读快进'; b.setAttribute('aria-pressed','false');invalidateRenderCache(b);}
   }
 }
-function advance() {state=engine.next(state); persist(); render();}
+function advance() {state=engine.next(state); saveAndRender();}
 function openModal(title, body, wide = false) {
   stop(); updateModeButtons(); focusReturn=document.activeElement;
   modal.className=wide ? 'wide' : '';
@@ -256,10 +286,10 @@ async function handle(action, el) {
       if(library.data.slots.auto) return confirmAction('开始新的三十天','最近自动进度将被更新，手动存档和结局收藏会保留。','new-confirm');
       action='new-confirm';
     }
-    if(action==='new-confirm'){if(modal.open)closeModal();state=engine.fresh();inGame=true;persist();render();return;}
+    if(action==='new-confirm'){if(modal.open)closeModal();state=engine.fresh();inGame=true;saveAndRender();return;}
     if(action==='continue'){state=library.load('auto');inGame=true;render();return;}
     if(action==='next'){stop();advance();return;}
-    if(action==='choose') {stop();state=engine.choose(state,el.dataset.id);persist();render();return;}
+    if(action==='choose') {stop();state=engine.choose(state,el.dataset.id);saveAndRender();return;}
     if(action==='menu')return menu();
     if(action==='save')return saveMenu();
     if(action==='load')return saveMenu(true);
@@ -284,13 +314,13 @@ async function handle(action, el) {
       if(inGame)return confirmAction('读取存档','回到这份记录。当前进度仍可在其他手动存档位保留。','load-confirm');
       action='load-confirm';
     }
-    if(action==='load-confirm'){state=library.load(pendingSlot);inGame=true;closeModal();persist();render();toast('已读取存档。');return;}
+    if(action==='load-confirm'){state=library.load(pendingSlot);inGame=true;closeModal();saveAndRender();toast('已读取存档。');return;}
     if(action==='export') {
       const data=engine.pack(state,label());
       const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));
       const a=document.createElement('a');a.href=url;a.download=`30天情侣计划-D${engine.stats(state).day}-${Date.now()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('已导出当前进度。');return;
     }
-    if(action==='import-confirm'){state=engine.unpack(imported);imported=null;inGame=true;closeModal();persist();render();toast('已导入存档，手动存档位保持不变。');return;}
+    if(action==='import-confirm'){state=engine.unpack(imported);imported=null;inGame=true;closeModal();saveAndRender();toast('已导入存档，手动存档位保持不变。');return;}
     if(action==='replay-ending') {
       const key=el.dataset.key;
       if(!library.data.unlocked.includes(key))return;
@@ -364,7 +394,7 @@ async function boot(){
         state=engine.unpack(handoff.save);
         if(handoff.librarySnapshot)Object.assign(library.data,handoff.librarySnapshot);
         if(handoff.settings)library.data.settings=handoff.settings;
-        inGame=true;persist();settings();render();resumed=true;
+        inGame=true;saveAndRender();resumed=true;
         sessionStorage.removeItem(UPDATE_HANDOFF);
       }
     }catch{toast('更新已完成，原存档仍保留。请从读取存档继续。');}

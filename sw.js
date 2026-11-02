@@ -1,6 +1,6 @@
-const REVISION='ec2a0d2bcc58';
+const REVISION='5bc70efbf4b0';
 const CACHE='couple-plan-30-vn-v5-'+REVISION;
-const FILES=['./','./index.html','./src/fonts.css','./src/style.css?v=5','./src/app.js?v=5','./src/engine.js','./src/storage.js','./src/stage.js','./src/story.json','./src/rules.json','./src/stage-assets.json','./src/stage-assets.json?v=5','./src/stage-cues.json','./src/stage-cues.json?v=5','./manifest.webmanifest','./icon.svg'];
+const FILES=['./','./index.html','./src/fonts.css','./src/style.css?v=5','./src/app.js?v=5','./src/engine.js','./src/storage.js','./src/stage.js','./src/view.js','./src/story.json','./src/rules.json','./src/stage-assets.json','./src/stage-assets.json?v=5','./src/stage-cues.json','./src/stage-cues.json?v=5','./manifest.webmanifest','./icon.svg'];
 self.addEventListener('install',e=>e.waitUntil((async()=>{
   const cache=await caches.open(CACHE);
   await cache.addAll(FILES);

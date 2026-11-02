@@ -2,6 +2,7 @@ export const STORAGE_KEY = 'couple-plan-30.library.v1';
 export function createLibrary(storage, engine, onError = () => {}) {
   let data = {slots: {}, unlocked: [], read: [], settings: {fontSize: 19, theme: 'light', autoDelay: 5}};
   let blocked = false;
+  let batchDepth=0,pendingWrite=false;
   try {
     const raw = storage.getItem(STORAGE_KEY);
     if (raw) {
@@ -16,6 +17,7 @@ export function createLibrary(storage, engine, onError = () => {}) {
     }
   } catch { blocked = true; onError('无法读取浏览器存档。已暂停写入以保留原数据；可继续试玩并导出存档。'); }
   function commit() {
+    if(batchDepth){pendingWrite=true;return !blocked;}
     if (blocked) { onError('本次会话无法写入浏览器，请使用“导出当前进度”保存。'); return false; }
     try { storage.setItem(STORAGE_KEY, JSON.stringify(data)); return true; }
     catch { onError('浏览器未能保存进度，请导出当前进度备份。'); return false; }
@@ -32,5 +34,10 @@ export function createLibrary(storage, engine, onError = () => {}) {
   }
   function unlock(key) { if (!data.unlocked.includes(key)) {data.unlocked.push(key); commit();} }
   function markRead(id) { if (id && !data.read.includes(id)) {data.read.push(id); commit();} }
-  return {data, save, load, unlock, markRead, commit, canWrite:()=>!blocked, pauseWrites() {blocked=true;}};
+  function batch(run) {
+    batchDepth++;
+    try{return run();}
+    finally{if(--batchDepth===0&&pendingWrite){pendingWrite=false;commit();}}
+  }
+  return {data, save, load, unlock, markRead, commit, batch, canWrite:()=>!blocked, pauseWrites() {blocked=true;}};
 }
