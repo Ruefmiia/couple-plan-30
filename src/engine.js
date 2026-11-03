@@ -66,6 +66,7 @@ export function createEngine(story, rules) {
   function next(state) {
     if (state.complete || ['choice','episodeEnd'].includes(current(state).type)) return state;
     const s = structuredClone(state);
+    delete s.textOffset;
     if ((s.beat||0)+1 < (paragraph(s).beats?.length||1)) {
       s.beat=(s.beat||0)+1;
       return s;
@@ -81,7 +82,7 @@ export function createEngine(story, rules) {
     const event = current(state);
     if (event.type !== 'choice' || !event.node.options.some(o => o.id === id)) throw new Error('该选项不属于当前选择点。');
     const s = structuredClone(state);
-    s.choices.push(id); s.result = true; delete s.beat;
+    s.choices.push(id); s.result = true; delete s.beat; delete s.textOffset;
     return s;
   }
   function validate(value) {
@@ -105,6 +106,13 @@ export function createEngine(story, rules) {
     const beat=value.beat??0;
     if(!Number.isInteger(beat)||beat<0||beat>=(paragraph(clean).beats?.length||1))throw new Error('存档对白位置不正确。');
     if(beat)clean.beat=beat;
+    // A reading offset is optional in older saves and specific to this beat.
+    if (Number.isInteger(value.textOffset) && value.textOffset > 0) {
+      const text = current(clean).text || '';
+      if (value.textOffset < text.length && !/[\uDC00-\uDFFF]/.test(text[value.textOffset])) {
+        clean.textOffset = value.textOffset;
+      }
+    }
     return clean;
   }
   function holdLaterProgress(value) {
@@ -118,6 +126,7 @@ export function createEngine(story, rules) {
         (cursor === limits.maxCursor && (result || beat))) throw new Error('存档进度不正确。');
     const heldProgress = {cursor, choices:[...choices], result, endingCursor, complete};
     if (beat !== undefined) heldProgress.beat = beat;
+    if (Number.isInteger(value.textOffset) && value.textOffset > 0) heldProgress.textOffset = value.textOffset;
     // Show the released boundary while retaining the original position and
     // choices in the save format that the expanded edition already reads.
     const visible = validate({...fresh(), cursor:story.events.length, choices:choices.slice(0, choicePositions.length)});

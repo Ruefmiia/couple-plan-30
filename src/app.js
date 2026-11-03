@@ -7,6 +7,7 @@ const app = document.querySelector('#app'), modal = document.querySelector('#mod
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let engine, library, story, rules, stageAssets, stageCues, state, inGame = false, timer, mode = '', toastTimer, focusReturn;
 let imported = null;
+let readingText = '', nextTextOffset = 0, readingLayoutFrame = 0;
 const imageCache=createImageCache();
 let warmupTask=null;
 function stageImagePaths(scene) {
@@ -130,11 +131,37 @@ function stageBackground(stage) {
   const position=stageAssets.backgroundPresentation[stage.bg]?.position || 'center';
   return `${artImage(path,`class="stage-background" data-render-key="background" style="object-position:${position}"`)}${stage.cg&&stageAssets.cg[stage.cg]?artImage(stageAssets.cg[stage.cg],`class="stage-cg" data-render-key="cg" data-cg="${esc(stage.cg)}"`,stageAssets.cgLabels?.[stage.cg]||'剧情照片'):''}<div class="stage-light" data-render-key="light"></div>`;
 }
+function isPhoneMessage(event) {
+  return event.type === 'message' || event.speechType === 'message' || event.channel === '消息';
+}
+function isNarration(event) {
+  return event.type === 'narration' || event.speechType === 'narration';
+}
+function phoneChat(event, replayLabel) {
+  const history = engine.history(state);
+  // Only already revealed, consecutive messages belong in this window.
+  let start = history.length;
+  while (start > 0 && isPhoneMessage(history[start - 1])) start--;
+  const messages = history.slice(start).map((message, index, list) => {
+    const latest = index === list.length - 1;
+    const sender = message.speaker || '旁白';
+    return `<div class="phone-entry" data-render-key="chat-${esc(message.id)}" data-speaker="${esc(sender)}"${latest?' aria-current="true"':''}>
+      <span class="phone-sender">${esc(sender)}</span>
+      <p class="phone-bubble${latest?' reading-text':''}">${esc(message.text)}</p>
+    </div>`;
+  }).join('');
+  return `<div class="phone-screen" data-render-key="phone-screen">
+    <div class="phone-message-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10 18h4" stroke-linecap="round"/></svg>${replayLabel}手机消息</div>
+    <div data-render-key="dialogue-body" class="dialogue-body phone-thread" tabindex="0" aria-label="聊天记录">
+      ${event.chosen?`<p class="chosen-line">「${esc(event.chosen)}」</p>`:''}${messages}
+    </div>
+  </div>`;
+}
 function stageCharacters(event, stage, title=false) {
   if (stage.cg && stageAssets.cg[stage.cg] || stageAssets.backgroundPresentation[stage.bg]?.embeddedCast) return '';
   const speaker=event.speaker;
   return `<div data-render-key="characters" class="character-layer ${title?'title-characters':''} ${stage.cast.length===1?'single-character':''}" aria-label="出场人物">${stage.cast.map((key,i)=>{
-    const active=CHARACTER_NAMES[key]===speaker||(key==='mother'&&speaker==='妈妈');
+    const active=!isPhoneMessage(event)&&(CHARACTER_NAMES[key]===speaker||(key==='mother'&&speaker==='妈妈'));
     const path=characterArt(stageAssets,key,stage.outfits[key]);
     const photo=path.endsWith('.webp');
     const medium=stageAssets.characterPresentation?.[key]?.medium||(photo?'photo':'placeholder');
@@ -161,11 +188,77 @@ function stageExtras(stage) {
   }
   return html;
 }
+function fitReadingPage() {
+  nextTextOffset = 0;
+  if (!readingText) return;
+  const body = app.querySelector('.dialogue-body');
+  const line = body.querySelector('.reading-text');
+  const next = app.querySelector('[data-action="next"]');
+  const offset = state.textOffset || 0;
+  const remaining = readingText.slice(offset);
+  const fits = text => {
+    if (line.textContent !== text) {
+      line.textContent = text;
+      invalidateRenderCache(line);
+    }
+    return body.scrollHeight <= body.clientHeight;
+  };
+  if (!fits(remaining)) {
+    const characters = Array.from(remaining);
+    let low = 1, high = characters.length - 1, count = 0;
+    while (low <= high) {
+      const mid = Math.floor((low + high) / 2);
+      if (fits(characters.slice(0, mid).join(''))) {
+        count = mid;
+        low = mid + 1;
+      } else high = mid - 1;
+    }
+    if (count > 0) {
+      const closes = /^[，。！？、；：）》」』】…]/;
+      const opens = /[（《「『【]$/;
+      // Keep punctuation with its sentence and prefer two pages whenever
+      // the full remainder fits in two. Extremely long text can use more.
+      while (count > 1 && (closes.test(characters[count]) || opens.test(characters[count - 1]))) count--;
+      const twoPages = fits(characters.slice(count).join(''));
+      for (let i = count; i > Math.floor(count * .72); i--) {
+        if (!/[。！？；，、：.!?\s]/.test(characters[i - 1]) || closes.test(characters[i])) continue;
+        if (twoPages && !fits(characters.slice(i).join(''))) continue;
+        count = i;
+        break;
+      }
+      const page = characters.slice(0, count).join('');
+      fits(page);
+      nextTextOffset = offset + page.length;
+    } else fits(remaining);
+  }
+  body.scrollTop = 0;
+  if (next && !next.disabled) {
+    const label = nextTextOffset ? '下一段 ▸' : '继续 ▸';
+    if (next.textContent !== label) {
+      next.textContent = label;
+      invalidateRenderCache(next);
+    }
+  }
+  if (!nextTextOffset) library.markRead(engine.current(state).id);
+}
+function refreshReadingLayout() {
+  if (readingLayoutFrame) return;
+  readingLayoutFrame = requestAnimationFrame(() => {
+    readingLayoutFrame = 0;
+    if (!inGame || !readingText) return;
+    fitReadingPage();
+    schedule();
+  });
+}
+window.addEventListener('resize', refreshReadingLayout);
+document.fonts?.addEventListener('loadingdone', refreshReadingLayout);
 function render() {
   settings();
   if (!inGame) return home();
   document.body.dataset.view='game';
   const e = engine.current(state), s = engine.stats(state), scene = resolveStage({story,state,event:e,ending:engine.ending(state),cues:stageCues});
+  const phoneMessage = isPhoneMessage(e);
+  const narration = isNarration(e);
   const pct = Math.round((state.cursor + 1) / story.events.length * 100);
   let content='', text=e.text||'', name=e.speaker==='Perth'?'Perth':e.speaker||'旁白';
   if (e.type === 'chapter') {
@@ -186,18 +279,26 @@ function render() {
     content = `<div class="chapter-card"><p class="eyebrow">下一站</p><h1>${esc(e.location)}</h1><p>动作先确认，机位慢慢想。</p></div>`;
     text='你们来到地下停车场。摄影师还在找一个看起来不像安排过的机位。';
   }
+  const replayLabel = scene.timeframe === 'replay' ? '录像重播 · ' : '';
+  const passage = phoneMessage ? phoneChat(e, replayLabel) : `
+    <div data-render-key="passage-label" class="speaker-label">${replayLabel}${e.channel?`${esc(e.channel)} · `:''}${esc(name)}</div>
+    <div data-render-key="dialogue-body" class="dialogue-body" tabindex="0" aria-label="当前台词">${e.chosen?`<p data-render-key="chosen-line" class="chosen-line">「${esc(e.chosen)}」</p>`:''}<div data-render-key="reading-text" class="reading-text">${esc(text)}</div></div>`;
   renderInto(app, `<main data-render-key="game" class="vn-screen game-screen" data-bg="${scene.bg}" data-event="${e.type}" data-timeframe="${esc(scene.timeframe)}" aria-label="剧情舞台">
     ${stageBackground(scene)}${stageCharacters(e,scene)}${stageExtras(scene)}
     <header data-render-key="header" class="stage-header"><div class="scene-label"><span class="day-label">DAY <b>${String(s.day).padStart(2,'0')}</b><small> / 30</small></span><span>${scene.timeframe==='replay'?'录像重播 · 昨晚':esc(scene.location)}</span></div><nav aria-label="游戏快捷菜单">${button('home','标题')}${button('fullscreen','全屏')}${button('menu','菜单 <span aria-hidden="true">≡</span>')}</nav></header>
     ${!scene.cg&&stageAssets.backgrounds[scene.bg]?.endsWith('.svg')?'<span class="art-note">背景待补</span>':''}<div data-render-key="content" class="story-content">${content}</div>
-    <section data-render-key="dialogue" class="dialogue-box passage ${e.type}" aria-label="剧情对话" data-speaker="${esc(e.speaker||'')}"><div class="speaker-label">${scene.timeframe==='replay'?'录像重播 · ':''}${e.channel?`${esc(e.channel)} · `:e.type==='message'?'消息 · ':''}${esc(name)}</div><div data-render-key="dialogue-body" class="dialogue-body" tabindex="0" aria-label="当前台词">${e.chosen?`<p data-render-key="chosen-line" class="chosen-line">「${esc(e.chosen)}」</p>`:''}<div data-render-key="reading-text" class="reading-text">${esc(text).replace(/\n/g,'<br>')}</div></div>
+    <section data-render-key="dialogue" class="dialogue-box passage ${e.type}${phoneMessage?' phone-message':narration?' narration-passage':''}" aria-label="${phoneMessage?'手机消息':narration?'旁白':'剧情对话'}" data-speaker="${esc(e.speaker||'')}">${passage}
       <footer class="dialogue-footer"><div class="reading-tools">${button('history','回看')}${button('save','存档')}${button('load','读档')}${button('auto',mode==='auto'?'停止自动':'自动',`aria-pressed="${mode==='auto'}"`)}${button('skip',mode==='skip'?'停止快进':'已读快进',`aria-pressed="${mode==='skip'}"`)}</div>${e.type==='finished'?'<span class="done-label">已归档</span>':e.type==='episodeEnd'?'<span class="done-label">等待下期开放</span>':button('next',e.type==='choice'?'等待选择':e.type==='chapter'?'开始今天 ▸':'继续 ▸',`class="next-button" ${e.type==='choice'?'disabled':''}`)}</footer>
       <div class="reading-progress" role="progressbar" aria-label="主线阅读进度" aria-valuenow="${Math.min(100,pct)}" aria-valuemin="0" aria-valuemax="100"><span style="width:${Math.min(100,pct)}%"></span></div>
     </section><span class="portrait-tip">横屏游玩体验更佳</span>
   </main>`,imageCache);
-  document.querySelector('.dialogue-body').scrollTop=0;
+  const body = app.querySelector('.dialogue-body');
+  const latest = phoneMessage ? body.querySelector('[aria-current="true"]') : null;
+  body.scrollTop = latest ? Math.min(latest.offsetTop, body.scrollHeight - body.clientHeight) : 0;
+  readingText = !phoneMessage && e.type !== 'choice' && e.text ? text : '';
+  fitReadingPage();
   scheduleWarmup();
-  if (e.id && e.type !== 'choice') library.markRead(e.id);
+  if (!readingText && e.id && e.type !== 'choice') library.markRead(e.id);
   schedule();
 }
 function schedule() {
@@ -205,9 +306,10 @@ function schedule() {
   if (!mode || modal.open || !inGame) return;
   const e=engine.current(state);
   if (['choice','finished','ending','episodeEnd'].includes(e.type)) {stop(); updateModeButtons(); return;}
-  const upcoming=engine.current(engine.next(state));
+  const upcoming=nextTextOffset ? e : engine.current(engine.next(state));
   if (mode==='skip' && (!upcoming.id || !library.data.read.includes(upcoming.id) || upcoming.type==='choice')) {stop();updateModeButtons();return;}
-  const delay=mode==='skip' ? 120 : Math.max(library.data.settings.autoDelay*1000, (e.text?.length || 0)*85);
+  const visibleLength = app.querySelector('.reading-text')?.textContent.length || 0;
+  const delay=mode==='skip' ? 120 : Math.max(library.data.settings.autoDelay*1000, visibleLength*85);
   timer=setTimeout(advance,delay);
 }
 function updateModeButtons() {
@@ -216,7 +318,10 @@ function updateModeButtons() {
     if (b) {b.textContent=name==='auto' ? '自动' : '已读快进'; b.setAttribute('aria-pressed','false');invalidateRenderCache(b);}
   }
 }
-function advance() {state=engine.next(state); saveAndRender();}
+function advance() {
+  state = nextTextOffset ? {...state, textOffset:nextTextOffset} : engine.next(state);
+  saveAndRender();
+}
 function openModal(title, body, wide = false) {
   stop(); updateModeButtons(); focusReturn=document.activeElement;
   modal.className=wide ? 'wide' : '';
@@ -242,10 +347,20 @@ function collection() {
 }
 function showSettings() {
   const s=library.data.settings;
-  openModal('游戏设置',`<form id="settings-form"><label>文字大小<select name="fontSize">${[17,19,22,25].map(n=>`<option value="${n}" ${n===s.fontSize?'selected':''}>${n} · ${n===17?'较小':n===19?'标准':n===22?'较大':'最大'}</option>`).join('')}</select></label><label>对话框样式<select name="theme"><option value="light" ${s.theme==='light'?'selected':''}>日间 · 浅色</option><option value="dark" ${s.theme==='dark'?'selected':''}>夜间 · 深色</option></select></label><label>自动阅读最短停留<select name="autoDelay">${[3,5,8].map(n=>`<option value="${n}" ${n===s.autoDelay?'selected':''}>${n} 秒</option>`).join('')}</select></label></form><p class="subtle">自动阅读会为长段落延长停留，并在选项处暂停。已读快进遇到新内容会停止。长台词可在对话框内滚动查看。</p><p class="subtle">快捷键：空格 / → 继续，S 存档，L 读档，H 回看，Esc 菜单。当前版本没有音乐。</p><div class="file-actions">${button('download-offline',story.release?'下载本期供离线游玩':'下载素材供离线游玩')}</div><p id="offline-status" class="subtle" role="status">离线下载需要联网；下载成功后再断网。清理网站数据仍会移除进度。</p>`);
+  openModal('游戏设置',`<form id="settings-form"><label>文字大小<select name="fontSize">${[17,19,22,25].map(n=>`<option value="${n}" ${n===s.fontSize?'selected':''}>${n} · ${n===17?'较小':n===19?'标准':n===22?'较大':'最大'}</option>`).join('')}</select></label><label>对话框样式<select name="theme"><option value="light" ${s.theme==='light'?'selected':''}>日间 · 浅色</option><option value="dark" ${s.theme==='dark'?'selected':''}>夜间 · 深色</option></select></label><label>自动阅读最短停留<select name="autoDelay">${[3,5,8].map(n=>`<option value="${n}" ${n===s.autoDelay?'selected':''}>${n} 秒</option>`).join('')}</select></label></form><p class="subtle">长对白和旁白会分段显示，点「下一段」接着读。自动阅读会在选项处暂停，已读快进遇到新内容会停止。</p><p class="subtle">快捷键：空格 / → 继续，S 存档，L 读档，H 回看，Esc 菜单。当前版本没有音乐。</p><div class="file-actions">${button('download-offline',story.release?'下载本期供离线游玩':'下载素材供离线游玩')}</div><p id="offline-status" class="subtle" role="status">离线下载需要联网；下载成功后再断网。清理网站数据仍会移除进度。</p>`);
+}
+function historyPassage(event) {
+  const phoneMessage = isPhoneMessage(event);
+  const channel = phoneMessage ? '手机消息' : event.channel;
+  return `<article class="history-row${phoneMessage?' history-phone-message':isNarration(event)?' history-narration':''}" data-speaker="${esc(event.speaker||'')}"><strong>${channel?`${esc(channel)} · `:''}${esc(event.speaker || (event.chosen?'你的选择':'旁白'))}</strong>${event.chosen?`<p class="history-choice">${esc(event.chosen)}</p>`:''}<p class="history-text">${esc(event.text)}</p></article>`;
 }
 function showHistory() {
-  openModal('刚才说到哪里',`<div class="history">${engine.history(state).map(e=>e.type==='chapter'?`<h3>D${e.day} · ${esc(e.title)}</h3>`:e.text?`<article class="history-row"><strong>${e.channel?`${esc(e.channel)} · `:''}${esc(e.speaker || (e.chosen?'你的选择':'旁白'))}</strong>${e.chosen?`<p class="history-choice">${esc(e.chosen)}</p>`:''}<p>${esc(e.text)}</p></article>`:'').join('')}</div>`,true);
+  const rows = engine.history(state);
+  const current = rows.at(-1);
+  if (nextTextOffset && current?.id === engine.current(state).id) {
+    rows[rows.length - 1] = {...current, text:current.text.slice(0, nextTextOffset)};
+  }
+  openModal('刚才说到哪里',`<div class="history">${rows.map(e=>e.type==='chapter'?`<h3>D${e.day} · ${esc(e.title)}</h3>`:e.text?historyPassage(e):'').join('')}</div>`,true);
   modal.querySelector('.modal-body').scrollTop=modal.querySelector('.modal-body').scrollHeight;
 }
 function menu() {
@@ -326,7 +441,7 @@ async function handle(action, el) {
     if(action==='replay-ending') {
       const key=el.dataset.key;
       if(!library.data.unlocked.includes(key))return;
-      openModal(esc(story.endings[key].title),`<div class="history">${story.endings[key].events.flatMap(e=>e.beats||[e]).map(e=>`<article class="history-row"><strong>${e.channel?`${esc(e.channel)} · `:''}${esc(e.speaker||'旁白')}</strong><p>${esc(e.text)}</p></article>`).join('')}</div>`,true);
+      openModal(esc(story.endings[key].title),`<div class="history">${story.endings[key].events.flatMap(e=>e.beats||[e]).map(historyPassage).join('')}</div>`,true);
     }
   } catch(err) {toast(err.message || '未能完成操作，请重试。');}
 }
@@ -348,7 +463,7 @@ document.addEventListener('click',e=>{
   if(el){if(!el.disabled)handle(el.dataset.action,el);return;}
   const box=e.target.closest('.dialogue-box');
   if(!box || !inGame || modal.open || e.defaultPrevented || (press?.box===box && press.moved))return;
-  if(e.target.closest('button,a,input,select,textarea,label,.reading-text,.chosen-line,.speaker-label'))return;
+  if(e.target.closest('button,a,input,select,textarea,label,.reading-text,.chosen-line,.speaker-label,.phone-message-label,.phone-entry'))return;
   if(!window.getSelection()?.isCollapsed)return;
   const next=box.querySelector('[data-action="next"]');
   if(next && !next.disabled)handle('next');
@@ -356,7 +471,7 @@ document.addEventListener('click',e=>{
 document.addEventListener('change',async e=>{
   if(e.target.closest('#settings-form')){
     const f=new FormData(document.querySelector('#settings-form'));
-    library.data.settings={fontSize:Number(f.get('fontSize')),theme:f.get('theme'),autoDelay:Number(f.get('autoDelay'))};library.commit();settings();
+    library.data.settings={fontSize:Number(f.get('fontSize')),theme:f.get('theme'),autoDelay:Number(f.get('autoDelay'))};library.commit();settings();refreshReadingLayout();
   }
   if(e.target.id==='import-save'){
     try {
