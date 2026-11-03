@@ -4,8 +4,7 @@
     1,
     3,
     5,
-    6,
-    8
+    6
   ],
   "ranges": [
     {
@@ -99,44 +98,6 @@
       }
     },
     {
-      "from": "line-0173",
-      "to": "line-0173",
-      "stage": {
-        "bg": "BG04",
-        "location": "家 · 客房"
-      }
-    },
-    {
-      "from": "line-0174",
-      "to": "line-0182",
-      "stage": {
-        "cat": {
-          "pose": "box",
-          "mode": "live"
-        }
-      }
-    },
-    {
-      "from": "line-0191",
-      "to": "line-0191",
-      "stage": {
-        "cat": {
-          "pose": "ball",
-          "mode": "live"
-        }
-      }
-    },
-    {
-      "from": "line-0218",
-      "to": "line-0222",
-      "stage": {
-        "cat": {
-          "pose": "calm",
-          "mode": "live"
-        }
-      }
-    },
-    {
       "from": "line-0017",
       "to": "line-0027",
       "stage": {
@@ -226,54 +187,6 @@
           "form": "object",
           "afterBeat": 1
         }
-      }
-    },
-    {
-      "from": "line-0184",
-      "to": "line-0184",
-      "stage": {
-        "prop": {
-          "key": "medicine",
-          "label": "药盒",
-          "form": "object"
-        }
-      }
-    },
-    {
-      "from": "line-0192",
-      "to": "line-0194",
-      "stage": {
-        "prop": {
-          "key": "medicine",
-          "label": "药盒",
-          "form": "object"
-        }
-      }
-    },
-    {
-      "from": "line-0207",
-      "to": "line-0207",
-      "stage": {
-        "prop": {
-          "key": "cables",
-          "label": "充电线",
-          "form": "object"
-        }
-      }
-    },
-    {
-      "from": "line-0212",
-      "to": "line-0218",
-      "stage": {
-        "cg": "horror-watch",
-        "cat": null
-      }
-    },
-    {
-      "from": "line-0214",
-      "to": "line-0215",
-      "stage": {
-        "cg": "horror-glance"
       }
     },
     {
@@ -405,54 +318,6 @@
         "label": "饿还要演？"
       }
     },
-    "line-0160": {
-      "reaction": {
-        "owner": "santa",
-        "key": "smug",
-        "label": "那个是防盗的"
-      }
-    },
-    "line-0171": {
-      "reaction": {
-        "owner": "santa",
-        "key": "listening",
-        "label": "上回也是这么说的"
-      }
-    },
-    "line-0181": {
-      "reaction": {
-        "owner": "perth",
-        "key": "smug",
-        "label": "纸箱是熟人"
-      }
-    },
-    "line-0187": {
-      "reaction": {
-        "owner": "santa",
-        "key": "smug",
-        "label": "猫比较诚实"
-      }
-    },
-    "line-0208": {
-      "reaction": {
-        "owner": "perth",
-        "key": "business",
-        "label": "欢迎充电线入住"
-      }
-    },
-    "line-0221": {
-      "reaction": {
-        "owner": "santa",
-        "key": "frozen",
-        "label": "靠垫还好吗"
-      }
-    },
-    "line-0175": {
-      "cat": {
-        "pose": "paw",
-        "mode": "live"
-      }
-    },
     "line-0045": {
       "cg": "kiss"
     },
@@ -464,83 +329,6 @@
     },
     "line-0048": {
       "cg": "before"
-    },
-    "line-0191": {
-      "bg": "BG04",
-      "location": "客房门口 · 陪Felix玩",
-      "beatSteps": [
-        {
-          "fromBeat": 1,
-          "stage": {
-            "cg": "felix-play-hold",
-            "cat": null
-          }
-        },
-        {
-          "fromBeat": 11,
-          "stage": {
-            "cg": "felix-play-kiss"
-          }
-        },
-        {
-          "fromBeat": 17,
-          "stage": {
-            "cg": "felix-play-hold"
-          }
-        },
-        {
-          "fromBeat": 20,
-          "stage": {
-            "cg": null,
-            "cat": null,
-            "bg": "BG03",
-            "location": "家 · 客厅"
-          }
-        }
-      ]
-    },
-    "line-0212": {
-      "beatSteps": [
-        {
-          "fromBeat": 4,
-          "toBeat": 7,
-          "stage": {
-            "cg": "horror-glance"
-          }
-        }
-      ]
-    },
-    "line-0218": {
-      "beatSteps": [
-        {
-          "fromBeat": 2,
-          "stage": {
-            "cg": "horror-scream-close"
-          }
-        },
-        {
-          "fromBeat": 3,
-          "stage": {
-            "cg": "horror-scream-wide"
-          }
-        },
-        {
-          "fromBeat": 6,
-          "stage": {
-            "cg": "horror-scream-close"
-          }
-        },
-        {
-          "fromBeat": 9,
-          "stage": {
-            "cg": null,
-            "cat": {
-              "pose": "calm",
-              "mode": "live"
-            }
-          }
-        }
-      ]
     },
     "line-0129": {
       "bg": "BG11",
@@ -666,43 +454,6 @@
         "label": "自然一点的路在哪"
       },
       "prop": null
-    },
-    "N06-1": {
-      "cat": {
-        "pose": "paw",
-        "mode": "live"
-      }
-    },
-    "N06-2": {
-      "cat": {
-        "pose": "box",
-        "mode": "live"
-      }
-    },
-    "N06-3": {
-      "cat": {
-        "pose": "ball",
-        "mode": "live"
-      }
-    },
-    "N07-1": {
-      "reaction": {
-        "owner": "perth",
-        "key": "business",
-        "label": "都说了不怕"
-      },
-      "cg": "horror-glance"
-    },
-    "N07-2": {
-      "reaction": {
-        "owner": "perth",
-        "key": "business",
-        "label": "只是在保护靠垫"
-      },
-      "cg": "horror-watch"
-    },
-    "N07-3": {
-      "cg": "horror-glance"
     },
     "N03-1": {
       "bg": "BG04",

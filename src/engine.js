@@ -107,12 +107,30 @@ export function createEngine(story, rules) {
     if(beat)clean.beat=beat;
     return clean;
   }
+  function holdLaterProgress(value) {
+    const limits = story.release?.heldProgress;
+    if (!limits || !(value?.cursor > story.events.length)) return null;
+    const {cursor, choices, result, endingCursor, complete, beat} = value;
+    if (!Number.isInteger(cursor) || cursor > limits.maxCursor ||
+        !Array.isArray(choices) || choices.length > limits.maxChoices || choices.some(id => typeof id !== 'string' || !/^N\d{2}-\d+$/.test(id)) ||
+        typeof result !== 'boolean' || endingCursor !== 0 || complete !== false ||
+        (beat !== undefined && (!Number.isInteger(beat) || beat < 0)) ||
+        (cursor === limits.maxCursor && (result || beat))) throw new Error('存档进度不正确。');
+    const heldProgress = {cursor, choices:[...choices], result, endingCursor, complete};
+    if (beat !== undefined) heldProgress.beat = beat;
+    // Show the released boundary while retaining the original position and
+    // choices in the save format that the expanded edition already reads.
+    const visible = validate({...fresh(), cursor:story.events.length, choices:choices.slice(0, choicePositions.length)});
+    return {...visible, heldProgress};
+  }
   function pack(state, label = '') {
-    return {game: GAME_ID, saveVersion: SAVE_VERSION, storyVersion: story.version, savedAt: new Date().toISOString(), label: String(label).slice(0, 60), state: validate(state)};
+    const savedState = state.heldProgress ? holdLaterProgress(state.heldProgress)?.heldProgress : validate(state);
+    if (!savedState) throw new Error('存档进度不正确。');
+    return {game: GAME_ID, saveVersion: SAVE_VERSION, storyVersion: story.version, savedAt: new Date().toISOString(), label: String(label).slice(0, 60), state: savedState};
   }
   function unpack(save) {
     if (save?.game !== GAME_ID || save.saveVersion !== SAVE_VERSION || save.storyVersion !== story.version) throw new Error('这不是兼容的《30天情侣计划》存档。');
-    return validate(save.state);
+    return holdLaterProgress(save.state) ?? validate(save.state);
   }
   function history(state) {
     const rows = [];

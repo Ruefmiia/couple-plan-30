@@ -55,16 +55,12 @@
   },
   "cats": {
     "box": "assets/cat/felix-box.webp",
-    "bag": "assets/cat/felix-bag.webp",
-    "paw": "assets/cat/felix-paw.webp",
-    "calm": "assets/cat/felix-calm.webp",
-    "ball": "assets/cat/felix-ball.webp"
+    "bag": "assets/cat/felix-bag.webp"
   },
   "reactions": {
     "frozen": "assets/reactions/common/frozen.webp",
     "smug": "assets/reactions/common/smug.webp",
-    "business": "assets/reactions/common/business.webp",
-    "listening": "assets/reactions/common/listening.webp"
+    "business": "assets/reactions/common/business.webp"
   },
   "cg": {
     "speculation-seven-lines": "assets/cg/main/CG15-seven-lines-v1.svg",
@@ -74,13 +70,7 @@
     "prologue-present-phone": "assets/cg/main/CG16-present-phone-v1.svg",
     "prologue-phone-down": "assets/cg/main/CG16-phone-down-v1.svg",
     "before": "assets/cg/main/CG01-parking-before-v1.webp",
-    "kiss": "assets/cg/main/CG01-parking-kiss-v1.webp",
-    "horror-watch": "assets/cg/main/CG04-horror-watch-v1.webp",
-    "horror-glance": "assets/cg/main/CG04-horror-glance-v1.webp",
-    "horror-scream-close": "assets/cg/main/CG04-horror-scream-close-v1.webp",
-    "horror-scream-wide": "assets/cg/main/CG04-horror-scream-wide-v1.webp",
-    "felix-play-hold": "assets/cg/main/CG14-felix-play-hold-v1.webp",
-    "felix-play-kiss": "assets/cg/main/CG14-felix-play-kiss-v1.webp"
+    "kiss": "assets/cg/main/CG01-parking-kiss-v1.webp"
   },
   "backgroundPresentation": {
     "BG09": {
@@ -107,13 +97,7 @@
     "prologue-present-phone": "现实中的C看手机",
     "prologue-phone-down": "你把C的手机屏幕翻向下",
     "before": "停车场靠近前的照片",
-    "kiss": "停车场亲吻照片",
-    "horror-watch": "D12鬼片 · 紧张观看",
-    "horror-glance": "D12鬼片 · 嘴硬互看",
-    "horror-scream-close": "D12鬼片 · 受惊抱团近景",
-    "horror-scream-wide": "D12鬼片 · 尖叫抱团远景",
-    "felix-play-hold": "D10 · Santa与Felix · 抱猫逗玩",
-    "felix-play-kiss": "D10 · Santa与Felix · 亲亲Felix"
+    "kiss": "停车场亲吻照片"
   },
   "props": {
     "contract": "assets/props/PROP01-contract.webp",
@@ -121,7 +105,6 @@
     "cat-bowl": "assets/props/PROP03-cat-bowl.webp",
     "cables": "assets/props/PROP08-cables.webp",
     "shopping-bag": "assets/props/PROP07-shopping-bag.webp",
-    "medicine": "assets/props/PROP05-medicine.webp",
     "receipt": "assets/props/PROP04-receipt.webp"
   },
   "fonts": {
@@ -154,28 +137,17 @@
     "assets/characters/add/normal.webp",
     "assets/characters/mother/normal.webp",
     "assets/characters/c/normal.webp",
-    "assets/cat/felix-calm.webp",
-    "assets/cat/felix-ball.webp",
-    "assets/cat/felix-paw.webp",
     "assets/cat/felix-box.webp",
     "assets/cat/felix-bag.webp",
     "assets/reactions/common/business.webp",
     "assets/reactions/common/frozen.webp",
     "assets/reactions/common/smug.webp",
-    "assets/reactions/common/listening.webp",
     "assets/cg/main/CG01-parking-before-v1.webp",
     "assets/cg/main/CG01-parking-kiss-v1.webp",
-    "assets/cg/main/CG04-horror-watch-v1.webp",
-    "assets/cg/main/CG04-horror-glance-v1.webp",
-    "assets/cg/main/CG04-horror-scream-close-v1.webp",
-    "assets/cg/main/CG04-horror-scream-wide-v1.webp",
-    "assets/cg/main/CG14-felix-play-hold-v1.webp",
-    "assets/cg/main/CG14-felix-play-kiss-v1.webp",
     "assets/props/PROP01-contract.webp",
     "assets/props/PROP02-luggage.webp",
     "assets/props/PROP03-cat-bowl.webp",
     "assets/props/PROP04-receipt.webp",
-    "assets/props/PROP05-medicine.webp",
     "assets/props/PROP07-shopping-bag.webp",
     "assets/props/PROP08-cables.webp"
   ],
@@ -210,5 +182,5 @@
     "prologue-present-phone": "assets/cg/main/CG16-present-phone-v1.svg",
     "prologue-phone-down": "assets/cg/main/CG16-phone-down-v1.svg"
   },
-  "revision": "5bc70efbf4b0"
+  "revision": "11edfd80fa9b"
 }

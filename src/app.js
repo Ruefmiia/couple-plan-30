@@ -97,8 +97,10 @@ function settings() {
 function chapter() {return story.chapters[Math.min(29, engine.stats(state).day - 1)];}
 function label(saveState = state) {
   const e = engine.current(saveState), d = engine.stats(saveState).day;
+  if (saveState.heldProgress) return '后续进度 · 已保留';
   return `D${d} · ${e.type === 'episodeEnd' ? '本期已完' : e.type === 'choice' ? e.node.title : e.type === 'result' ? '选择之后' : saveState.cursor >= story.events.length ? '尾声' : story.chapters[d-1].title}`;
 }
+function episodeRange() {return `D1—D${story.release.throughDay}`;}
 function persist() {
   library.save('auto', state, label());
   const e = engine.current(state);
@@ -114,8 +116,8 @@ function home() {
     ${stageBackground({bg:'BG03'})}${stageCharacters({type:'title'},{outfits:{perth:'home',santa:'home'},cast:['perth','santa']},true)}<div class="title-wash"></div>
     <header class="title-header"><span class="wordmark">PERTH × SANTA</span>${button('fullscreen','全屏','class="glass-button"')}</header>
     <section class="title-block"><p class="eyebrow">一份通告，两位临时当事人。</p><h1><span class="thirty">30<span>天</span></span><span class="title-words">情侣计划<span>。</span></span></h1><p class="intro">假装情侣这件事，<br>好像比想象中更需要演技。</p>
-    <nav class="title-menu" aria-label="游戏菜单">${button(latest?'continue':'new',latest?'继续游戏':'开始游戏','class="primary"')}${latest?button('new','重新开始'):''}${button('load','读取存档')}${button('collection','结局收藏')}${button('settings','游戏设置')}</nav><p class="resume-hint">${latest?esc(latest.label):story.release?'Perth视角 · 第一期 D1—D12':'Perth视角 · 30天 · 5个结局'}</p></section>
-    <footer class="title-footer"><span>轻喜剧 / 假装情侣 / 全程虚构</span><span class="preview-label">${story.release?'第一期 · D1—D12 · 结局尚未开放':'素材陆续更新中'}</span></footer><span class="portrait-tip">横屏游玩体验更佳</span>
+    <nav class="title-menu" aria-label="游戏菜单">${button(latest?'continue':'new',latest?'继续游戏':'开始游戏','class="primary"')}${latest?button('new','重新开始'):''}${button('load','读取存档')}${button('collection','结局收藏')}${button('settings','游戏设置')}</nav><p class="resume-hint">${latest?esc(latest.label):story.release?`Perth视角 · 第一期 ${episodeRange()}`:'Perth视角 · 30天 · 5个结局'}</p></section>
+    <footer class="title-footer"><span>轻喜剧 / 假装情侣 / 全程虚构</span><span class="preview-label">${story.release?`第一期 · ${episodeRange()} · 结局尚未开放`:'素材陆续更新中'}</span></footer><span class="portrait-tip">横屏游玩体验更佳</span>
   </main>`;
   scheduleWarmup(engine.fresh());
 }
@@ -178,8 +180,8 @@ function render() {
     content = `<div class="ending-card"><p class="eyebrow">${e.type==='finished' ? '本次计划 · 已完成' : '第三十天之后'}</p><div class="ending-stamp">${engine.ending(state)==='没盖章' ? '隐藏尾声' : '计划归档'}</div><h1>${esc(title.split('｜').at(-1))}</h1><p>${e.type==='finished' ? '这三十天，已经收进你的通告夹。' : '排期走到了这里，接下来的话由你们自己说。'}</p>${e.type==='finished' ? `<div class="finish-actions">${button('collection','查看结局收藏','class="primary"')}${button('new','重新开始')}${button('home','回到标题')}</div>` : ''}</div>`;
     name='30天情侣计划';text=e.type==='finished'?'这次相处已经归档。下一次，会怎样开始？':'三十天过去了，有些话才刚刚开始。';
   } else if (e.type === 'episodeEnd') {
-    content = `<div class="ending-card episode-card"><p class="eyebrow">第一期 · D1—D12</p><h1>本期已完</h1><p>选择已经记下，通告还在继续。</p><div class="finish-actions">${button('save','保存进度','class="primary"')}${button('export','导出备份')}${button('home','返回标题')}</div></div>`;
-    name='30天情侣计划';text='本期开放至第12天。你可以保存或导出进度，后续版本开放后继续游玩。';
+    content = `<div class="ending-card episode-card"><p class="eyebrow">第一期 · ${episodeRange()}</p><h1>本期已完</h1><p>${state.heldProgress?'你的后续进度已保留。':'选择已经记下，通告还在继续。'}</p><div class="finish-actions">${button('save','保存进度','class="primary"')}${button('export','导出备份')}${button('home','返回标题')}</div></div>`;
+    name='30天情侣计划';text=`本期开放至第${story.release.throughDay}天。你可以保存或导出进度，后续版本开放后继续游玩。`;
   } else if (e.type === 'scene') {
     content = `<div class="chapter-card"><p class="eyebrow">下一站</p><h1>${esc(e.location)}</h1><p>动作先确认，机位慢慢想。</p></div>`;
     text='你们来到地下停车场。摄影师还在找一个看起来不像安排过的机位。';
@@ -235,7 +237,7 @@ function saveMenu(loading = false) {
   }).join('')}</div><div class="file-actions">${inGame?button('export','导出当前进度'):''}<label class="file-button">导入存档文件<input type="file" id="import-save" accept=".json,application/json"></label></div><p class="subtle">清理浏览器数据会移除本地存档。导出文件可长期备份；不同网址的存档互不相通。</p>`,true);
 }
 function collection() {
-  if(story.release) return openModal('结局收藏','<p>结局尚未开放。本期更新至D12，已作出的选择会保留到后续版本。</p>');
+  if(story.release) return openModal('结局收藏',`<p>结局尚未开放。本期更新至D${story.release.throughDay}，已作出的选择会保留到后续版本。</p>`);
   openModal('结局收藏',`<p class="subtle">已收录 ${library.data.unlocked.length} / 5。未到达的结局不会提前展示。</p><div class="ending-list">${Object.entries(story.endings).map(([key,e],i)=>`<article><span>${String(i+1).padStart(2,'0')}</span><div><h3>${library.data.unlocked.includes(key)?esc(e.title):'尚未收录'}</h3><p>${library.data.unlocked.includes(key)?'已归档 · 可重温尾声':'继续你的三十天。'}</p></div>${library.data.unlocked.includes(key)?button('replay-ending','重温',`data-key="${key}"`):'<span class="subtle">未解锁</span>'}</article>`).join('')}</div>`,true);
 }
 function showSettings() {
@@ -361,7 +363,8 @@ document.addEventListener('change',async e=>{
       const file=e.target.files[0];if(!file)return;
       if(file.size>1024*1024)throw Error('存档文件过大，请选择游戏导出的 JSON 存档。');
       const parsed=JSON.parse(await file.text());const checked=engine.unpack(parsed);imported=parsed;
-      confirmAction('导入存档',`将打开 D${engine.stats(checked).day} 的记录。手动存档和已收录结局会保留。`,'import-confirm');
+      const message = checked.heldProgress ? '这份后续进度会保留，当前可游玩至本期末。' : `将打开 D${engine.stats(checked).day} 的记录。`;
+      confirmAction('导入存档',`${message}手动存档和已收录结局会保留。`,'import-confirm');
     }catch(err){toast(err instanceof SyntaxError?'文件不是有效的 JSON 存档。':err.message);}
   }
 });
