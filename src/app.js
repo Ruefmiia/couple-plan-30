@@ -161,13 +161,17 @@ function phoneChat(event, replayLabel) {
   </div>`;
 }
 function stageCharacters(event, stage, title=false) {
-  if (stage.cg && stageAssets.cg[stage.cg] || stageAssets.backgroundPresentation[stage.bg]?.embeddedCast) return '';
+  const artReplacesCast = (stage.cg && stageAssets.cg[stage.cg]) ||
+    stageAssets.backgroundPresentation[stage.bg]?.embeddedCast;
+  if (artReplacesCast && !stage.perthNarration) return '';
+  const cast = artReplacesCast ? ['perth'] : stage.cast;
+  const perthInset = stage.perthAside || artReplacesCast;
   const speaker=event.speaker;
   const spokenInPerson = (event.speechType || event.type) === 'dialogue' && !event.channel;
   const closePair = spokenInPerson && ['Perth','Santa'].includes(speaker) &&
-    stage.cast.length === 2 && stage.cast.includes('perth') && stage.cast.includes('santa') &&
+    cast.length === 2 && cast.includes('perth') && cast.includes('santa') &&
     stage.timeframe === 'present';
-  return `<div data-render-key="characters" class="character-layer ${title?'title-characters':''} ${stage.cast.length===1?'single-character':''}${closePair?' close-pair':''}" aria-label="出场人物">${stage.cast.map((key,i)=>{
+  return `<div data-render-key="characters" class="character-layer ${title?'title-characters':''} ${cast.length===1?'single-character':''}${closePair?' close-pair':''}${perthInset?' perth-inset':''}" aria-label="出场人物">${cast.map((key,i)=>{
     const active=!isPhoneMessage(event)&&(CHARACTER_NAMES[key]===speaker||(key==='mother'&&speaker==='妈妈'));
     const path=characterArt(stageAssets,key,stage.outfits[key]);
     const photo=path.endsWith('.webp');

@@ -41,6 +41,12 @@ dialog{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);margin:0;b
 }
 .close-pair .sprite-0 {transform:translateX(9%)}
 .close-pair .sprite-1 {transform:translateX(-9%)}
+.game-screen .perth-inset .sprite[data-character="perth"] {
+  left:2.8%;
+  bottom:34%;
+  width:15.8%;
+  height:49%;
+}
 .reaction-layer.reaction-compact {top:17%;width:clamp(34px,5.5cqw,72px)}
 .reaction-compact.reaction-left {left:24%}
 .reaction-compact.reaction-right {right:24%}

@@ -43,6 +43,16 @@ export function resolveStage({story, state, event, ending, cues}) {
   }
   apply(cues.events[event.originId||event.id]);
   if (event.type === 'result') apply(cues.results[state.choices.at(-1)]);
+  // Quoted dialogue can address somebody else. Only the narrator's own
+  // second-person wording identifies the player character.
+  if ((event.speechType || event.type) === 'narration' &&
+      event.text?.replace(/「[^」]*」|『[^』]*』|“[^”]*”/g, '').includes('你')) {
+    stage.perthNarration = true;
+    if (!stage.cast.includes('perth')) {
+      stage.perthAside = true;
+      stage.cast = ['perth', ...stage.cast];
+    }
+  }
   // Do not let an illustration from a result leak into the next beat or ending.
   if (event.type === 'choice' || event.type === 'chapter' || event.type === 'ending' || event.type === 'finished') stage.reaction = null;
   if (stage.cg) stage.reaction = null;
