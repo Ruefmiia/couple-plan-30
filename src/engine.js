@@ -51,7 +51,8 @@ export function createEngine(story, rules) {
     const event = story.events[state.cursor];
     if (event.type === 'choice' && state.result) {
       const option = options.get(state.choices.at(-1));
-      return {type: 'result', id: `${event.id}-result`, text: option.result.replace(/〔M[123]〕/g, '').trim(), chosen: option.text, beats:option.resultBeats};
+      return {type: 'result', id: `${event.id}-result`, text: option.result.replace(/〔M[123]〕/g, '').trim(), chosen: option.text, beats:option.resultBeats,
+        revised:option.revised, legacyBeatMap:option.legacyBeatMap};
     }
     return event.type === 'choice' ? {...event, node: nodes.get(event.nodeId)} : event;
   }
@@ -135,11 +136,25 @@ export function createEngine(story, rules) {
   function pack(state, label = '') {
     const savedState = state.heldProgress ? holdLaterProgress(state.heldProgress)?.heldProgress : validate(state);
     if (!savedState) throw new Error('存档进度不正确。');
-    return {game: GAME_ID, saveVersion: SAVE_VERSION, storyVersion: story.version, savedAt: new Date().toISOString(), label: String(label).slice(0, 60), state: savedState};
+    return {game: GAME_ID, saveVersion: SAVE_VERSION, storyVersion: story.version,
+      ...(story.dialogueRevision ? {dialogueRevision:story.dialogueRevision} : {}),
+      savedAt: new Date().toISOString(), label: String(label).slice(0, 60), state: savedState};
   }
   function unpack(save) {
     if (save?.game !== GAME_ID || save.saveVersion !== SAVE_VERSION || save.storyVersion !== story.version) throw new Error('这不是兼容的《30天情侣计划》存档。');
-    return holdLaterProgress(save.state) ?? validate(save.state);
+    const held = holdLaterProgress(save.state);
+    if (held) return held;
+    const state = validate(save.state);
+    if (story.dialogueRevision && !save.dialogueRevision) {
+      const event = paragraph(state);
+      if (event.revised) {
+        const mappedBeat = event.legacyBeatMap?.[state.beat || 0];
+        if (mappedBeat) state.beat = mappedBeat;
+        // Old line lengths cannot safely locate a page within rewritten text.
+        delete state.textOffset;
+      }
+    }
+    return state;
   }
   function history(state) {
     const rows = [];

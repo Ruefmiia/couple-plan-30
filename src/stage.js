@@ -17,8 +17,8 @@ function getStageIndex(story,cues) {
 
 export function resolveStage({story, state, event, ending, cues}) {
   const main = state.cursor < story.events.length || event.type === 'episodeEnd';
-  const timeline = main ? story.events : story.endings[ending].events;
   const index = main ? state.cursor : state.endingCursor - 1;
+  const beat = event.stageBeat ?? state.beat ?? 0;
   const lookup=getStageIndex(story,cues),position=Math.min(state.cursor,story.events.length-1);
   const chapter=lookup.chapters[position],place=lookup.places[position];
   const outfit = cues.workDays.includes(chapter?.day) ? 'work' : 'home';
@@ -31,15 +31,14 @@ export function resolveStage({story, state, event, ending, cues}) {
     Object.assign(stage, rest);
     if (outfits) Object.assign(stage.outfits, outfits);
     for (const step of beatSteps) {
-      const beat=state.beat||0;
       if(beat>=step.fromBeat && (step.toBeat==null||beat<=step.toBeat))apply(step.stage);
     }
   };
   for (const range of lookup.ranges) {
     if ((range.scope || 'main') !== (main ? 'main' : ending)) continue;
     const from=range.fromIndex,to=range.toIndex;
-    if (index===from && (state.beat||0)<(range.fromBeat||0)) continue;
-    if (index===to && range.toBeat!=null && (state.beat||0)>range.toBeat) continue;
+    if (index===from && beat<(range.fromBeat||0)) continue;
+    if (index===to && range.toBeat!=null && beat>range.toBeat) continue;
     if (from >= 0 && to >= from && index >= from && index <= to) apply(range.stage);
   }
   apply(cues.events[event.originId||event.id]);
@@ -50,7 +49,6 @@ export function resolveStage({story, state, event, ending, cues}) {
   if (['chapter','scene','ending','finished'].includes(event.type)) stage.prop = null;
   if (stage.prop) {
     const {afterBeat=0, steps=[], ...prop}=stage.prop;
-    const beat=state.beat||0;
     stage.prop=beat<afterBeat?null:{...prop,...steps.filter(step=>step.fromBeat<=beat).at(-1)};
     if(stage.prop)delete stage.prop.fromBeat;
   }

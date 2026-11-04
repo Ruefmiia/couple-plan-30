@@ -241,6 +241,22 @@
         "label": "我催摄影师"
       }
     },
+    "line-0039": {
+      "beatSteps": [
+        {
+          "fromBeat": 5,
+          "toBeat": 6,
+          "stage": {
+            "reaction": {
+              "owner": "perth",
+              "key": "blush",
+              "label": "有点不好意思",
+              "compact": true
+            }
+          }
+        }
+      ]
+    },
     "line-0043": {
       "reaction": {
         "owner": "perth",
@@ -283,6 +299,22 @@
         "label": "收缴成功"
       }
     },
+    "line-0106": {
+      "beatSteps": [
+        {
+          "fromBeat": 4,
+          "toBeat": 4,
+          "stage": {
+            "reaction": {
+              "owner": "perth",
+              "key": "sweat",
+              "label": "又说了一遍晚安",
+              "compact": true
+            }
+          }
+        }
+      ]
+    },
     "line-0108": {
       "reaction": {
         "owner": "add",
@@ -309,7 +341,28 @@
         "owner": "perth",
         "key": "frozen",
         "label": "安全带系回去"
-      }
+      },
+      "beatSteps": [
+        {
+          "fromBeat": 1,
+          "toBeat": 3,
+          "stage": {
+            "reaction": null
+          }
+        },
+        {
+          "fromBeat": 4,
+          "toBeat": 4,
+          "stage": {
+            "reaction": {
+              "owner": "perth",
+              "key": "sweat",
+              "label": "找了个借口",
+              "compact": true
+            }
+          }
+        }
+      ]
     },
     "line-0149": {
       "reaction": {
@@ -317,6 +370,22 @@
         "key": "frozen",
         "label": "饿还要演？"
       }
+    },
+    "line-0155": {
+      "beatSteps": [
+        {
+          "fromBeat": 13,
+          "toBeat": 13,
+          "stage": {
+            "reaction": {
+              "owner": "perth",
+              "key": "startled",
+              "label": "被突然点名",
+              "compact": true
+            }
+          }
+        }
+      ]
     },
     "line-0045": {
       "cg": "kiss"
@@ -410,6 +479,26 @@
         "key": "business",
         "label": "只安排了路线"
       },
+      "beatSteps": [
+        {
+          "fromBeat": 4,
+          "toBeat": 4,
+          "stage": {
+            "reaction": {
+              "owner": "santa",
+              "key": "spark",
+              "label": "逗他一下",
+              "compact": true
+            }
+          }
+        },
+        {
+          "fromBeat": 5,
+          "stage": {
+            "reaction": null
+          }
+        }
+      ],
       "prop": {
         "key": "shopping-bag",
         "label": "购物纸袋",
@@ -454,6 +543,22 @@
         "label": "自然一点的路在哪"
       },
       "prop": null
+    },
+    "N05-2": {
+      "beatSteps": [
+        {
+          "fromBeat": 5,
+          "toBeat": 5,
+          "stage": {
+            "reaction": {
+              "owner": "santa",
+              "key": "blush",
+              "label": "低头换了只手",
+              "compact": true
+            }
+          }
+        }
+      ]
     },
     "N03-1": {
       "bg": "BG04",

@@ -60,10 +60,14 @@
   "reactions": {
     "frozen": "assets/reactions/common/frozen.webp",
     "smug": "assets/reactions/common/smug.webp",
-    "business": "assets/reactions/common/business.webp"
+    "business": "assets/reactions/common/business.webp",
+    "blush": "assets/reactions/common/blush.svg",
+    "spark": "assets/reactions/common/spark.svg",
+    "sweat": "assets/reactions/common/sweat.svg",
+    "startled": "assets/reactions/common/startled.svg"
   },
   "cg": {
-    "speculation-seven-lines": "assets/cg/main/CG15-seven-lines-v1.svg",
+    "speculation-seven-lines": "assets/cg/main/CG15-seven-circles-v2.svg",
     "prologue-meeting-replay": "assets/cg/main/CG16-meeting-replay-v1.svg",
     "prologue-replay-phone": "assets/cg/main/CG16-replay-phone-v1.svg",
     "prologue-replay-mic": "assets/cg/main/CG16-replay-mic-v1.svg",
@@ -90,7 +94,7 @@
     }
   },
   "cgLabels": {
-    "speculation-seven-lines": "网友脑补示意：七个圆圈小人、七条关系线，其中两条连到你",
+    "speculation-seven-lines": "网友脑补示意：七个圈，其中两个圈在你身上",
     "prologue-meeting-replay": "会议室内重播录像",
     "prologue-replay-phone": "录像中的C：电话尚未挂断、麦克风仍开",
     "prologue-replay-mic": "录像中的C：看弹幕，再看麦克风",
@@ -175,12 +179,12 @@
     "assets/characters/c/normal.webp": "assets/preview/c-normal.svg"
   },
   "illustrations": {
-    "seven-lines": "assets/cg/main/CG15-seven-lines-v1.svg",
+    "seven-circles": "assets/cg/main/CG15-seven-circles-v2.svg",
     "prologue-meeting-replay": "assets/cg/main/CG16-meeting-replay-v1.svg",
     "prologue-replay-phone": "assets/cg/main/CG16-replay-phone-v1.svg",
     "prologue-replay-mic": "assets/cg/main/CG16-replay-mic-v1.svg",
     "prologue-present-phone": "assets/cg/main/CG16-present-phone-v1.svg",
     "prologue-phone-down": "assets/cg/main/CG16-phone-down-v1.svg"
   },
-  "revision": "aec6ddea165c"
+  "revision": "a7fb698cfc4f"
 }

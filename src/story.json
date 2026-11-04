@@ -1,39 +1,40 @@
 {
   "version": "story-1",
+  "dialogueRevision": "d1-d7-v2",
   "chapters": [
     {
       "day": 1,
-      "title": "你们亲一下，给他收拾一下",
+      "title": "签完字，第一件事是下楼亲一下",
       "location": "公司 · 会议室"
     },
     {
       "day": 2,
-      "title": "情侣包邮，两箱起送",
+      "title": "猫没来，它的碗先住下了",
       "location": "Perth家 · 玄关"
     },
     {
       "day": 3,
-      "title": "偶遇，请按导航行驶",
+      "title": "绕了三圈，才像一次偶遇",
       "location": "商场"
     },
     {
       "day": 4,
-      "title": "晚安还要返场",
+      "title": "晚安说三遍，第四遍换私聊",
       "location": "家 · 夜晚"
     },
     {
       "day": 5,
-      "title": "是谁先表白？请先统一当事人",
+      "title": "话筒先撞了，答案还没对",
       "location": "专访现场"
     },
     {
       "day": 6,
-      "title": "接人的车，差点接到一场家庭伦理剧",
+      "title": "眼睛红了，原因是辣椒",
       "location": "妈妈家楼下 · 车内"
     },
     {
       "day": 7,
-      "title": "自然吃饭，第四条，开始",
+      "title": "垃圾桶是空的，借口用完了",
       "location": "家 · 餐桌"
     }
   ],
@@ -41,121 +42,308 @@
     {
       "type": "chapter",
       "day": 1,
-      "title": "你们亲一下，给他收拾一下",
+      "title": "签完字，第一件事是下楼亲一下",
       "location": "公司 · 会议室",
       "bg": "BG01",
       "id": "line-0000"
     },
     {
       "type": "narration",
-      "text": "昨晚，同事C把游戏暂停，朝工作人员比了个接电话的手势，点一下屏幕，转过椅子。他以为麦克风已经关了。",
-      "id": "line-0001"
+      "text": "昨晚，同事 C 正在直播打游戏。电话响了，他暂停游戏，朝工作人员晃了晃手机。他在屏幕角落点了一下，关掉一个弹窗广告，以为那是麦。这才背过身去接电话。",
+      "id": "line-0001",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "昨晚，同事 C 正在直播打游戏。电话响了，他暂停游戏，朝工作人员晃了晃手机。他在屏幕角落点了一下，关掉一个弹窗广告，以为那是麦。这才背过身去接电话。"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "没有，我跟谁说去？",
+      "text": "C：没说啊。我能跟谁说？",
       "speaker": "C",
-      "id": "line-0002"
+      "id": "line-0002",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "没说啊。我能跟谁说？",
+          "speaker": "C"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "现在说是朋友了？那天停车场，我又不是没看见你们亲——",
+      "text": "C：朋友？那天在停车场，我明明看见你们亲——",
       "speaker": "C",
-      "id": "line-0003"
+      "id": "line-0003",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "朋友？那天在停车场，我明明看见你们亲——",
+          "speaker": "C"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "电话那头似乎说了什么，他立刻举起另一只手。",
-      "id": "line-0004"
+      "text": "电话那头打断了他。他举起空着的那只手，像在跟一个看不见的人解释。",
+      "id": "line-0004",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "电话那头打断了他。他举起空着的那只手，像在跟一个看不见的人解释。"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "好好好，还在交谈。你说什么就是什么。",
+      "text": "C：好好好，还在互相了解。懂了。",
       "speaker": "C",
-      "id": "line-0005"
+      "id": "line-0005",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "好好好，还在互相了解。懂了。",
+          "speaker": "C"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "放心，我没告诉别人。挂了，我还在直播。",
+      "text": "C：放心，我没告诉别人。挂了，我还在直播。",
       "speaker": "C",
-      "id": "line-0006"
+      "id": "line-0006",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "放心，我没告诉别人。挂了，我还在直播。",
+          "speaker": "C"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "弹幕：你确实还在直播。麦没关！！谁亲谁？是搭档还是别人？",
-      "id": "line-0007"
+      "text": "弹幕刷得飞快。「哥，麦没关！！」「谁跟谁亲了？」「是搭档吗？」",
+      "id": "line-0007",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "弹幕刷得飞快。「哥，麦没关！！」「谁跟谁亲了？」「是搭档吗？」"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "……刚才从哪句开始听见的？",
+      "text": "C：……你们从哪句开始听的？\n他把这句话又问了一遍，还凑近看了看摄像头。\n弹幕回答他：从头。",
       "speaker": "C",
-      "id": "line-0008"
+      "id": "line-0008",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "……你们从哪句开始听的？",
+          "speaker": "C"
+        },
+        {
+          "type": "narration",
+          "text": "他把这句话又问了一遍，还凑近看了看摄像头。"
+        },
+        {
+          "type": "narration",
+          "text": "弹幕回答他：从头。"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "第二天，一张普通聚餐照被画了七根线，其中两根经过你。品牌方也开始追问，多人活动能否保证不继续讨论这件事。公司发过请勿猜测的声明，没能让猜测停下来。",
-      "id": "line-0009"
+      "text": "第二天，一张普通聚餐照被画了七个圈，其中两个圈在你身上。公司发了声明请大家别猜，转发里还在对名单。连品牌方都来问：过两天的多人活动上，万一有人当面问起这件事，谁来接话？",
+      "id": "line-0009",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "第二天，一张普通聚餐照被画了七个圈，其中两个圈在你身上。公司发了声明请大家别猜，转发里还在对名单。连品牌方都来问：过两天的多人活动上，万一有人当面问起这件事，谁来接话？"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "会议室里，同事C的直播事故正在重播。",
-      "id": "line-0010"
+      "text": "会议室里，C 的直播事故正在重播。",
+      "id": "line-0010",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "会议室里，C 的直播事故正在重播。"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "放心，我没告诉别人。挂了，我还在直播。",
+      "text": "C：放心，我没告诉别人。挂了，我还在直播。",
       "speaker": "C",
-      "id": "line-0011"
+      "id": "line-0011",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "放心，我没告诉别人。挂了，我还在直播。",
+          "speaker": "C"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "视频里的C转过来，看见弹幕，又慢慢转回去看麦克风图标。",
-      "id": "line-0012"
+      "text": "视频里的 C 转回来，看了眼弹幕，又低头确认麦克风图标。亮着。",
+      "id": "line-0012",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "视频里的 C 转回来，看了眼弹幕，又低头确认麦克风图标。亮着。"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "现实里的C坐在同一个角度，也看着自己的手机。",
-      "id": "line-0013"
+      "text": "坐在你对面的 C 也低着头，手机上还开着昨晚的评论。\n他把屏幕调暗一格，又调亮回来。会议室的灯太亮，谁都能看见他在看什么。",
+      "id": "line-0013",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "坐在你对面的 C 也低着头，手机上还开着昨晚的评论。"
+        },
+        {
+          "type": "narration",
+          "text": "他把屏幕调暗一格，又调亮回来。会议室的灯太亮，谁都能看见他在看什么。"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "你伸手替他把屏幕朝下。",
-      "id": "line-0014"
+      "text": "你伸手替他把手机扣在桌上。",
+      "id": "line-0014",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "你伸手替他把手机扣在桌上。"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "先别看它了。它什么都知道。",
+      "text": "Perth：行了，别往下翻了。再翻一会儿，人家连你几点睡的都要猜出来了。",
       "speaker": "Perth",
-      "id": "line-0015"
+      "id": "line-0015",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "行了，别往下翻了。再翻一会儿，人家连你几点睡的都要猜出来了。",
+          "speaker": "Perth"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "Santa原本靠在椅背上，听到这里坐直，把自己的手机也翻了过去。",
-      "id": "line-0016"
+      "text": "Santa 刚滑到下一条。听完，他把手机翻过来扣好，还替你按了一下。",
+      "id": "line-0016",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "Santa 刚滑到下一条。听完，他把手机翻过来扣好，还替你按了一下。"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "Add关掉视频，拿出两份文件。",
-      "id": "line-0017"
+      "text": "Add 关掉视频，拿出两份文件。",
+      "id": "line-0017",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "Add 关掉视频，拿出两份文件。"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "C当时接的是D的私人电话。D和非搭档恋人E确实被他撞见过亲吻，暂时不能公开。C没有说名字，现在公司里能对上时间地点的人都被猜了一遍。",
-      "id": "line-0018"
+      "text": "Add 把事情从头说了一遍。C 昨晚接的是 D 的电话。他撞见过 D 和 E 接吻。两人私下交往，D 平时公开活动另有搭档。直播里没漏名字，网友就挨个翻那天去过停车场的人。\nC：我没漏名字。\nAdd：你漏了。\nC 抬起手，又放下。",
+      "id": "line-0018",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "Add 把事情从头说了一遍。C 昨晚接的是 D 的电话。他撞见过 D 和 E 接吻。两人私下交往，D 平时公开活动另有搭档。直播里没漏名字，网友就挨个翻那天去过停车场的人。"
+        },
+        {
+          "type": "dialogue",
+          "text": "我没漏名字。",
+          "speaker": "C"
+        },
+        {
+          "type": "dialogue",
+          "text": "你漏了。",
+          "speaker": "Add"
+        },
+        {
+          "type": "narration",
+          "text": "C 抬起手，又放下。"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "公司需要一组知情且愿意的人，承接那句“还在交谈”。你和Santa符合，也不是唯一符合；前面谈过的人没接下，你们才坐到了这里。",
-      "id": "line-0019"
+      "text": "Add 的办法是找一对知道内情、也愿意配合的搭档，对外认下那句「还在互相了解」。她已经问过几组人，都没谈成。现在轮到你和 Santa。\nPerth：没谈成，是因为钱，还是因为别的？\nAdd：因为要演三十天。\n她说得很平静，像在念天气预报。",
+      "id": "line-0019",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "Add 的办法是找一对知道内情、也愿意配合的搭档，对外认下那句「还在互相了解」。她已经问过几组人，都没谈成。现在轮到你和 Santa。"
+        },
+        {
+          "type": "dialogue",
+          "text": "没谈成，是因为钱，还是因为别的？",
+          "speaker": "Perth"
+        },
+        {
+          "type": "dialogue",
+          "text": "因为要演三十天。",
+          "speaker": "Add"
+        },
+        {
+          "type": "narration",
+          "text": "她说得很平静，像在念天气预报。"
+        }
+      ]
     },
     {
       "type": "narration",
       "text": "文件封面是《30天情侣计划》。你往后翻到约会记录，手停了。",
-      "id": "line-0020"
+      "id": "line-0020",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "文件封面是《30天情侣计划》。你往后翻到约会记录，手停了。"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "Perth：三十天以后呢？\nAdd：根据情况友好结束。",
+      "text": "Perth：三十天以后呢？\nAdd：到时候看情况。真要分，就说和平分手。",
       "speaker": "Perth",
       "id": "line-0021",
       "beats": [
@@ -166,14 +354,15 @@
         },
         {
           "type": "dialogue",
-          "speaker": "Add",
-          "text": "根据情况友好结束。"
+          "text": "到时候看情况。真要分，就说和平分手。",
+          "speaker": "Add"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "dialogue",
-      "text": "Perth：还得友好？\nAdd：对。吵架不在这次预算里。",
+      "text": "Perth：还得友好？\nAdd：对。吵架不在这次预算里。\n你把这句话记了一下。你觉得它以后大概用得上。",
       "speaker": "Perth",
       "id": "line-0022",
       "beats": [
@@ -184,26 +373,62 @@
         },
         {
           "type": "dialogue",
-          "speaker": "Add",
-          "text": "对。吵架不在这次预算里。"
+          "text": "对。吵架不在这次预算里。",
+          "speaker": "Add"
+        },
+        {
+          "type": "narration",
+          "text": "你把这句话记了一下。你觉得它以后大概用得上。"
+        }
+      ],
+      "revised": true
+    },
+    {
+      "type": "narration",
+      "text": "Santa 凑近看了一眼，指着约会记录下面那行：",
+      "id": "line-0023",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "Santa 凑近看了一眼，指着约会记录下面那行："
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "text": "Santa：Phi Perth，吃饭给报销欸。",
+      "speaker": "Santa",
+      "id": "line-0024",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "Phi Perth，吃饭给报销欸。",
+          "speaker": "Santa"
         }
       ]
     },
     {
       "type": "narration",
-      "text": "Santa凑近看了一眼，指着约会记录下面那行：",
-      "id": "line-0023"
-    },
-    {
-      "type": "dialogue",
-      "text": "有餐费。",
-      "speaker": "Santa",
-      "id": "line-0024"
-    },
-    {
-      "type": "narration",
-      "text": "你把文件往自己面前拉回来一点。",
-      "id": "line-0025"
+      "text": "你把文件往自己面前拉回来一点。\nSanta：那个……饭一天报几顿？\n你把文件又往自己面前拉了半寸。",
+      "id": "line-0025",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "你把文件往自己面前拉回来一点。"
+        },
+        {
+          "type": "dialogue",
+          "text": "那个……饭一天报几顿？",
+          "speaker": "Santa"
+        },
+        {
+          "type": "narration",
+          "text": "你把文件又往自己面前拉了半寸。"
+        }
+      ]
     },
     {
       "type": "choice",
@@ -212,82 +437,171 @@
     },
     {
       "type": "narration",
-      "text": "Santa把亲密动作提前确认的条款看完，放下文件。\nSanta：可以。我同意。\n你们签字。Add收起文件，站起来。\nAdd：走，下楼。",
+      "text": "Santa 翻到那行写着牵手、拥抱、接吻都得先问过对方，才把文件放下。\nSanta：这行说，接吻也要先问。\nAdd：对。\nSanta：问谁？\nAdd：问他。\nSanta 转过来看你，问得很正经。\nSanta：那我先问一句。可以签了吗？\n你点了头。点完才发现，这是今天第一件被问过的事。\nSanta：那行，我签。\n你们签字。Add 收起文件，站起来。\nAdd：走，下楼。",
       "id": "line-0027",
       "beats": [
         {
           "type": "narration",
-          "text": "Santa把亲密动作提前确认的条款看完，放下文件。"
+          "text": "Santa 翻到那行写着牵手、拥抱、接吻都得先问过对方，才把文件放下。",
+          "stageBeat": 0
         },
         {
           "type": "dialogue",
-          "text": "可以。我同意。",
-          "speaker": "Santa"
+          "text": "这行说，接吻也要先问。",
+          "speaker": "Santa",
+          "stageBeat": 0
+        },
+        {
+          "type": "dialogue",
+          "text": "对。",
+          "speaker": "Add",
+          "stageBeat": 0
+        },
+        {
+          "type": "dialogue",
+          "text": "问谁？",
+          "speaker": "Santa",
+          "stageBeat": 0
+        },
+        {
+          "type": "dialogue",
+          "text": "问他。",
+          "speaker": "Add",
+          "stageBeat": 0
         },
         {
           "type": "narration",
-          "text": "你们签字。Add收起文件，站起来。"
+          "text": "Santa 转过来看你，问得很正经。",
+          "stageBeat": 0
+        },
+        {
+          "type": "dialogue",
+          "text": "那我先问一句。可以签了吗？",
+          "speaker": "Santa",
+          "stageBeat": 0
+        },
+        {
+          "type": "narration",
+          "text": "你点了头。点完才发现，这是今天第一件被问过的事。",
+          "stageBeat": 0
+        },
+        {
+          "type": "dialogue",
+          "text": "那行，我签。",
+          "speaker": "Santa",
+          "stageBeat": 1
+        },
+        {
+          "type": "narration",
+          "text": "你们签字。Add 收起文件，站起来。",
+          "stageBeat": 2
         },
         {
           "type": "dialogue",
           "text": "走，下楼。",
-          "speaker": "Add"
+          "speaker": "Add",
+          "stageBeat": 3
         }
-      ]
+      ],
+      "legacyBeatMap": [
+        0,
+        8,
+        9,
+        10
+      ],
+      "revised": true
     },
     {
       "type": "dialogue",
-      "text": "Perth：今天还有什么？\nAdd：亲一下。",
+      "text": "Perth：等一下，下楼干吗？\nAdd：亲一下。",
       "speaker": "Perth",
       "id": "line-0028",
       "beats": [
         {
           "type": "dialogue",
-          "text": "今天还有什么？",
+          "text": "等一下，下楼干吗？",
           "speaker": "Perth"
         },
         {
           "type": "dialogue",
-          "speaker": "Add",
-          "text": "亲一下。"
+          "text": "亲一下。",
+          "speaker": "Add"
+        }
+      ],
+      "revised": true
+    },
+    {
+      "type": "narration",
+      "text": "你看向 C。",
+      "id": "line-0029",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "你看向 C。"
         }
       ]
     },
     {
       "type": "narration",
-      "text": "你看向C。",
-      "id": "line-0029"
-    },
-    {
-      "type": "narration",
       "text": "他立刻举起两只手。",
-      "id": "line-0030"
+      "id": "line-0030",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "他立刻举起两只手。"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "不关我的——",
+      "text": "C：不关我的——",
       "speaker": "C",
-      "id": "line-0031"
+      "id": "line-0031",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "不关我的——",
+          "speaker": "C"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "Add看他。",
-      "id": "line-0032"
+      "text": "Add 看他。",
+      "id": "line-0032",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "Add 看他。"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "……是关我的事。",
+      "text": "C：……是关我的事。",
       "speaker": "C",
-      "id": "line-0033"
+      "id": "line-0033",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "……是关我的事。",
+          "speaker": "C"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "停车场里，摄影师把试拍照片递给Add。\nAdd：这张太清楚了。\n摄影师往后退。新照片里，只剩半个脑袋。\nAdd：脸要认得出来，但别像我们安排的。",
+      "text": "Add 要一张看着像从远处拍到的照片。到了停车场，摄影师把相机递给她看。\nAdd：这张太清楚了。\n摄影师退到柱子后面。再按一次快门，柱子挡得只剩半张脸。\nAdd：脸得认得出。你再往左一点，别拍得像海报。\n摄影师往左挪了半步，又挪回来。他看起来想解释点什么，最后什么也没说。",
       "id": "line-0034",
       "beats": [
         {
           "type": "narration",
-          "text": "停车场里，摄影师把试拍照片递给Add。"
+          "text": "Add 要一张看着像从远处拍到的照片。到了停车场，摄影师把相机递给她看。"
         },
         {
           "type": "dialogue",
@@ -296,76 +610,137 @@
         },
         {
           "type": "narration",
-          "text": "摄影师往后退。新照片里，只剩半个脑袋。"
+          "text": "摄影师退到柱子后面。再按一次快门，柱子挡得只剩半张脸。"
         },
         {
           "type": "dialogue",
-          "speaker": "Add",
-          "text": "脸要认得出来，但别像我们安排的。"
+          "text": "脸得认得出。你再往左一点，别拍得像海报。",
+          "speaker": "Add"
+        },
+        {
+          "type": "narration",
+          "text": "摄影师往左挪了半步，又挪回来。他看起来想解释点什么，最后什么也没说。"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
       "text": "摄影师拿着相机想了想。",
-      "id": "line-0035"
+      "id": "line-0035",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "摄影师拿着相机想了想。"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "要不我们先亲，您慢慢想？",
+      "text": "Santa：要不我们先亲，您慢慢想？",
       "speaker": "Santa",
-      "id": "line-0036"
+      "id": "line-0036",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "要不我们先亲，您慢慢想？",
+          "speaker": "Santa"
+        }
+      ]
     },
     {
       "type": "narration",
       "text": "你转头看他。他也看你，还很体贴地补一句：",
-      "id": "line-0037"
+      "id": "line-0037",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "你转头看他。他也看你，还很体贴地补一句："
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "不催你，P'Perth。我催他。",
+      "text": "Santa：Phi Perth，我问的是摄影师。你慢慢来。\n摄影师在柱子后面咳了一声。",
       "speaker": "Santa",
-      "id": "line-0038"
+      "id": "line-0038",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "Phi Perth，我问的是摄影师。你慢慢来。",
+          "speaker": "Santa"
+        },
+        {
+          "type": "narration",
+          "text": "摄影师在柱子后面咳了一声。"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "动作和接触范围确认完，他站到你面前。刚才你还在惦记约会地点，现在已经不知道手放哪。\nPerth：你这张脸，还得找角度？\nSanta：什么意思？\nPerth：美人，怎么拍都好看。\nSanta：是帅，不是美。\nPerth：好，帅哥。那再靠近一点。\nSanta走近半步，眼睛还盯着你。你嘴上改得很快，心里倒没觉得自己说错。",
+      "text": "你们说好怎么站，亲一下就分开。他走到你面前。你刚才还在惦记约会地点，现在连手放哪儿都不知道。\nPerth：老实说，你这张脸还用挑角度啊？\nSanta：什么意思？\n你把这句话重新想了一遍，发现自己确实没想好后半句。\nPerth：说你好看啊，美人。\nSanta：是帅，不是美。\nPerth：好。Santy，再靠近一点。\nSanta 走近半步，还盯着你。你耳朵有点热，只好低头看他的鞋。",
       "id": "line-0039",
       "beats": [
         {
           "type": "narration",
-          "text": "动作和接触范围确认完，他站到你面前。刚才你还在惦记约会地点，现在已经不知道手放哪。"
+          "text": "你们说好怎么站，亲一下就分开。他走到你面前。你刚才还在惦记约会地点，现在连手放哪儿都不知道。",
+          "stageBeat": 0
         },
         {
           "type": "dialogue",
-          "text": "你这张脸，还得找角度？",
-          "speaker": "Perth"
+          "text": "老实说，你这张脸还用挑角度啊？",
+          "speaker": "Perth",
+          "stageBeat": 1
         },
         {
           "type": "dialogue",
           "text": "什么意思？",
-          "speaker": "Santa"
+          "speaker": "Santa",
+          "stageBeat": 2
+        },
+        {
+          "type": "narration",
+          "text": "你把这句话重新想了一遍，发现自己确实没想好后半句。",
+          "stageBeat": 2
         },
         {
           "type": "dialogue",
-          "text": "美人，怎么拍都好看。",
-          "speaker": "Perth"
+          "text": "说你好看啊，美人。",
+          "speaker": "Perth",
+          "stageBeat": 3
         },
         {
           "type": "dialogue",
           "text": "是帅，不是美。",
-          "speaker": "Santa"
+          "speaker": "Santa",
+          "stageBeat": 4
         },
         {
           "type": "dialogue",
-          "text": "好，帅哥。那再靠近一点。",
-          "speaker": "Perth"
+          "text": "好。Santy，再靠近一点。",
+          "speaker": "Perth",
+          "stageBeat": 5
         },
         {
           "type": "narration",
-          "text": "Santa走近半步，眼睛还盯着你。你嘴上改得很快，心里倒没觉得自己说错。"
+          "text": "Santa 走近半步，还盯着你。你耳朵有点热，只好低头看他的鞋。",
+          "stageBeat": 6
         }
-      ]
+      ],
+      "legacyBeatMap": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+      ],
+      "revised": true
     },
     {
       "type": "scene",
@@ -380,29 +755,38 @@
     },
     {
       "type": "narration",
-      "text": "Santa凑过来看照片。\nSanta：以后每次都要先试一遍吗？",
+      "text": "Santa 凑过来看照片。\nSanta：以后每次都要先试一遍吗？",
       "id": "line-0042",
       "beats": [
         {
           "type": "narration",
-          "text": "Santa凑过来看照片。"
+          "text": "Santa 凑过来看照片。"
         },
         {
           "type": "dialogue",
           "text": "以后每次都要先试一遍吗？",
           "speaker": "Santa"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "dialogue",
-      "text": "熟了应该就不用了。",
+      "text": "Perth：熟了应该就不用了。",
       "speaker": "Perth",
-      "id": "line-0043"
+      "id": "line-0043",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "熟了应该就不用了。",
+          "speaker": "Perth"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "Santa：好。\n他点点头。你发现自己刚才那句话，也没指定到底是哪一种熟。",
+      "text": "Santa：好。\n他点点头。你没解释熟的是哪个。",
       "id": "line-0044",
       "beats": [
         {
@@ -412,67 +796,110 @@
         },
         {
           "type": "narration",
-          "text": "他点点头。你发现自己刚才那句话，也没指定到底是哪一种熟。"
+          "text": "他点点头。你没解释熟的是哪个。"
+        }
+      ],
+      "revised": true
+    },
+    {
+      "type": "narration",
+      "text": "晚上，照片传开了。公司对外说，C 提到的就是你们。照片拍得太清楚，反倒有人怀疑是摆的。热评第一条问：摄影师站哪儿？",
+      "when": {
+        "choice": "N01-1"
+      },
+      "id": "line-0045",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "晚上，照片传开了。公司对外说，C 提到的就是你们。照片拍得太清楚，反倒有人怀疑是摆的。热评第一条问：摄影师站哪儿？"
         }
       ]
     },
     {
       "type": "narration",
-      "text": "当晚照片流出，公司确认C说的是你们。照片里亲吻的角度很准，也有人说准得像摆拍。",
-      "when": {
-        "choice": "N01-1"
-      },
-      "id": "line-0045"
-    },
-    {
-      "type": "narration",
-      "text": "当晚照片流出，公司确认C说的是你们。照片里你正看着Santa，评论已经开始替你解释那个眼神。",
+      "text": "晚上，照片传开了。公司对外说，C 提到的就是你们。照片里的你还看着 Santa，底下已经有人说，看他那个眼神，肯定早就喜欢了。你把那张存了下来，理由是留着看看自己演得怎么样。",
       "when": {
         "choice": "N01-2"
       },
-      "id": "line-0046"
+      "id": "line-0046",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "晚上，照片传开了。公司对外说，C 提到的就是你们。照片里的你还看着 Santa，底下已经有人说，看他那个眼神，肯定早就喜欢了。你把那张存了下来，理由是留着看看自己演得怎么样。"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "当晚照片流出，公司确认C说的是你们。有人问为什么照片这么虚，另一个人回：可能摄影师也没反应过来。",
+      "text": "晚上，照片传开了。公司对外说，C 提到的就是你们。有人嫌照片太糊，有人回：「人家也是刚撞见，手抖一下怎么了？」",
       "when": {
         "choice": "N01-3"
       },
-      "id": "line-0047"
+      "id": "line-0047",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "晚上，照片传开了。公司对外说，C 提到的就是你们。有人嫌照片太糊，有人回：「人家也是刚撞见，手抖一下怎么了？」"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "当晚照片流出，公司确认C说的是你们。有人研究到底亲没亲上，研究截图的清晰度比原图还低。",
+      "text": "晚上，照片传开了。公司对外说，C 提到的就是你们。有人把两张脸放大到只剩一片像素，还在争中间到底有没有缝。有人做了张示意图。",
       "when": {
         "choice": "N01-4"
       },
-      "id": "line-0048"
+      "id": "line-0048",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "晚上，照片传开了。公司对外说，C 提到的就是你们。有人把两张脸放大到只剩一片像素，还在争中间到底有没有缝。有人做了张示意图。"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "但所有人都开始翻旧图，写恋爱时间线。",
-      "id": "line-0049"
+      "text": "很快就有人翻出旧照，要从头捋你们是什么时候好上的。",
+      "id": "line-0049",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "很快就有人翻出旧照，要从头捋你们是什么时候好上的。"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "Santa给你发来一张活动照。照片里，你正低头贴近他的脸。",
-      "id": "line-0050"
+      "text": "Santa 给你发来一张活动照。照片里，你正低头贴近他的脸。",
+      "id": "line-0050",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "Santa 给你发来一张活动照。照片里，你正低头贴近他的脸。"
+        }
+      ]
     },
     {
       "type": "message",
-      "text": "消息·Santa：他们说这里开始不对劲。\n消息·Perth：这里是你问厕所在哪。\n消息·Santa：那确实挺急的。",
+      "text": "消息·Santa：有人说我们从这天就开始谈了。\n消息·Perth：那天你问我厕所在哪。\n消息·Santa：那确实挺急的。",
       "speaker": "Santa",
       "id": "line-0051",
       "beats": [
         {
           "type": "message",
-          "text": "他们说这里开始不对劲。",
+          "text": "有人说我们从这天就开始谈了。",
           "speaker": "Santa",
           "channel": "消息"
         },
         {
           "type": "message",
-          "text": "这里是你问厕所在哪。",
+          "text": "那天你问我厕所在哪。",
           "speaker": "Perth",
           "channel": "消息"
         },
@@ -482,33 +909,57 @@
           "speaker": "Santa",
           "channel": "消息"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "第一份恋爱证据，比你们签字早了半年。你们没有去纠正厕所的位置。",
-      "id": "line-0052"
+      "text": "照片是半年前的。你们今天才签字，网上已经替你们过了半年纪念日。\n消息·Perth：那这半年，我们干了什么？\n消息·Santa：你问过三次厕所在哪。\n你没再回。这个记录确实不太像谈恋爱。",
+      "id": "line-0052",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "照片是半年前的。你们今天才签字，网上已经替你们过了半年纪念日。"
+        },
+        {
+          "type": "message",
+          "text": "那这半年，我们干了什么？",
+          "speaker": "Perth",
+          "channel": "消息"
+        },
+        {
+          "type": "message",
+          "text": "你问过三次厕所在哪。",
+          "speaker": "Santa",
+          "channel": "消息"
+        },
+        {
+          "type": "narration",
+          "text": "你没再回。这个记录确实不太像谈恋爱。"
+        }
+      ]
     },
     {
       "type": "chapter",
       "day": 2,
-      "title": "情侣包邮，两箱起送",
+      "title": "猫没来，它的碗先住下了",
       "location": "Perth家 · 玄关",
       "bg": "BG03",
       "id": "line-0053"
     },
     {
       "type": "narration",
-      "text": "Add打来电话。\n电话·Add：你家客房能住人吧？\nPerth：能。\n挂断电话，你才走进客房，把晾衣架搬出去。",
+      "text": "Add 打来电话。\n电话·Add：这几天你们都得一起出工。Santa 说可以先来住几天，你那间客房能用吗？\nPerth：能。\n挂断电话，你才走进客房，把晾衣架搬出去。搬完发现，那间屋子本来也没别的东西。",
       "id": "line-0054",
       "beats": [
         {
           "type": "narration",
-          "text": "Add打来电话。"
+          "text": "Add 打来电话。"
         },
         {
           "type": "dialogue",
-          "text": "你家客房能住人吧？",
+          "text": "这几天你们都得一起出工。Santa 说可以先来住几天，你那间客房能用吗？",
           "speaker": "Add",
           "channel": "电话"
         },
@@ -519,65 +970,143 @@
         },
         {
           "type": "narration",
-          "text": "挂断电话，你才走进客房，把晾衣架搬出去。"
+          "text": "挂断电话，你才走进客房，把晾衣架搬出去。搬完发现，那间屋子本来也没别的东西。"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "消息·Santa：P'Perth，方便吗？\n消息·Perth：方便。\n你发完消息，把堵在自己卧室门口的三件东西往里踢了一点。",
+      "text": "消息·Santa：Phi Perth，我跟我妈收拾好了。现在过去行吗？\n消息·Perth：来吧。\n你发完才发现，刚搬出来的晾衣架还堵在走廊上。你把它推进自己房里，顺脚把门口的杂物也往里拨了拨。\n拨完，你得侧着身子才进得去。",
       "id": "line-0055",
       "beats": [
         {
           "type": "message",
-          "text": "P'Perth，方便吗？",
+          "text": "Phi Perth，我跟我妈收拾好了。现在过去行吗？",
           "speaker": "Santa",
           "channel": "消息"
         },
         {
           "type": "message",
-          "text": "方便。",
+          "text": "来吧。",
           "speaker": "Perth",
           "channel": "消息"
         },
         {
           "type": "narration",
-          "text": "你发完消息，把堵在自己卧室门口的三件东西往里踢了一点。"
+          "text": "你发完才发现，刚搬出来的晾衣架还堵在走廊上。你把它推进自己房里，顺脚把门口的杂物也往里拨了拨。"
+        },
+        {
+          "type": "narration",
+          "text": "拨完，你得侧着身子才进得去。"
+        }
+      ],
+      "revised": true
+    },
+    {
+      "type": "narration",
+      "text": "Santa 的妈妈看了昨晚的公开回应，听 Add 说这是工作安排，还是多问了两句。听说 Santa 要带换洗衣服过来，她把干净枕套也找了出来。\n找完枕套，她又往袋子里加了一包纸巾。",
+      "id": "line-0056",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "Santa 的妈妈看了昨晚的公开回应，听 Add 说这是工作安排，还是多问了两句。听说 Santa 要带换洗衣服过来，她把干净枕套也找了出来。"
+        },
+        {
+          "type": "narration",
+          "text": "找完枕套，她又往袋子里加了一包纸巾。"
         }
       ]
     },
     {
       "type": "narration",
-      "text": "妈妈看见官宣，听了Add的解释，仍然半信半疑；但听说接下来两人工作多、同住方便，她很有效率地把“住几天”打包了。",
-      "id": "line-0056"
-    },
-    {
-      "type": "narration",
-      "text": "门一开，Santa抱着枕头站在外面。一个箱子在脚边，另一个在Add手里。",
-      "id": "line-0057"
+      "text": "门一开，Santa 抱着枕头站在外面。一个箱子在脚边，另一个在 Add 手里。",
+      "id": "line-0057",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "门一开，Santa 抱着枕头站在外面。一个箱子在脚边，另一个在 Add 手里。"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "不是只带常用的？",
+      "text": "Perth：不是就住几天吗？",
       "speaker": "Perth",
-      "id": "line-0058"
+      "id": "line-0058",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "不是就住几天吗？",
+          "speaker": "Perth"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "对。我在家常用。",
+      "text": "Santa：对啊。只带了每天都要用的。",
       "speaker": "Santa",
-      "id": "line-0059"
+      "id": "line-0059",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "对啊。只带了每天都要用的。",
+          "speaker": "Santa"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "妈妈把保温袋塞过来，又回头检查第二袋。你站在门口，逐渐从接人变成接货。",
-      "id": "line-0060"
+      "text": "妈妈把一袋饭塞给你，又回头看还有没有落下什么。你本来打算替他接枕头，现在两只手都腾不出来。",
+      "id": "line-0060",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "妈妈把一袋饭塞给你，又回头看还有没有落下什么。你本来打算替他接枕头，现在两只手都腾不出来。"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "人你也看见了，东西你也接了。你们真商量好了？",
+      "text": "妈妈：你们俩真说好了吧？他住进来，别把你的作息都打乱了。\nSanta：阿姨，他没有作息。\nPerth：Nong Ta。有。两点。\n妈妈：那是睡觉，不是作息。\n她说完，又往你手里塞了一袋。\n你挠了下头。这个数你确实没算过。",
       "speaker": "妈妈",
-      "id": "line-0061"
+      "id": "line-0061",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "你们俩真说好了吧？他住进来，别把你的作息都打乱了。",
+          "speaker": "妈妈"
+        },
+        {
+          "type": "dialogue",
+          "text": "阿姨，他没有作息。",
+          "speaker": "Santa"
+        },
+        {
+          "type": "dialogue",
+          "text": "Nong Ta。有。两点。",
+          "speaker": "Perth"
+        },
+        {
+          "type": "dialogue",
+          "text": "那是睡觉，不是作息。",
+          "speaker": "妈妈"
+        },
+        {
+          "type": "narration",
+          "text": "她说完，又往你手里塞了一袋。"
+        },
+        {
+          "type": "narration",
+          "text": "你挠了下头。这个数你确实没算过。"
+        }
+      ]
     },
     {
       "type": "choice",
@@ -586,57 +1115,163 @@
     },
     {
       "type": "narration",
-      "text": "客房收得很整齐。你没提晾衣架现在在自己房里，Santa也没问。他把枕头摆好，行李只拆了一半。",
-      "id": "line-0063"
-    },
-    {
-      "type": "narration",
-      "text": "袋子里掉出一只小碗，Santa捡起来，看见碗底的Felix名字贴。",
-      "id": "line-0064"
-    },
-    {
-      "type": "dialogue",
-      "text": "人到了，猫没到，猫的餐厅到了。",
-      "speaker": "Perth",
-      "id": "line-0065"
-    },
-    {
-      "type": "dialogue",
-      "text": "我带回去。它今晚还得吃饭。",
-      "speaker": "妈妈",
-      "id": "line-0066"
-    },
-    {
-      "type": "narration",
-      "text": "Santa把碗交过去，又拿回来看了一眼，确认没装别的猫用品。你站在旁边，忽然对那两箱“常用的”有点警惕。",
-      "id": "line-0067"
-    },
-    {
-      "type": "narration",
-      "text": "妈妈知道你过敏，Felix先由她照顾。离开之前，她又看了看你们，最后只叮嘱Santa。\n妈妈：住不惯就说，别自己忍着。",
-      "id": "line-0068",
+      "text": "客房腾出来了。Santa 把自己的枕头放到床头，翻出今晚要穿的衣服，剩下的先留在箱子里。\n箱子他没推靠墙，就留在门口。",
+      "id": "line-0063",
+      "revised": true,
       "beats": [
         {
           "type": "narration",
-          "text": "妈妈知道你过敏，Felix先由她照顾。离开之前，她又看了看你们，最后只叮嘱Santa。"
+          "text": "客房腾出来了。Santa 把自己的枕头放到床头，翻出今晚要穿的衣服，剩下的先留在箱子里。"
         },
         {
+          "type": "narration",
+          "text": "箱子他没推靠墙，就留在门口。"
+        }
+      ]
+    },
+    {
+      "type": "narration",
+      "text": "Santa 拉开随身袋，最上面是只小碗。翻过来一看，碗底贴着 Felix 的名字。",
+      "id": "line-0064",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "Santa 拉开随身袋，最上面是只小碗。翻过来一看，碗底贴着 Felix 的名字。"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "text": "Perth：Felix 没来，怎么还把它的碗带来了？",
+      "speaker": "Perth",
+      "id": "line-0065",
+      "revised": true,
+      "beats": [
+        {
           "type": "dialogue",
-          "text": "住不惯就说，别自己忍着。",
+          "text": "Felix 没来，怎么还把它的碗带来了？",
+          "speaker": "Perth"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "text": "妈妈：我说怎么找不着了。给我，它晚上还得吃饭呢。",
+      "speaker": "妈妈",
+      "id": "line-0066",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "我说怎么找不着了。给我，它晚上还得吃饭呢。",
           "speaker": "妈妈"
         }
       ]
     },
     {
       "type": "narration",
-      "text": "Add举起手机，准备拍入住短片。Santa拿着充电线和收纳袋，看向你。",
-      "id": "line-0069"
+      "text": "Santa 把碗递给她，又低头翻了翻袋子，看有没有把猫玩具也顺手带来。你也跟着往里看了一眼。\n她接过碗，先翻过来看了看有没有磕坏。",
+      "id": "line-0067",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "Santa 把碗递给她，又低头翻了翻袋子，看有没有把猫玩具也顺手带来。你也跟着往里看了一眼。"
+        },
+        {
+          "type": "narration",
+          "text": "她接过碗，先翻过来看了看有没有磕坏。"
+        }
+      ]
+    },
+    {
+      "type": "narration",
+      "text": "你对猫过敏。Felix 这几天还住 Santa 妈妈那儿。\nSanta：它掉毛。你确定没事？\nPerth：没事。\n你打了个喷嚏，正好在他最后一个字后面。\nSanta：……嗯。\nPerth：灰。\n这屋子昨天刚打扫过。你知道，他也知道。\n妈妈：住不惯就给我打电话啊。\n她这句是对 Santa 说的，眼睛却看着你。",
+      "id": "line-0068",
+      "beats": [
+        {
+          "type": "narration",
+          "text": "你对猫过敏。Felix 这几天还住 Santa 妈妈那儿。",
+          "stageBeat": 0
+        },
+        {
+          "type": "dialogue",
+          "text": "它掉毛。你确定没事？",
+          "speaker": "Santa",
+          "stageBeat": 0
+        },
+        {
+          "type": "dialogue",
+          "text": "没事。",
+          "speaker": "Perth",
+          "stageBeat": 0
+        },
+        {
+          "type": "narration",
+          "text": "你打了个喷嚏，正好在他最后一个字后面。",
+          "stageBeat": 0
+        },
+        {
+          "type": "dialogue",
+          "text": "……嗯。",
+          "speaker": "Santa",
+          "stageBeat": 0
+        },
+        {
+          "type": "dialogue",
+          "text": "灰。",
+          "speaker": "Perth",
+          "stageBeat": 0
+        },
+        {
+          "type": "narration",
+          "text": "这屋子昨天刚打扫过。你知道，他也知道。",
+          "stageBeat": 0
+        },
+        {
+          "type": "dialogue",
+          "text": "住不惯就给我打电话啊。",
+          "speaker": "妈妈",
+          "stageBeat": 1
+        },
+        {
+          "type": "narration",
+          "text": "她这句是对 Santa 说的，眼睛却看着你。",
+          "stageBeat": 1
+        }
+      ],
+      "legacyBeatMap": [
+        0,
+        7
+      ],
+      "revised": true
+    },
+    {
+      "type": "narration",
+      "text": "Add 举起手机，说要拍一小段搬进来的样子。Santa 已经把充电线和收纳袋拿出来，转头等你指位置。",
+      "id": "line-0069",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "Add 举起手机，说要拍一小段搬进来的样子。Santa 已经把充电线和收纳袋拿出来，转头等你指位置。"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "这些放哪？",
+      "text": "Santa：这些放哪？",
       "speaker": "Santa",
-      "id": "line-0070"
+      "id": "line-0070",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "这些放哪？",
+          "speaker": "Santa"
+        }
+      ]
     },
     {
       "type": "choice",
@@ -645,69 +1280,125 @@
     },
     {
       "type": "narration",
-      "text": "晚上都还是要吃饭。妈妈发来Felix的视频，Santa在桌角立起手机。",
-      "id": "line-0072"
+      "text": "晚饭时，Santa 收到妈妈发来的 Felix 视频，把手机立在桌角。",
+      "id": "line-0072",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "晚饭时，Santa 收到妈妈发来的 Felix 视频，把手机立在桌角。"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "猫从椅子跳到箱子，视频自动循环。你路过第三次，伸手指了一下。",
-      "id": "line-0073"
+      "text": "猫从椅子跳进箱子。视频放完，他拖回去，又放了一遍。\n你第三次经过餐桌时，它刚好又跳了一次。",
+      "id": "line-0073",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "猫从椅子跳进箱子。视频放完，他拖回去，又放了一遍。"
+        },
+        {
+          "type": "narration",
+          "text": "你第三次经过餐桌时，它刚好又跳了一次。"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "它又上去了。",
+      "text": "Perth：它怎么又跳进去了？",
       "speaker": "Perth",
-      "id": "line-0074"
+      "id": "line-0074",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "它怎么又跳进去了？",
+          "speaker": "Perth"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "P'Perth，这是刚才那条。",
+      "text": "Santa：Phi，这是同一条。",
       "speaker": "Santa",
-      "id": "line-0075"
+      "id": "line-0075",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "Phi，这是同一条。",
+          "speaker": "Santa"
+        }
+      ]
     },
     {
       "type": "narration",
       "text": "你停了一下，端着水走了。",
-      "id": "line-0076"
+      "id": "line-0076",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "你停了一下，端着水走了。"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "他在身后笑。你觉得自己没有必要跟一段猫视频解释。",
-      "id": "line-0077"
+      "text": "他在你身后笑。你差点回一句「我知道」，最后在厨房把水喝完了，没再回去。",
+      "id": "line-0077",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "他在你身后笑。你差点回一句「我知道」，最后在厨房把水喝完了，没再回去。"
+        }
+      ]
     },
     {
       "type": "chapter",
       "day": 3,
-      "title": "偶遇，请按导航行驶",
+      "title": "绕了三圈，才像一次偶遇",
       "location": "商场",
       "bg": "BG07",
       "id": "line-0078"
     },
     {
       "type": "narration",
-      "text": "Add发来商场地图。红线是你们的路线，蓝点是“恰好经过”的拍摄者。\n消息·Add：看路，别看蓝点。",
+      "text": "Add 发来商场地图。红线是你们的路线，蓝点是「恰好经过」的拍摄者。\n消息·Add：按红线走。过蓝点的时候别扭头看镜头。",
       "id": "line-0079",
       "beats": [
         {
           "type": "narration",
-          "text": "Add发来商场地图。红线是你们的路线，蓝点是“恰好经过”的拍摄者。"
+          "text": "Add 发来商场地图。红线是你们的路线，蓝点是「恰好经过」的拍摄者。"
         },
         {
           "type": "message",
+          "text": "按红线走。过蓝点的时候别扭头看镜头。",
           "speaker": "Add",
-          "text": "看路，别看蓝点。",
           "channel": "消息"
+        }
+      ],
+      "revised": true
+    },
+    {
+      "type": "narration",
+      "text": "你把地图放大。Santa 靠过来，先看见红线拐了三次。",
+      "id": "line-0080",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "你把地图放大。Santa 靠过来，先看见红线拐了三次。"
         }
       ]
     },
     {
-      "type": "narration",
-      "text": "你把地图放大。Santa靠过来，先看见红线拐了三次。",
-      "id": "line-0080"
-    },
-    {
       "type": "dialogue",
-      "text": "Santa：谈个恋爱还不能走近路？\n消息·Add：近路没有好机位。",
+      "text": "Santa：谈个恋爱还不能走近路？\n消息·Add：近路没有好机位。\nSanta：那谈恋爱的两个人，知道自己在绕路吗？\n消息·Add：不知道。所以你们别笑。",
       "speaker": "Santa",
       "id": "line-0081",
       "beats": [
@@ -718,46 +1409,97 @@
         },
         {
           "type": "message",
-          "speaker": "Add",
           "text": "近路没有好机位。",
+          "speaker": "Add",
+          "channel": "消息"
+        },
+        {
+          "type": "dialogue",
+          "text": "那谈恋爱的两个人，知道自己在绕路吗？",
+          "speaker": "Santa"
+        },
+        {
+          "type": "message",
+          "text": "不知道。所以你们别笑。",
+          "speaker": "Add",
           "channel": "消息"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "到现场，第一次经过橱窗被路人挡住，第二次Santa手里还拿着动线图。你伸手替他收起来，远处拍摄者立刻按了快门。",
-      "id": "line-0082"
+      "text": "第一趟经过橱窗，有路人挡住了镜头。\n第二趟，Santa 走过蓝点时回头看了一眼，还朝那边笑了下。你伸手把他的下巴转回来。远处正好按下快门。\n他还忘了收地图。你伸手把图折起来。",
+      "id": "line-0082",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "第一趟经过橱窗，有路人挡住了镜头。"
+        },
+        {
+          "type": "narration",
+          "text": "第二趟，Santa 走过蓝点时回头看了一眼，还朝那边笑了下。你伸手把他的下巴转回来。远处正好按下快门。"
+        },
+        {
+          "type": "narration",
+          "text": "他还忘了收地图。你伸手把图折起来。"
+        }
+      ]
     },
     {
       "type": "narration",
       "text": "他低头看你收好的纸。",
-      "id": "line-0083"
+      "id": "line-0083",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "他低头看你收好的纸。"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "刚才那个算糖吗？",
+      "text": "Santa：Phi，刚才你帮我收图，那张也算约会照啊？",
       "speaker": "Santa",
-      "id": "line-0084"
+      "id": "line-0084",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "Phi，刚才你帮我收图，那张也算约会照啊？",
+          "speaker": "Santa"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "算收缴违禁品。",
+      "text": "Perth：Nong Ta，不算。算我怕你被拍到手里还拿着地图。",
       "speaker": "Perth",
-      "id": "line-0085"
+      "id": "line-0085",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "Nong Ta，不算。算我怕你被拍到手里还拿着地图。",
+          "speaker": "Perth"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "消息·Add：别再绕了。店员已经记住你们。",
+      "text": "消息·Add：店员已经认得你们了。柱子边接一下袋子，拍完这张就收。",
       "id": "line-0086",
       "beats": [
         {
           "type": "message",
-          "text": "别再绕了。店员已经记住你们。",
+          "text": "店员已经认得你们了。柱子边接一下袋子，拍完这张就收。",
           "speaker": "Add",
           "channel": "消息"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "choice",
@@ -766,23 +1508,24 @@
     },
     {
       "type": "narration",
-      "text": "结账时，Santa拿起你推荐的小物件。\nSanta：这个也是安排的？",
+      "text": "临结账，Santa 又把刚才你指给他看的那件东西拿起来，翻到背面找价签。\nSanta：这件也在 Add 的清单上吗？",
       "id": "line-0088",
       "beats": [
         {
           "type": "narration",
-          "text": "结账时，Santa拿起你推荐的小物件。"
+          "text": "临结账，Santa 又把刚才你指给他看的那件东西拿起来，翻到背面找价签。"
         },
         {
           "type": "dialogue",
-          "text": "这个也是安排的？",
+          "text": "这件也在 Add 的清单上吗？",
           "speaker": "Santa"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "Perth：只有路线是安排的。\nSanta低头看看手里的东西。\nSanta：行，暂时相信你。",
+      "text": "Perth：清单上就那根柱子。这件是我看你会喜欢。\nSanta 低头看看手里的东西。\nSanta：嗯。那我拿了啊。\n他把它放进袋子最上面，压着那堆纸。",
       "when": {
         "choice": "N04-1"
       },
@@ -790,31 +1533,52 @@
       "beats": [
         {
           "type": "dialogue",
-          "text": "只有路线是安排的。",
+          "text": "清单上就那根柱子。这件是我看你会喜欢。",
           "speaker": "Perth"
         },
         {
           "type": "narration",
-          "text": "Santa低头看看手里的东西。"
+          "text": "Santa 低头看看手里的东西。"
         },
         {
           "type": "dialogue",
-          "text": "行，暂时相信你。",
+          "text": "嗯。那我拿了啊。",
           "speaker": "Santa"
+        },
+        {
+          "type": "narration",
+          "text": "他把它放进袋子最上面，压着那堆纸。"
+        }
+      ],
+      "revised": true
+    },
+    {
+      "type": "narration",
+      "text": "你摇头。提着的袋子往下一坠，Santa 伸手来接，你先换了只手，把袋子拎稳了。\nSanta：那我不买了。\n他把东西放回架上，摆得比原来还正。",
+      "when": {
+        "choice": "N04-2"
+      },
+      "id": "line-0090",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "你摇头。提着的袋子往下一坠，Santa 伸手来接，你先换了只手，把袋子拎稳了。"
+        },
+        {
+          "type": "dialogue",
+          "text": "那我不买了。",
+          "speaker": "Santa"
+        },
+        {
+          "type": "narration",
+          "text": "他把东西放回架上，摆得比原来还正。"
         }
       ]
     },
     {
       "type": "narration",
-      "text": "你正忙着把真正重的那袋换只手。Santa伸手想接，你摇头，先把袋子挪到另一边。",
-      "when": {
-        "choice": "N04-2"
-      },
-      "id": "line-0090"
-    },
-    {
-      "type": "narration",
-      "text": "Perth：这张不报销。我自己付。\n你把小票收好。\nSanta：那别跟工作单据混在一起。",
+      "text": "Perth：没有。想买就买，今天这趟我们自己结。\n你把唱片的小票折起来，塞进自己口袋。\nSanta：行。这回可别找 Add 报销啊。\nPerth：报不了。她只报柱子。",
       "when": {
         "choice": "N04-3"
       },
@@ -822,23 +1586,29 @@
       "beats": [
         {
           "type": "dialogue",
-          "text": "这张不报销。我自己付。",
+          "text": "没有。想买就买，今天这趟我们自己结。",
           "speaker": "Perth"
         },
         {
           "type": "narration",
-          "text": "你把小票收好。"
+          "text": "你把唱片的小票折起来，塞进自己口袋。"
         },
         {
           "type": "dialogue",
-          "text": "那别跟工作单据混在一起。",
+          "text": "行。这回可别找 Add 报销啊。",
           "speaker": "Santa"
+        },
+        {
+          "type": "dialogue",
+          "text": "报不了。她只报柱子。",
+          "speaker": "Perth"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "Santa：你觉得这个颜色怎么样？\nPerth：就这个。\n你终于可以只回答颜色。",
+      "text": "Santa：我是真想买。你就说这颜色好不好看嘛。\nPerth：就这个。\nSanta 没再看地图，把盒子放到柜台上。\n也没问价。你替他问了。",
       "when": {
         "choice": "N04-4"
       },
@@ -846,7 +1616,7 @@
       "beats": [
         {
           "type": "dialogue",
-          "text": "你觉得这个颜色怎么样？",
+          "text": "我是真想买。你就说这颜色好不好看嘛。",
           "speaker": "Santa"
         },
         {
@@ -856,13 +1626,18 @@
         },
         {
           "type": "narration",
-          "text": "你终于可以只回答颜色。"
+          "text": "Santa 没再看地图，把盒子放到柜台上。"
+        },
+        {
+          "type": "narration",
+          "text": "也没问价。你替他问了。"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "店员：两位是在找人吗？\nSanta：在找自然一点的路。",
+      "text": "店员：两位是在找人吗？\nSanta：没事，我们这次真来结账了。\n店员：哦。那要不要办张会员卡？",
       "when": {
         "choice": "N04-5"
       },
@@ -875,60 +1650,104 @@
         },
         {
           "type": "dialogue",
-          "text": "在找自然一点的路。",
+          "text": "没事，我们这次真来结账了。",
           "speaker": "Santa"
+        },
+        {
+          "type": "dialogue",
+          "text": "哦。那要不要办张会员卡？",
+          "speaker": "店员"
+        }
+      ],
+      "revised": true
+    },
+    {
+      "type": "narration",
+      "text": "偶遇照发出去，评论比昨天还多。有人说这才像平常出来逛街，下一条就问是不是在拍广告。",
+      "id": "line-0094",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "偶遇照发出去，评论比昨天还多。有人说这才像平常出来逛街，下一条就问是不是在拍广告。"
         }
       ]
     },
     {
       "type": "narration",
-      "text": "偶遇帖发出去，讨论量翻倍。一部分夸约会自然，一部分说拍得像广告。",
-      "id": "line-0094"
-    },
-    {
-      "type": "narration",
-      "text": "Add把两边截图并排发来。\n消息·Add：同一张图。你们以后少问我到底要自然到什么程度。",
+      "text": "Add 把两边截图并排发来。\n消息·Add：这两条底下是同一张照片。下次别问我要自然到什么程度了，我也不知道。",
       "id": "line-0095",
       "beats": [
         {
           "type": "narration",
-          "text": "Add把两边截图并排发来。"
+          "text": "Add 把两边截图并排发来。"
         },
         {
           "type": "message",
+          "text": "这两条底下是同一张照片。下次别问我要自然到什么程度了，我也不知道。",
           "speaker": "Add",
-          "text": "同一张图。你们以后少问我到底要自然到什么程度。",
           "channel": "消息"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "chapter",
       "day": 4,
-      "title": "晚安还要返场",
+      "title": "晚安说三遍，第四遍换私聊",
       "location": "家 · 夜晚",
       "bg": "BG14",
       "id": "line-0096"
     },
     {
       "type": "narration",
-      "text": "今天没有拍摄。你放老歌，Santa放舞蹈视频，两个音源在客厅争夺同一块空气。",
-      "id": "line-0097"
+      "text": "今天不用拍东西。你开着音箱放老歌，Santa 在电视上看舞蹈视频。副歌一到，你连自己那首在唱什么都听不清了。\n你放的是小学听的那批歌。他居然会唱副歌。",
+      "id": "line-0097",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "今天不用拍东西。你开着音箱放老歌，Santa 在电视上看舞蹈视频。副歌一到，你连自己那首在唱什么都听不清了。"
+        },
+        {
+          "type": "narration",
+          "text": "你放的是小学听的那批歌。他居然会唱副歌。"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "你调低他的，他调低你的。调了三轮，屋里越来越安静。",
-      "id": "line-0098"
+      "text": "你拿遥控器把电视调低，他伸手把你的音箱也拧小一格。来回三次，两边都快听不见了。\n电视上的人还在跳，一点声音都没有。",
+      "id": "line-0098",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "你拿遥控器把电视调低，他伸手把你的音箱也拧小一格。来回三次，两边都快听不见了。"
+        },
+        {
+          "type": "narration",
+          "text": "电视上的人还在跳，一点声音都没有。"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "不如我们都戴耳机。",
+      "text": "Santa：Phi，要不都戴耳机吧？",
       "speaker": "Santa",
-      "id": "line-0099"
+      "id": "line-0099",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "Phi，要不都戴耳机吧？",
+          "speaker": "Santa"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "Perth：行。\nSanta拿走遥控器。你才发现，这是他获得遥控器最快的一次。",
+      "text": "Perth：行。\nSanta 从你手里拿走遥控器，把电视关了。你手还举着，倒也省得找关机键。\n你戴上耳机，音乐放到一半，听见他在隔壁跟着自己的耳机唱。隔着一道墙还能唱出声，说明他自己也不知道。",
       "id": "line-0100",
       "beats": [
         {
@@ -938,13 +1757,18 @@
         },
         {
           "type": "narration",
-          "text": "Santa拿走遥控器。你才发现，这是他获得遥控器最快的一次。"
+          "text": "Santa 从你手里拿走遥控器，把电视关了。你手还举着，倒也省得找关机键。"
+        },
+        {
+          "type": "narration",
+          "text": "你戴上耳机，音乐放到一半，听见他在隔壁跟着自己的耳机唱。隔着一道墙还能唱出声，说明他自己也不知道。"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "睡前，你们各回各屋。\nPerth：晚安。\nSanta：晚安。\n两声都很客气。",
+      "text": "睡前，你们各回各屋。\nPerth：晚安。\nSanta：晚安。\n两个人都在等对方先关门。\n你数到三，他也数到三。门同时关上。",
       "id": "line-0101",
       "beats": [
         {
@@ -963,14 +1787,26 @@
         },
         {
           "type": "narration",
-          "text": "两声都很客气。"
+          "text": "两个人都在等对方先关门。"
+        },
+        {
+          "type": "narration",
+          "text": "你数到三，他也数到三。门同时关上。"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
       "text": "五分钟后，你出来倒水，他正好开门。",
-      "id": "line-0102"
+      "id": "line-0102",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "五分钟后，你出来倒水，他正好开门。"
+        }
+      ]
     },
     {
       "type": "narration",
@@ -982,7 +1818,8 @@
           "text": "还没睡？",
           "speaker": "Santa"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
@@ -994,11 +1831,12 @@
           "text": "倒水。",
           "speaker": "Perth"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "Perth：晚安。\nSanta：晚安。",
+      "text": "Perth：晚安。\nSanta：晚安。\n你回房，听见厨房又响了一声。他也倒了杯水。",
       "id": "line-0105",
       "beats": [
         {
@@ -1010,17 +1848,22 @@
           "type": "dialogue",
           "text": "晚安。",
           "speaker": "Santa"
+        },
+        {
+          "type": "narration",
+          "text": "你回房，听见厨房又响了一声。他也倒了杯水。"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "又过三分钟，Santa重新出现在门口。\nSanta：备用充电线放哪？\n你找出来递给他。\nSanta：谢谢。晚安。\nPerth：……晚安。\n第三轮完成。",
+      "text": "又过三分钟，Santa 重新出现在门口。\nSanta：备用充电线放哪？\n你找出来递给他。\nSanta：谢啦。……那，晚安？\nPerth：……晚安。\n门终于关上。这是今晚第三遍了。",
       "id": "line-0106",
       "beats": [
         {
           "type": "narration",
-          "text": "又过三分钟，Santa重新出现在门口。"
+          "text": "又过三分钟，Santa 重新出现在门口。"
         },
         {
           "type": "dialogue",
@@ -1033,7 +1876,7 @@
         },
         {
           "type": "dialogue",
-          "text": "谢谢。晚安。",
+          "text": "谢啦。……那，晚安？",
           "speaker": "Santa"
         },
         {
@@ -1043,18 +1886,19 @@
         },
         {
           "type": "narration",
-          "text": "第三轮完成。"
+          "text": "门终于关上。这是今晚第三遍了。"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "工作群里，Add发来明天的时间。\n消息·Perth：收到。\n你顺手又打了一句。",
+      "text": "工作群里，Add 发来明天的时间。\n消息·Perth：收到。\n你顺手又打了一句。",
       "id": "line-0107",
       "beats": [
         {
           "type": "narration",
-          "text": "工作群里，Add发来明天的时间。"
+          "text": "工作群里，Add 发来明天的时间。"
         },
         {
           "type": "message",
@@ -1066,42 +1910,50 @@
           "type": "narration",
           "text": "你顺手又打了一句。"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "message",
-      "text": "消息·Perth：晚安有数量要求吗？\n消息·Santa：有的话，我们今天应该超了。\n消息·Add：你们先学会私聊。",
+      "text": "消息·Perth：问一下，晚安说三遍够不够？\n消息·Santa：够了吧。再说一遍我都该起床了。\n消息·Add：两位，这里是工作群。\n消息·Add：明天八点。谁迟到谁请客。",
       "speaker": "Perth",
       "id": "line-0108",
       "beats": [
         {
           "type": "message",
-          "text": "晚安有数量要求吗？",
+          "text": "问一下，晚安说三遍够不够？",
           "speaker": "Perth",
           "channel": "消息"
         },
         {
           "type": "message",
-          "text": "有的话，我们今天应该超了。",
+          "text": "够了吧。再说一遍我都该起床了。",
           "speaker": "Santa",
           "channel": "消息"
         },
         {
           "type": "message",
-          "text": "你们先学会私聊。",
+          "text": "两位，这里是工作群。",
+          "speaker": "Add",
+          "channel": "消息"
+        },
+        {
+          "type": "message",
+          "text": "明天八点。谁迟到谁请客。",
           "speaker": "Add",
           "channel": "消息"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "你退出工作群，打开Santa的私聊。\n消息·Perth：晚安。\n消息·Santa：晚安。\n第四次。",
+      "text": "你退出工作群，打开 Santa 的私聊。\n消息·Perth：晚安。\n消息·Santa：晚安。\n第四次。\n你打完下一句，看了一会儿，删掉了。",
       "id": "line-0109",
       "beats": [
         {
           "type": "narration",
-          "text": "你退出工作群，打开Santa的私聊。"
+          "text": "你退出工作群，打开 Santa 的私聊。"
         },
         {
           "type": "message",
@@ -1118,37 +1970,64 @@
         {
           "type": "narration",
           "text": "第四次。"
+        },
+        {
+          "type": "narration",
+          "text": "你打完下一句，看了一会儿，删掉了。"
+        }
+      ],
+      "revised": true
+    },
+    {
+      "type": "narration",
+      "text": "这回 Add 终于没收到。",
+      "id": "line-0110",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "这回 Add 终于没收到。"
         }
       ]
     },
     {
-      "type": "narration",
-      "text": "这回Add终于没收到。",
-      "id": "line-0110"
-    },
-    {
       "type": "chapter",
       "day": 5,
-      "title": "是谁先表白？请先统一当事人",
+      "title": "话筒先撞了，答案还没对",
       "location": "专访现场",
       "bg": "BG09",
       "id": "line-0111"
     },
     {
       "type": "narration",
-      "text": "专访前，Add把流程递过来。\nAdd：别编太细。细节越多，越容易对不上。",
+      "text": "开录前，Add 把采访提纲递过来，点了点中间那行「怎么走到一起的」。\nAdd：问到这题，说你们都记得的事就行。别当场给我编个日期。\n你往下看，一共十二题。第十二题写着：有没有吵过架。\nPerth：这题能提前划掉吗？\nAdd：划不掉。到时候你们就说没有。",
       "id": "line-0112",
       "beats": [
         {
           "type": "narration",
-          "text": "专访前，Add把流程递过来。"
+          "text": "开录前，Add 把采访提纲递过来，点了点中间那行「怎么走到一起的」。"
         },
         {
           "type": "dialogue",
-          "text": "别编太细。细节越多，越容易对不上。",
+          "text": "问到这题，说你们都记得的事就行。别当场给我编个日期。",
+          "speaker": "Add"
+        },
+        {
+          "type": "narration",
+          "text": "你往下看，一共十二题。第十二题写着：有没有吵过架。"
+        },
+        {
+          "type": "dialogue",
+          "text": "这题能提前划掉吗？",
+          "speaker": "Perth"
+        },
+        {
+          "type": "dialogue",
+          "text": "划不掉。到时候你们就说没有。",
           "speaker": "Add"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
@@ -1160,16 +2039,24 @@
           "text": "是谁先表白的？",
           "speaker": "主持人"
         }
+      ],
+      "revised": true
+    },
+    {
+      "type": "narration",
+      "text": "你刚把话筒递过去，就发现 Santa 也在往你面前递。两支话筒「咚」地撞了一下。",
+      "id": "line-0114",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "你刚把话筒递过去，就发现 Santa 也在往你面前递。两支话筒「咚」地撞了一下。"
+        }
       ]
     },
     {
       "type": "narration",
-      "text": "你和Santa同时把话筒往对方面前送。两支话筒撞在一起，发出一声很响的咚。",
-      "id": "line-0114"
-    },
-    {
-      "type": "narration",
-      "text": "主持人笑着看看撞在一起的两支话筒。\n主持人：这是两位的共同答案吗？",
+      "text": "主持人笑着看看撞在一起的两支话筒。\n主持人：都指对方啊？那谁先给我讲讲？",
       "id": "line-0115",
       "beats": [
         {
@@ -1178,15 +2065,31 @@
         },
         {
           "type": "dialogue",
-          "text": "这是两位的共同答案吗？",
+          "text": "都指对方啊？那谁先给我讲讲？",
           "speaker": "主持人"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "Santa看你一眼，手稳稳停住。你明白，这次他没打算继续救那支话筒。",
-      "id": "line-0116"
+      "text": "Santa 看着你，把话筒留在你面前。这下你得先开口。\n他没把手收回去。主持人也没催。全屋子的人都在等你。\n你耳朵有点热。",
+      "id": "line-0116",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "Santa 看着你，把话筒留在你面前。这下你得先开口。"
+        },
+        {
+          "type": "narration",
+          "text": "他没把手收回去。主持人也没催。全屋子的人都在等你。"
+        },
+        {
+          "type": "narration",
+          "text": "你耳朵有点热。"
+        }
+      ]
     },
     {
       "type": "choice",
@@ -1195,18 +2098,37 @@
     },
     {
       "type": "narration",
-      "text": "专访结束上车，Santa没有先看热搜，先看你。",
-      "id": "line-0118"
+      "text": "采访完上车，你还攥着那张提纲。Santa 系好安全带，转头看你。",
+      "id": "line-0118",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "采访完上车，你还攥着那张提纲。Santa 系好安全带，转头看你。"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "刚才那件事，你平时也这么记得？",
+      "text": "Santa：Phi，刚才那题，你是怎么想的？\n车门一关，他就把称呼从 Phi Perth 缩成了 Phi。缩得毫无停顿。",
       "speaker": "Santa",
-      "id": "line-0119"
+      "id": "line-0119",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "Phi，刚才那题，你是怎么想的？",
+          "speaker": "Santa"
+        },
+        {
+          "type": "narration",
+          "text": "车门一关，他就把称呼从 Phi Perth 缩成了 Phi。缩得毫无停顿。"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "你说得再顺，也得记住这段口径。\nSanta：还有你考虑了多久那句，下次也别忘。",
+      "text": "你把提纲翻回那一页，想着下次要是有人再问，得从哪句讲起。\nSanta：下回问你考虑了多久，记得说饭还热着。",
       "when": {
         "choice": "N05-1"
       },
@@ -1214,18 +2136,19 @@
       "beats": [
         {
           "type": "narration",
-          "text": "你说得再顺，也得记住这段口径。"
+          "text": "你把提纲翻回那一页，想着下次要是有人再问，得从哪句讲起。"
         },
         {
           "type": "dialogue",
-          "text": "还有你考虑了多久那句，下次也别忘。",
+          "text": "下回问你考虑了多久，记得说饭还热着。",
           "speaker": "Santa"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "Santa：你当时不想吃的菜，最后留给谁了？\n你记得那个饭盒，也记得他没把菜换回来。",
+      "text": "Santa：那你还记得吗？你不吃的那几块，最后全夹我这边了。\n你当然记得。你挑完那几块，他还把饭盒留在你手边，等你吃完。",
       "when": {
         "choice": "N05-2"
       },
@@ -1233,18 +2156,19 @@
       "beats": [
         {
           "type": "dialogue",
-          "text": "你当时不想吃的菜，最后留给谁了？",
+          "text": "那你还记得吗？你不吃的那几块，最后全夹我这边了。",
           "speaker": "Santa"
         },
         {
           "type": "narration",
-          "text": "你记得那个饭盒，也记得他没把菜换回来。"
+          "text": "你当然记得。你挑完那几块，他还把饭盒留在你手边，等你吃完。"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "Santa：下次还要补考吗？\nPerth：可以准备一下。\nSanta：准备答案，还是准备表白？",
+      "text": "Santa：下回要是又问，咱们还跳过啊？\nPerth：那我先准备一下。\nSanta：准备怎么答，还是准备跟我说？",
       "when": {
         "choice": "N05-3"
       },
@@ -1252,24 +2176,25 @@
       "beats": [
         {
           "type": "dialogue",
-          "text": "下次还要补考吗？",
+          "text": "下回要是又问，咱们还跳过啊？",
           "speaker": "Santa"
         },
         {
           "type": "dialogue",
-          "text": "可以准备一下。",
+          "text": "那我先准备一下。",
           "speaker": "Perth"
         },
         {
           "type": "dialogue",
-          "text": "准备答案，还是准备表白？",
+          "text": "准备怎么答，还是准备跟我说？",
           "speaker": "Santa"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "Santa：听清我刚才怎么接的了吗？\n你点头。\nSanta：那你复述一遍。",
+      "text": "Santa：我刚才说的是排练完。你听见了吧？\n你点头。\nSanta：那是谁约的谁？",
       "when": {
         "choice": "N05-4"
       },
@@ -1277,7 +2202,7 @@
       "beats": [
         {
           "type": "dialogue",
-          "text": "听清我刚才怎么接的了吗？",
+          "text": "我刚才说的是排练完。你听见了吧？",
           "speaker": "Santa"
         },
         {
@@ -1286,167 +2211,319 @@
         },
         {
           "type": "dialogue",
-          "text": "那你复述一遍。",
+          "text": "那是谁约的谁？",
           "speaker": "Santa"
+        }
+      ],
+      "revised": true
+    },
+    {
+      "type": "narration",
+      "text": "你低头看提纲，假装上面还写了下一题。",
+      "id": "line-0124",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "你低头看提纲，假装上面还写了下一题。"
         }
       ]
     },
     {
       "type": "narration",
-      "text": "你拿起采访流程看了一眼。",
-      "id": "line-0124"
-    },
-    {
-      "type": "narration",
       "text": "他伸手把纸翻过来。",
-      "id": "line-0125"
+      "id": "line-0125",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "他伸手把纸翻过来。"
+        }
+      ]
     },
     {
       "type": "dialogue",
-      "text": "这面也没有答案，P'Perth。",
+      "text": "Santa：Phi Perth，翻过来也没写怎么答。\n他又把全称加了回去。你听出来了，这是在提醒你别糊弄。",
       "speaker": "Santa",
-      "id": "line-0126"
+      "id": "line-0126",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "Phi Perth，翻过来也没写怎么答。",
+          "speaker": "Santa"
+        },
+        {
+          "type": "narration",
+          "text": "他又把全称加了回去。你听出来了，这是在提醒你别糊弄。"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "晚上，网友把你们话筒撞在一起那一下剪成默契合集。你们看着配上的心形特效，谁都没说当时只是想让对方先答。",
-      "id": "line-0127"
+      "text": "晚上，那声「咚」被剪进了你们的默契合集，还加了一串爱心。Santa 把视频发给你。你俩都没说，当时谁也不想先答。\n视频标题是「连话筒都要同时递」。热评第二条问：话筒是不是道具组发的？",
+      "id": "line-0127",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "晚上，那声「咚」被剪进了你们的默契合集，还加了一串爱心。Santa 把视频发给你。你俩都没说，当时谁也不想先答。"
+        },
+        {
+          "type": "narration",
+          "text": "视频标题是「连话筒都要同时递」。热评第二条问：话筒是不是道具组发的？"
+        }
+      ]
     },
     {
       "type": "chapter",
       "day": 6,
-      "title": "接人的车，差点接到一场家庭伦理剧",
+      "title": "眼睛红了，原因是辣椒",
       "location": "妈妈家楼下 · 车内",
       "bg": "BG10",
       "id": "line-0128"
     },
     {
       "type": "narration",
-      "text": "你送Santa回妈妈家看Felix，自己在楼下等。四首歌后，手机亮了。\n消息·Santa：快了。\n第六首歌结束，他抱着饭下来，眼睛红红的。",
+      "text": "Santa 回他妈妈家看 Felix，你在楼下车里等他。歌放到第四首，手机亮了。\n消息·Santa：这就下来。\n放完第六首，他才抱着两个饭盒下楼。一拉开车门，你就看见他眼睛红红的。\n你没数分钟。你数的是歌。",
       "id": "line-0129",
       "beats": [
         {
           "type": "narration",
-          "text": "你送Santa回妈妈家看Felix，自己在楼下等。四首歌后，手机亮了。"
+          "text": "Santa 回他妈妈家看 Felix，你在楼下车里等他。歌放到第四首，手机亮了。"
         },
         {
           "type": "message",
-          "text": "快了。",
+          "text": "这就下来。",
           "speaker": "Santa",
           "channel": "消息"
         },
         {
           "type": "narration",
-          "text": "第六首歌结束，他抱着饭下来，眼睛红红的。"
+          "text": "放完第六首，他才抱着两个饭盒下楼。一拉开车门，你就看见他眼睛红红的。"
+        },
+        {
+          "type": "narration",
+          "text": "你没数分钟。你数的是歌。"
+        }
+      ],
+      "revised": true
+    },
+    {
+      "type": "narration",
+      "text": "你把手机一放，抽了两张纸，连安全带都解开了。",
+      "id": "line-0130",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "你把手机一放，抽了两张纸，连安全带都解开了。"
         }
       ]
     },
     {
-      "type": "narration",
-      "text": "你立刻收起手机，抽纸，解安全带，准备下车。",
-      "id": "line-0130"
-    },
-    {
       "type": "dialogue",
-      "text": "怎么了？",
+      "text": "Perth：Tata，怎么了？",
       "speaker": "Perth",
-      "id": "line-0131"
-    },
-    {
-      "type": "dialogue",
-      "text": "我妈——",
-      "speaker": "Santa",
-      "id": "line-0132"
-    },
-    {
-      "type": "narration",
-      "text": "你手已经搭上门。",
-      "id": "line-0133"
-    },
-    {
-      "type": "dialogue",
-      "text": "炒辣椒，厨房门没关。",
-      "speaker": "Santa",
-      "id": "line-0134"
-    },
-    {
-      "type": "narration",
-      "text": "你慢慢把安全带重新系回去。",
-      "id": "line-0135"
-    },
-    {
-      "type": "narration",
-      "text": "他把饭盒推过来，像是知道自己解释得不够有说服力。你尝了一口。",
-      "id": "line-0136"
-    },
-    {
-      "type": "narration",
-      "text": "过了几秒，你把纸巾盒放到两人中间。",
-      "id": "line-0137"
-    },
-    {
-      "type": "dialogue",
-      "text": "现在信了？",
-      "speaker": "Santa",
-      "id": "line-0138"
-    },
-    {
-      "type": "narration",
-      "text": "你点头，喝水。Santa又指了指另一只饭盒。\nSanta：那盒更辣。你慢点试。",
-      "id": "line-0139",
+      "id": "line-0131",
+      "revised": true,
       "beats": [
         {
-          "type": "narration",
-          "text": "你点头，喝水。Santa又指了指另一只饭盒。"
-        },
-        {
           "type": "dialogue",
-          "text": "那盒更辣。你慢点试。",
-          "speaker": "Santa"
-        }
-      ]
-    },
-    {
-      "type": "narration",
-      "text": "回去路上，Santa把猫视频递给你看。\nSanta：它最近睡得晚。又换了个喜欢的袋子，你看。\nPerth：晚上会找你吗？",
-      "id": "line-0140",
-      "beats": [
-        {
-          "type": "narration",
-          "text": "回去路上，Santa把猫视频递给你看。"
-        },
-        {
-          "type": "dialogue",
-          "text": "它最近睡得晚。又换了个喜欢的袋子，你看。",
-          "speaker": "Santa"
-        },
-        {
-          "type": "dialogue",
-          "text": "晚上会找你吗？",
+          "text": "Tata，怎么了？",
           "speaker": "Perth"
         }
       ]
     },
     {
       "type": "dialogue",
-      "text": "你刚才问过。",
+      "text": "Santa：我妈——",
       "speaker": "Santa",
-      "id": "line-0141"
-    },
-    {
-      "type": "dialogue",
-      "text": "确认一下。",
-      "speaker": "Perth",
-      "id": "line-0142"
+      "id": "line-0132",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "我妈——",
+          "speaker": "Santa"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "他没戳破，只把下一条猫视频也递过来。\nPerth：有点像。\nSanta：像什么？\nPerth：你。眼睛圆，盯人也这样。小猫咪。\nSanta：你是来看Felix，还是来给我找亲戚？\nPerth：不是挺好看？\nSanta：猫可以可爱。我是帅。\n你点头，把“美人”两个字暂时咽回去。Santa看了你一眼，显然没觉得你认输了。",
+      "text": "你手已经搭上门。",
+      "id": "line-0133",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "你手已经搭上门。"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "text": "Santa：炒辣椒呢。我一进厨房就给呛哭了。",
+      "speaker": "Santa",
+      "id": "line-0134",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "炒辣椒呢。我一进厨房就给呛哭了。",
+          "speaker": "Santa"
+        }
+      ]
+    },
+    {
+      "type": "narration",
+      "text": "你把安全带重新扣上，扣了两次才扣进去。\nSanta：Phi，你刚才是不是准备冲上去？\nPerth：没有。\nSanta：门都开了。\nPerth：通风。",
+      "id": "line-0135",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "你把安全带重新扣上，扣了两次才扣进去。"
+        },
+        {
+          "type": "dialogue",
+          "text": "Phi，你刚才是不是准备冲上去？",
+          "speaker": "Santa"
+        },
+        {
+          "type": "dialogue",
+          "text": "没有。",
+          "speaker": "Perth"
+        },
+        {
+          "type": "dialogue",
+          "text": "门都开了。",
+          "speaker": "Santa"
+        },
+        {
+          "type": "dialogue",
+          "text": "通风。",
+          "speaker": "Perth"
+        }
+      ]
+    },
+    {
+      "type": "narration",
+      "text": "他坐进来，把饭盒打开，往你这边推。你以为闻着还好，夹了一口。",
+      "id": "line-0136",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "他坐进来，把饭盒打开，往你这边推。你以为闻着还好，夹了一口。"
+        }
+      ]
+    },
+    {
+      "type": "narration",
+      "text": "你嚼了两下，把纸巾盒推到两人中间。",
+      "id": "line-0137",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "你嚼了两下，把纸巾盒推到两人中间。"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "text": "Santa：Phi，这回信了吧？",
+      "speaker": "Santa",
+      "id": "line-0138",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "Phi，这回信了吧？",
+          "speaker": "Santa"
+        }
+      ]
+    },
+    {
+      "type": "narration",
+      "text": "你点头，喝水。Santa 又指了指另一只饭盒。\nSanta：哎，先别开那盒。那盒还要辣。\n你把手收回来了。收得有点快。",
+      "id": "line-0139",
+      "beats": [
+        {
+          "type": "narration",
+          "text": "你点头，喝水。Santa 又指了指另一只饭盒。"
+        },
+        {
+          "type": "dialogue",
+          "text": "哎，先别开那盒。那盒还要辣。",
+          "speaker": "Santa"
+        },
+        {
+          "type": "narration",
+          "text": "你把手收回来了。收得有点快。"
+        }
+      ],
+      "revised": true
+    },
+    {
+      "type": "narration",
+      "text": "车还停在楼下。Santa 趁你喝水，翻出刚拍的猫视频给你看。\nSanta：你看，它现在就爱钻这个袋子。我妈说它最近也不肯早点睡。\nPerth：那它晚上还在你房门口等吗？",
+      "id": "line-0140",
+      "beats": [
+        {
+          "type": "narration",
+          "text": "车还停在楼下。Santa 趁你喝水，翻出刚拍的猫视频给你看。"
+        },
+        {
+          "type": "dialogue",
+          "text": "你看，它现在就爱钻这个袋子。我妈说它最近也不肯早点睡。",
+          "speaker": "Santa"
+        },
+        {
+          "type": "dialogue",
+          "text": "那它晚上还在你房门口等吗？",
+          "speaker": "Perth"
+        }
+      ],
+      "revised": true
+    },
+    {
+      "type": "dialogue",
+      "text": "Santa：你刚才发消息就问过了。会啊。",
+      "speaker": "Santa",
+      "id": "line-0141",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "你刚才发消息就问过了。会啊。",
+          "speaker": "Santa"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "text": "Perth：说实话，我就再问一下。",
+      "speaker": "Perth",
+      "id": "line-0142",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "说实话，我就再问一下。",
+          "speaker": "Perth"
+        }
+      ]
+    },
+    {
+      "type": "narration",
+      "text": "Santa 笑了笑，划到下一条。Felix 从袋口探出半张脸，一动不动地盯着手机。\nPerth：有点像。\nSanta：像什么？\nPerth：像你啊，Santy。你刚上车也这么看我，眼睛圆圆的。\nSanta：Phi，你到底在看猫还是看我？\nPerth：都好看。小猫咪。\nSanta：它可爱。我帅。\n你张开嘴。\nSanta：别说美人。\nPerth：……帅的小猫咪。\n他把手机塞回口袋，坐直了，没再说话。\n过了一会儿，他把空调调低了一档。",
       "id": "line-0143",
       "beats": [
         {
           "type": "narration",
-          "text": "他没戳破，只把下一条猫视频也递过来。"
+          "text": "Santa 笑了笑，划到下一条。Felix 从袋口探出半张脸，一动不动地盯着手机。"
         },
         {
           "type": "dialogue",
@@ -1460,276 +2537,446 @@
         },
         {
           "type": "dialogue",
-          "text": "你。眼睛圆，盯人也这样。小猫咪。",
+          "text": "像你啊，Santy。你刚上车也这么看我，眼睛圆圆的。",
           "speaker": "Perth"
         },
         {
           "type": "dialogue",
-          "text": "你是来看Felix，还是来给我找亲戚？",
+          "text": "Phi，你到底在看猫还是看我？",
           "speaker": "Santa"
         },
         {
           "type": "dialogue",
-          "text": "不是挺好看？",
+          "text": "都好看。小猫咪。",
           "speaker": "Perth"
         },
         {
           "type": "dialogue",
-          "text": "猫可以可爱。我是帅。",
+          "text": "它可爱。我帅。",
           "speaker": "Santa"
         },
         {
           "type": "narration",
-          "text": "你点头，把“美人”两个字暂时咽回去。Santa看了你一眼，显然没觉得你认输了。"
+          "text": "你张开嘴。"
+        },
+        {
+          "type": "dialogue",
+          "text": "别说美人。",
+          "speaker": "Santa"
+        },
+        {
+          "type": "dialogue",
+          "text": "……帅的小猫咪。",
+          "speaker": "Perth"
+        },
+        {
+          "type": "narration",
+          "text": "他把手机塞回口袋，坐直了，没再说话。"
+        },
+        {
+          "type": "narration",
+          "text": "过了一会儿，他把空调调低了一档。"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "chapter",
       "day": 7,
-      "title": "自然吃饭，第四条，开始",
+      "title": "垃圾桶是空的，借口用完了",
       "location": "家 · 餐桌",
       "bg": "BG16",
       "id": "line-0144"
     },
     {
       "type": "narration",
-      "text": "热度第一次下降。公司要补生活物料，Add的消息很快到了。\n消息·Add：自然一点，不用精心准备。今晚八点前给我。",
+      "text": "这两天聊你们的人少了些。快到饭点，Add 在群里发了条消息，想要一小段你们在家吃饭的视频。\n消息·Add：就拍你们平时怎么吃。别特地布置啊，八点前发我。\n消息·Add：越平常越好。你们平常什么样，就什么样。\n消息·Perth：我们平常不拍。\n消息·Add：那就更有说服力了。",
       "id": "line-0145",
       "beats": [
         {
           "type": "narration",
-          "text": "热度第一次下降。公司要补生活物料，Add的消息很快到了。"
+          "text": "这两天聊你们的人少了些。快到饭点，Add 在群里发了条消息，想要一小段你们在家吃饭的视频。"
         },
         {
           "type": "message",
-          "text": "自然一点，不用精心准备。今晚八点前给我。",
+          "text": "就拍你们平时怎么吃。别特地布置啊，八点前发我。",
+          "speaker": "Add",
+          "channel": "消息"
+        },
+        {
+          "type": "message",
+          "text": "越平常越好。你们平常什么样，就什么样。",
+          "speaker": "Add",
+          "channel": "消息"
+        },
+        {
+          "type": "message",
+          "text": "我们平常不拍。",
+          "speaker": "Perth",
+          "channel": "消息"
+        },
+        {
+          "type": "message",
+          "text": "那就更有说服力了。",
           "speaker": "Add",
           "channel": "消息"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "Perth：自然吃饭怎么拍？\nSanta：现在就吃。\nPerth：手机还没架。\nSanta：那你又不是真想自然。",
+      "text": "Perth：那手机搁哪儿？怎么拍才像平时？\nSanta：先吃啊。我饿了。\nPerth：等会儿，我还没按录呢。\nSanta：Phi，咱们平时吃饭也不用等开机吧？",
       "id": "line-0146",
       "beats": [
         {
           "type": "dialogue",
-          "text": "自然吃饭怎么拍？",
+          "text": "那手机搁哪儿？怎么拍才像平时？",
           "speaker": "Perth"
         },
         {
           "type": "dialogue",
-          "text": "现在就吃。",
+          "text": "先吃啊。我饿了。",
           "speaker": "Santa"
         },
         {
           "type": "dialogue",
-          "text": "手机还没架。",
+          "text": "等会儿，我还没按录呢。",
           "speaker": "Perth"
         },
         {
           "type": "dialogue",
-          "text": "那你又不是真想自然。",
+          "text": "Phi，咱们平时吃饭也不用等开机吧？",
+          "speaker": "Santa"
+        }
+      ],
+      "revised": true
+    },
+    {
+      "type": "narration",
+      "text": "第一条，你俩同时拿筷子，看着像听了口令。第二条，外卖袋挡住半张桌子。第三条，Santa 已经吃了半碗，你还在挪水杯。\n你把第一条重播了一遍，发现自己夹菜前还看了一眼镜头。你把这条删了。",
+      "id": "line-0147",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "第一条，你俩同时拿筷子，看着像听了口令。第二条，外卖袋挡住半张桌子。第三条，Santa 已经吃了半碗，你还在挪水杯。"
+        },
+        {
+          "type": "narration",
+          "text": "你把第一条重播了一遍，发现自己夹菜前还看了一眼镜头。你把这条删了。"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "text": "Perth：慢点，我还没拍到你夹菜呢。",
+      "speaker": "Perth",
+      "id": "line-0148",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "慢点，我还没拍到你夹菜呢。",
+          "speaker": "Perth"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "text": "Santa：我是真饿。你要拍就拍我吃呗。",
+      "speaker": "Santa",
+      "id": "line-0149",
+      "revised": true,
+      "beats": [
+        {
+          "type": "dialogue",
+          "text": "我是真饿。你要拍就拍我吃呗。",
           "speaker": "Santa"
         }
       ]
     },
     {
       "type": "narration",
-      "text": "第一条，你们一起拿筷子，太整齐。第二条，Santa忘了把包装袋移开。第三条，他已经吃完一半，你还在调整水杯位置。",
-      "id": "line-0147"
-    },
-    {
-      "type": "dialogue",
-      "text": "你别吃这么快。",
-      "speaker": "Perth",
-      "id": "line-0148"
-    },
-    {
-      "type": "dialogue",
-      "text": "我现在是饿，还是要演饿？",
-      "speaker": "Santa",
-      "id": "line-0149"
+      "text": "你刚要说「再等一下」，肚子先叫了一声。你把手机靠在杯子边。",
+      "id": "line-0150",
+      "revised": true,
+      "beats": [
+        {
+          "type": "narration",
+          "text": "你刚要说「再等一下」，肚子先叫了一声。你把手机靠在杯子边。"
+        }
+      ]
     },
     {
       "type": "narration",
-      "text": "你张了张嘴，把手机位置放低。",
-      "id": "line-0150"
-    },
-    {
-      "type": "narration",
-      "text": "第四条开始前，Santa先把你的饭往你面前推。\nSanta：你先吃。别再指导那块肉面对哪边了。",
+      "text": "第四条开始前，Santa 先把你的饭往你面前推。\nSanta：吃吧。那块肉你都转三回了。\nPerth：我在找角度。\nSanta：肉的角度吗？",
       "id": "line-0151",
       "beats": [
         {
           "type": "narration",
-          "text": "第四条开始前，Santa先把你的饭往你面前推。"
+          "text": "第四条开始前，Santa 先把你的饭往你面前推。"
         },
         {
           "type": "dialogue",
-          "text": "你先吃。别再指导那块肉面对哪边了。",
+          "text": "吃吧。那块肉你都转三回了。",
+          "speaker": "Santa"
+        },
+        {
+          "type": "dialogue",
+          "text": "我在找角度。",
+          "speaker": "Perth"
+        },
+        {
+          "type": "dialogue",
+          "text": "肉的角度吗？",
           "speaker": "Santa"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "Add最后收到的视频没有正式开场，两个人已经吃上了。\n消息·Add：前几分钟呢？",
+      "text": "最后发给 Add 的那条一打开，你们已经吃上了，谁都没看镜头。\n消息·Add：怎么一上来就在嚼？前面呢？",
       "id": "line-0152",
       "beats": [
         {
           "type": "narration",
-          "text": "Add最后收到的视频没有正式开场，两个人已经吃上了。"
+          "text": "最后发给 Add 的那条一打开，你们已经吃上了，谁都没看镜头。"
         },
         {
           "type": "message",
-          "text": "前几分钟呢？",
+          "text": "怎么一上来就在嚼？前面呢？",
           "speaker": "Add",
           "channel": "消息"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "消息·Santa：用来变自然了。",
+      "text": "消息·Santa：前面 Phi Perth 在摆杯子。你不是说别拍布置嘛。\n消息·Add：我说的是别布置。没说别开机。",
       "id": "line-0153",
       "beats": [
         {
           "type": "message",
-          "text": "用来变自然了。",
+          "text": "前面 Phi Perth 在摆杯子。你不是说别拍布置嘛。",
           "speaker": "Santa",
           "channel": "消息"
+        },
+        {
+          "type": "message",
+          "text": "我说的是别布置。没说别开机。",
+          "speaker": "Add",
+          "channel": "消息"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "晚上，第一批“是不是在营业”的帖子出现了。\nPerth：正常。\n你还是点开了。Santa看看放凉的饭，直接把盘子拿走。\nSanta：我去热饭。评论要不要也一起加热？",
+      "text": "视频刚发出去，就有人把它跟商场那几张照片贴在一起，问你们这几天是不是都在营业。\nPerth：随他们说。\n你说完又点开评论。Santa 碰了碰你面前的盘子，早就凉了。\nSanta：饭都凉了，Phi。你还看啊？我先拿去热一下。",
       "id": "line-0154",
       "beats": [
         {
           "type": "narration",
-          "text": "晚上，第一批“是不是在营业”的帖子出现了。"
+          "text": "视频刚发出去，就有人把它跟商场那几张照片贴在一起，问你们这几天是不是都在营业。"
         },
         {
           "type": "dialogue",
-          "text": "正常。",
+          "text": "随他们说。",
           "speaker": "Perth"
         },
         {
           "type": "narration",
-          "text": "你还是点开了。Santa看看放凉的饭，直接把盘子拿走。"
+          "text": "你说完又点开评论。Santa 碰了碰你面前的盘子，早就凉了。"
         },
         {
           "type": "dialogue",
-          "text": "我去热饭。评论要不要也一起加热？",
+          "text": "饭都凉了，Phi。你还看啊？我先拿去热一下。",
           "speaker": "Santa"
         }
-      ]
+      ],
+      "revised": true
     },
     {
       "type": "narration",
-      "text": "你把手机扣下了。\n饭重新热好，你们总算安安稳稳吃完这一顿。Santa卷起袖子，准备收餐具。你立刻站起来。\nPerth：我来。\n你把两双筷子摆齐，端起最小的那只碟子送到水槽，顺手抽了块抹布。动作很忙，桌上的盘子基本没动。\nSanta：那你把剩下的也——\n他抱起碗，一回头，旁边已经没人了。你拿着那块抹布，正悄悄往客厅走。\nSanta：P'Perth？\nPerth：我去拿垃圾袋。\nSanta从水槽下抽出一卷，举给你看。你折回来接过，又顺势转向门口。\nPerth：那我顺便倒垃圾。\nSanta：我刚倒过。桶是空的。\n你低头看了一眼。确实很空。你点点头，脚步却十分自然地又偏向了沙发。\nSanta放下碗，从餐桌另一边绕过来。你刚摸到沙发靠背，他已经堵住了你的路。\nSanta：Khun Tanapon！\n你立即站直，把抹布展开。它被你拿着逛了一圈，终于要开始工作了。\nPerth：我擦桌子。\nSanta：擦完回来洗碗。\nPerth：……好。\n这次你真把桌子擦完了。刚抬起头，Santa已经把洗碗海绵递到你面前。\nSanta：这个也替你找好了。\n你接过海绵，回到水槽边。他把碗递来一只，又一只。你没再去客厅。",
+      "text": "你把手机扣下了。\n饭热好，你们把剩下的吃完。Santa 卷起袖子要收碗，你抢先站了起来。\nPerth：我来。\n你并好两双筷子，只端走最小的那只碟子。到水槽边又顺手拿了块抹布。桌上还剩一摞碗。\nSanta：那你把剩下的也——\nSanta 刚端起碗，一回头，你已经拿着抹布往客厅溜了。\nSanta：Perty？\n你没回头。\nPerth：我去拿垃圾袋。\nSanta 弯腰从水槽下拿出一卷，朝你晃了晃。你折回来接过，脚一转又朝门口走。\nPerth：那我顺便倒垃圾。\nSanta：我刚倒过。你自己看看。\n你掀开桶盖。空的。你把盖子合上，一点一点挪向沙发。\n你回头看了一眼水槽。第一次觉得它那么大。\nSanta 放下碗，从餐桌另一头绕过来。你刚碰到沙发靠背，就听见他突然用特别客气的语气叫你的名字。\nSanta：Khun Tanapon，桌子在这边。\n你马上站直，把一路攥在手里的抹布抖开。\nPerth：其实我正要擦。\nSanta：好。擦完过来洗碗啊。\nPerth：……好。\n这次你把桌子擦完了。刚抬头，Santa 已经拿着洗碗海绵在等你。\nSanta：给。这个不用找。\n你接过海绵，回到水槽边。他把碗递来一只，又一只。\nSanta：明天也你洗？\nPerth：……洗就洗。\n他关上水龙头，把最后一只碗放进沥水架。\n你没再去客厅。",
       "id": "line-0155",
       "beats": [
         {
           "type": "narration",
-          "text": "你把手机扣下了。"
+          "text": "你把手机扣下了。",
+          "stageBeat": 0
         },
         {
           "type": "narration",
-          "text": "饭重新热好，你们总算安安稳稳吃完这一顿。Santa卷起袖子，准备收餐具。你立刻站起来。"
+          "text": "饭热好，你们把剩下的吃完。Santa 卷起袖子要收碗，你抢先站了起来。",
+          "stageBeat": 1
         },
         {
           "type": "dialogue",
           "text": "我来。",
-          "speaker": "Perth"
+          "speaker": "Perth",
+          "stageBeat": 2
         },
         {
           "type": "narration",
-          "text": "你把两双筷子摆齐，端起最小的那只碟子送到水槽，顺手抽了块抹布。动作很忙，桌上的盘子基本没动。"
+          "text": "你并好两双筷子，只端走最小的那只碟子。到水槽边又顺手拿了块抹布。桌上还剩一摞碗。",
+          "stageBeat": 3
         },
         {
           "type": "dialogue",
           "text": "那你把剩下的也——",
-          "speaker": "Santa"
+          "speaker": "Santa",
+          "stageBeat": 4
         },
         {
           "type": "narration",
-          "text": "他抱起碗，一回头，旁边已经没人了。你拿着那块抹布，正悄悄往客厅走。"
+          "text": "Santa 刚端起碗，一回头，你已经拿着抹布往客厅溜了。",
+          "stageBeat": 5
         },
         {
           "type": "dialogue",
-          "text": "P'Perth？",
-          "speaker": "Santa"
+          "text": "Perty？",
+          "speaker": "Santa",
+          "stageBeat": 6
+        },
+        {
+          "type": "narration",
+          "text": "你没回头。",
+          "stageBeat": 6
         },
         {
           "type": "dialogue",
           "text": "我去拿垃圾袋。",
-          "speaker": "Perth"
+          "speaker": "Perth",
+          "stageBeat": 7
         },
         {
           "type": "narration",
-          "text": "Santa从水槽下抽出一卷，举给你看。你折回来接过，又顺势转向门口。"
+          "text": "Santa 弯腰从水槽下拿出一卷，朝你晃了晃。你折回来接过，脚一转又朝门口走。",
+          "stageBeat": 8
         },
         {
           "type": "dialogue",
           "text": "那我顺便倒垃圾。",
-          "speaker": "Perth"
+          "speaker": "Perth",
+          "stageBeat": 9
         },
         {
           "type": "dialogue",
-          "text": "我刚倒过。桶是空的。",
-          "speaker": "Santa"
+          "text": "我刚倒过。你自己看看。",
+          "speaker": "Santa",
+          "stageBeat": 10
         },
         {
           "type": "narration",
-          "text": "你低头看了一眼。确实很空。你点点头，脚步却十分自然地又偏向了沙发。"
+          "text": "你掀开桶盖。空的。你把盖子合上，一点一点挪向沙发。",
+          "stageBeat": 11
         },
         {
           "type": "narration",
-          "text": "Santa放下碗，从餐桌另一边绕过来。你刚摸到沙发靠背，他已经堵住了你的路。"
-        },
-        {
-          "type": "dialogue",
-          "text": "Khun Tanapon！",
-          "speaker": "Santa"
+          "text": "你回头看了一眼水槽。第一次觉得它那么大。",
+          "stageBeat": 11
         },
         {
           "type": "narration",
-          "text": "你立即站直，把抹布展开。它被你拿着逛了一圈，终于要开始工作了。"
+          "text": "Santa 放下碗，从餐桌另一头绕过来。你刚碰到沙发靠背，就听见他突然用特别客气的语气叫你的名字。",
+          "stageBeat": 12
         },
         {
           "type": "dialogue",
-          "text": "我擦桌子。",
-          "speaker": "Perth"
+          "text": "Khun Tanapon，桌子在这边。",
+          "speaker": "Santa",
+          "stageBeat": 13
+        },
+        {
+          "type": "narration",
+          "text": "你马上站直，把一路攥在手里的抹布抖开。",
+          "stageBeat": 14
         },
         {
           "type": "dialogue",
-          "text": "擦完回来洗碗。",
-          "speaker": "Santa"
+          "text": "其实我正要擦。",
+          "speaker": "Perth",
+          "stageBeat": 15
+        },
+        {
+          "type": "dialogue",
+          "text": "好。擦完过来洗碗啊。",
+          "speaker": "Santa",
+          "stageBeat": 16
         },
         {
           "type": "dialogue",
           "text": "……好。",
-          "speaker": "Perth"
+          "speaker": "Perth",
+          "stageBeat": 17
         },
         {
           "type": "narration",
-          "text": "这次你真把桌子擦完了。刚抬起头，Santa已经把洗碗海绵递到你面前。"
+          "text": "这次你把桌子擦完了。刚抬头，Santa 已经拿着洗碗海绵在等你。",
+          "stageBeat": 18
         },
         {
           "type": "dialogue",
-          "text": "这个也替你找好了。",
-          "speaker": "Santa"
+          "text": "给。这个不用找。",
+          "speaker": "Santa",
+          "stageBeat": 19
         },
         {
           "type": "narration",
-          "text": "你接过海绵，回到水槽边。他把碗递来一只，又一只。你没再去客厅。"
+          "text": "你接过海绵，回到水槽边。他把碗递来一只，又一只。",
+          "stageBeat": 20
+        },
+        {
+          "type": "dialogue",
+          "text": "明天也你洗？",
+          "speaker": "Santa",
+          "stageBeat": 20
+        },
+        {
+          "type": "dialogue",
+          "text": "……洗就洗。",
+          "speaker": "Perth",
+          "stageBeat": 20
+        },
+        {
+          "type": "narration",
+          "text": "他关上水龙头，把最后一只碗放进沥水架。",
+          "stageBeat": 20
+        },
+        {
+          "type": "narration",
+          "text": "你没再去客厅。",
+          "stageBeat": 20
         }
-      ]
+      ],
+      "legacyBeatMap": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "revised": true
     }
   ],
   "endings": {},

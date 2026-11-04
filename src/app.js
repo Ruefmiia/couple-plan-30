@@ -137,6 +137,9 @@ function isPhoneMessage(event) {
 function isNarration(event) {
   return event.type === 'narration' || event.speechType === 'narration';
 }
+function readKey(event) {
+  return event.revised && event.id ? `${story.dialogueRevision}:${event.id}` : event.id;
+}
 function phoneChat(event, replayLabel) {
   const history = engine.history(state);
   // Only already revealed, consecutive messages belong in this window.
@@ -160,12 +163,16 @@ function phoneChat(event, replayLabel) {
 function stageCharacters(event, stage, title=false) {
   if (stage.cg && stageAssets.cg[stage.cg] || stageAssets.backgroundPresentation[stage.bg]?.embeddedCast) return '';
   const speaker=event.speaker;
-  return `<div data-render-key="characters" class="character-layer ${title?'title-characters':''} ${stage.cast.length===1?'single-character':''}" aria-label="出场人物">${stage.cast.map((key,i)=>{
+  const spokenInPerson = (event.speechType || event.type) === 'dialogue' && !event.channel;
+  const closePair = spokenInPerson && ['Perth','Santa'].includes(speaker) &&
+    stage.cast.length === 2 && stage.cast.includes('perth') && stage.cast.includes('santa') &&
+    stage.timeframe === 'present';
+  return `<div data-render-key="characters" class="character-layer ${title?'title-characters':''} ${stage.cast.length===1?'single-character':''}${closePair?' close-pair':''}" aria-label="出场人物">${stage.cast.map((key,i)=>{
     const active=!isPhoneMessage(event)&&(CHARACTER_NAMES[key]===speaker||(key==='mother'&&speaker==='妈妈'));
     const path=characterArt(stageAssets,key,stage.outfits[key]);
     const photo=path.endsWith('.webp');
     const medium=stageAssets.characterPresentation?.[key]?.medium||(photo?'photo':'placeholder');
-    return `<figure data-render-key="sprite-${i}" class="sprite sprite-${i} ${photo?'photo':'placeholder'} ${active?'speaking':''} ${speaker&&event.type==='dialogue'&&!active?'listening':''}" data-character="${key}" data-art="${medium}" data-outfit="${stage.outfits[key]||''}">${artImage(path,'',`${CHARACTER_NAMES[key]}${medium==='illustration'?'卡通':photo?'':'示意'}立绘`)}<figcaption>${CHARACTER_NAMES[key]}</figcaption></figure>`;
+    return `<figure data-render-key="sprite-${i}" class="sprite sprite-${i} ${photo?'photo':'placeholder'} ${active?'speaking':''} ${speaker&&spokenInPerson&&!active?'listening':''}" data-character="${key}" data-art="${medium}" data-outfit="${stage.outfits[key]||''}">${artImage(path,'',`${CHARACTER_NAMES[key]}${medium==='illustration'?'卡通':photo?'':'示意'}立绘`)}<figcaption>${CHARACTER_NAMES[key]}</figcaption></figure>`;
   }).join('')}</div>`;
 }
 function stageExtras(stage) {
@@ -184,7 +191,7 @@ function stageExtras(stage) {
   if(cat && stageAssets.cats[cat.pose]) html+=`<figure data-render-key="cat" class="felix-layer ${cat.mode==='video'?'cat-video':'cat-live'} ${reaction&&reactionSide==='right'?'cat-left':''}" aria-label="${cat.mode==='video'?'视频里的Felix':'Felix'}">${artImage(stageAssets.cats[cat.pose],'',`Felix · ${{box:'趴纸箱',paw:'伸爪',ball:'拨玩具',bag:'闻纸袋',calm:'安静坐着'}[cat.pose]}`)}<figcaption>${cat.mode==='video'?'视频画面 · Felix':'Felix'}</figcaption></figure>`;
   if(reaction && stageAssets.reactions[reaction.key]) {
     const side=reactionSide;
-    html+=`<figure data-render-key="reaction" class="reaction-layer reaction-${side}" aria-label="${CHARACTER_NAMES[reaction.owner]}：${esc(reaction.label)}">${artImage(stageAssets.reactions[reaction.key],'','')}<figcaption><span>${CHARACTER_NAMES[reaction.owner]}</span>${esc(reaction.label)}</figcaption></figure>`;
+    html+=`<figure data-render-key="reaction" class="reaction-layer reaction-${side}${reaction.compact?' reaction-compact':''}" data-reaction="${esc(reaction.key)}" aria-label="${CHARACTER_NAMES[reaction.owner]}：${esc(reaction.label)}">${artImage(stageAssets.reactions[reaction.key],'','')}${reaction.compact?'':`<figcaption><span>${CHARACTER_NAMES[reaction.owner]}</span>${esc(reaction.label)}</figcaption>`}</figure>`;
   }
   return html;
 }
@@ -239,7 +246,7 @@ function fitReadingPage() {
       invalidateRenderCache(next);
     }
   }
-  if (!nextTextOffset) library.markRead(engine.current(state).id);
+  if (!nextTextOffset) library.markRead(readKey(engine.current(state)));
 }
 function refreshReadingLayout() {
   if (readingLayoutFrame) return;
@@ -298,7 +305,7 @@ function render() {
   readingText = !phoneMessage && e.type !== 'choice' && e.text ? text : '';
   fitReadingPage();
   scheduleWarmup();
-  if (!readingText && e.id && e.type !== 'choice') library.markRead(e.id);
+  if (!readingText && e.id && e.type !== 'choice') library.markRead(readKey(e));
   schedule();
 }
 function schedule() {
@@ -307,7 +314,7 @@ function schedule() {
   const e=engine.current(state);
   if (['choice','finished','ending','episodeEnd'].includes(e.type)) {stop(); updateModeButtons(); return;}
   const upcoming=nextTextOffset ? e : engine.current(engine.next(state));
-  if (mode==='skip' && (!upcoming.id || !library.data.read.includes(upcoming.id) || upcoming.type==='choice')) {stop();updateModeButtons();return;}
+  if (mode==='skip' && (!upcoming.id || !library.data.read.includes(readKey(upcoming)) || upcoming.type==='choice')) {stop();updateModeButtons();return;}
   const visibleLength = app.querySelector('.reading-text')?.textContent.length || 0;
   const delay=mode==='skip' ? 120 : Math.max(library.data.settings.autoDelay*1000, visibleLength*85);
   timer=setTimeout(advance,delay);
@@ -379,7 +386,7 @@ async function handle(action, el) {
         status.textContent='正在准备离线下载……';
         await navigator.serviceWorker.ready;
         const cache=await caches.open('couple-plan-30-vn-v5-'+stageAssets.revision);
-        const files=[...new Set([...stageAssets.installed,...Object.values(stageAssets.cg||{}),...Object.values(stageAssets.fonts||{}),...Object.values(stageAssets.fallbacks||{})])];
+        const files=[...new Set([...stageAssets.installed,...Object.values(stageAssets.cg||{}),...Object.values(stageAssets.reactions||{}),...Object.values(stageAssets.fonts||{}),...Object.values(stageAssets.fallbacks||{})])];
         for(let i=0;i<files.length;i+=3){
           await Promise.all(files.slice(i,i+3).map(async path=>{
             const url=new URL('../'+path,import.meta.url);if(!await cache.match(url))await cache.add(url);

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-labelledby="title desc">
+  <title id="title">网友画的七个圈</title>
+  <desc id="desc">六个简笔小人被圈起，标为“你”的小人被两个圈圈住。</desc>
+  <defs>
+    <g id="person" fill="none" stroke="#354046" stroke-width="3.2" stroke-linecap="round">
+      <circle cy="-18" r="10"/><path d="M0-8V17M-13 3 0-2 13 3M0 17l-9 12m9-12 9 12"/>
+    </g>
+  </defs>
+  <g text-anchor="middle" font-family="sans-serif" fill="#354046">
+    <text x="320" y="35" font-size="22">网友脑补</text>
+    <text x="320" y="236" font-size="23" font-weight="bold">你</text>
+  </g>
+  <g fill="none" stroke="#bb5362" stroke-width="3.2">
+    <ellipse data-ring="1" data-person="you" cx="316" cy="148" rx="54" ry="56" transform="rotate(-13 316 148)"/>
+    <ellipse data-ring="2" data-person="you" cx="326" cy="155" rx="62" ry="51" transform="rotate(16 326 155)"/>
+    <ellipse data-ring="3" cx="72" cy="166" rx="40" ry="45" transform="rotate(-11 72 166)"/>
+    <ellipse data-ring="4" cx="169" cy="112" rx="38" ry="44" transform="rotate(12 169 112)"/>
+    <ellipse data-ring="5" cx="235" cy="218" rx="38" ry="44" transform="rotate(-12 235 218)"/>
+    <ellipse data-ring="6" cx="450" cy="114" rx="39" ry="46" transform="rotate(-13 450 114)"/>
+    <ellipse data-ring="7" cx="560" cy="172" rx="42" ry="47" transform="rotate(13 560 172)"/>
+  </g>
+  <use href="#person" x="320" y="148"/>
+  <use href="#person" x="72" y="164"/>
+  <use href="#person" x="169" y="110"/>
+  <use href="#person" x="235" y="216"/>
+  <use href="#person" x="450" y="112"/>
+  <use href="#person" x="560" y="170"/>
+</svg>
